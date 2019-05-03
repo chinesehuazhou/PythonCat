@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这件正在发生的事，关乎所有的Python开发者……毫不夸张地说，Python 历史上的第二大事件正在发生，它事关所有的 Python 开发者，而且将深远地影响着未来的 Python 生态。这件事并不是指 Python 之父 Guido van Rossum 退出决策层，而是指由此引发的新的决策层级的建立 。 Python 诞生于 1989 年圣诞节期间，这无疑是其历史上的第一大事件。如今，按中国古">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python社区/这件正在发生的事，关乎所有的Python开发者....../index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="这件正在发生的事，关乎所有的Python开发者……毫不夸张地说，Python 历史上的第二大事件正在发生，它事关所有的 Python 开发者，而且将深远地影响着未来的 Python 生态。这件事并不是指 Python 之父 Guido van Rossum 退出决策层，而是指由此引发的新的决策层级的建立 。 Python 诞生于 1989 年圣诞节期间，这无疑是其历史上的第一大事件。如今，按中国古">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-06T14:35:32.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="这件正在发生的事，关乎所有的Python开发者……毫不夸张地说，Python 历史上的第二大事件正在发生，它事关所有的 Python 开发者，而且将深远地影响着未来的 Python 生态。这件事并不是指 Python 之父 Guido van Rossum 退出决策层，而是指由此引发的新的决策层级的建立 。 Python 诞生于 1989 年圣诞节期间，这无疑是其历史上的第一大事件。如今，按中国古">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python社区/这件正在发生的事，关乎所有的Python开发者....../">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python社区/这件正在发生的事，关乎所有的Python开发者....../">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="这件正在发生的事，关乎所有的Python开发者……"><a href="#这件正在发生的事，关乎所有的Python开发者……" class="headerlink" title="这件正在发生的事，关乎所有的Python开发者……"></a>这件正在发生的事，关乎所有的Python开发者……</h1><p>毫不夸张地说，Python 历史上的第二大事件正在发生，它事关所有的 Python 开发者，而且将深远地影响着未来的 Python 生态。这件事并不是指 Python 之父 Guido van Rossum 退出决策层，而是指由此引发的<strong>新的决策层级的建立</strong> 。</p>
+<p>Python 诞生于 1989 年圣诞节期间，这无疑是其历史上的第一大事件。如今，按中国古人的说法，Python 到了而立之年，终于，要迎来一个重大的转折点了。30 年前，那叫新生，今天呢，乐观的结果会是重生，而悲观的结果则是……（别想了，不会发生的 :) ）</p>
+<p>为了照顾一些信息不灵通的读者，我先给大家回顾一下“前因”（资深的 Pythonista 请直接翻到第二节）。</p>
+<h2 id="1-Python之父的退位风波"><a href="#1-Python之父的退位风波" class="headerlink" title="1. Python之父的退位风波"></a>1. Python之父的退位风波</h2><p>作为 Python 的创始人以及重要的核心开发者，Guido van Rossum 一直享有至高的权力，被人称为“终身仁慈独裁者”。实际上，这个称呼不是 Python 社区独有的，有些开源组织的创始人也被其“门徒”这么称呼，例如Linux、Ubuntu、Perl 和 Scala 等。</p>
+<p>这种赋予创始人至高裁决权力的做法，是一种明智的行为，可以保障一门新的编程语言顺利度过早期的艰难岁月，走上健康发展的道路。Python 之所以能从籍籍无名到如今近乎“呼风唤雨”，可以说，Python 之父是居功至伟。</p>
+<p>然而，这种局面总归要被打破，就看是以什么方式了。今年上半年，社区提出了备受争议的 PEP-572 （赋值表达式，文末附了知乎链接），虽然，GUIDO 行使最终裁决权，批准了这个提案，但是，争议并没有平息。部分核心开发者的不信任与离开，还有社交媒体上伤人的话语，极大地刺激了 GUIDO ，直接导致他宣布退出决策层。平衡的局面被打破了，而且是以不那么友好的方式。</p>
+<p>GUIDO 没有指定继任者，完全把问题抛给了核心开发者们：</p>
+<blockquote>
+<p>那你们会怎么做呢？建立一套民主制度？无政府状态？还是专政？或是联邦制？</p>
+</blockquote>
+<p>他退位的消息提得太突然，Python 的核心开发者们陷入了长达几个月的混乱中。仅从一些公开消息的蛛丝马迹中，我们就能看出来。</p>
+<p>在 InfoWorld 的一篇采访稿（7月27日，链接见文末）中，GUIDO 透露：</p>
+<blockquote>
+<p>他们已经同意给出提案的截止日期是2018年10月1日。我相信，到2018年11月1日，他们会选出一个合理的管理提案。到2019年1月1日，他们承诺会完成选举或任命负责人。</p>
+</blockquote>
+<p>然而，这个进展并不那么顺利。下面是 7 种治理方案的 PEP 创建时间：</p>
+<blockquote>
+<p>PEP-8010：2018-8-24<br>PEP-8011：2018-8-24<br>PEP-8012：2018-10-03<br>PEP-8013：2018-09-14<br>PEP-8014：2018-09-16<br>PEP-8015：2018-10-04<br>PEP-8016：2018-11-01</p>
+</blockquote>
+<p>备选方案的数量之多，本身就反映出核心开发者之间意见分歧之大，而发布时间的间隔之长，其背后隐含的信息也是让人不容乐观。</p>
+<p>随着进入今年最后一个月，核心开发者们不得不进入下一个议程，那就是投票。投票时间为期两周，从 12 月 1 日至 12 月 16 日。最终结果将在 12 月 17 日公布。</p>
+<h2 id="2-什么治理方案最合适？"><a href="#2-什么治理方案最合适？" class="headerlink" title="2.什么治理方案最合适？"></a>2.什么治理方案最合适？</h2><p>以上，就是 Python 之父的退位风波。到了今天，风波并未平息，但是，这个投票的结果将直接决定风波的走向。我们都是见证者。</p>
+<p>在上一篇推文《<a href="https://mp.weixin.qq.com/s/vyx61e9GiiTnmaVzTYOcmw" target="_blank" rel="noopener">Python之父退位后，最高决策权花落谁家？</a>》中，核心开发者之一 Victor Stinner 对 7 种备选方案做了全面的对比。由于他本人是 PEP-8015 的提出人，所以文章中明显带入了一些个人倾向。读者们可以根据我翻译的版本，先粗略了解一下，然后找具体的 PEP 阅读。</p>
+<p>一千个读者，就有一千个哈姆雷特。如果你有投票权，你会投给哪种方案呢？为什么呢？在本文（公众号 <strong>Python猫</strong>  ）末尾，我发起了一个投票，欢迎你去投票。</p>
+<p>在我看来，无论哪种方案胜出，都不会是一个皆大欢喜的结果。理由很简单，决策权的争议大于 PEP-572 的争议，后者能令核心开发者愤而出走，前者更是可以。短期内，大家或许会相安无事，但不用多久，很可能就会有新的 PEP 作为导火索，给开发团队带来更大的不可调和的麻烦。</p>
+<p>这种情况绝对无法避免，唯一的问题在于，哪种方案能将平衡状态维持得更久一点，哪种方案能更有效地调和新的矛盾？</p>
+<p>有读者回复说，我们又没有投票权，这跟我们没关系，不用瞎操心。真的是这样么？我怀疑他没听说过什么叫<code>蝴蝶效应</code> 。特朗普当选美国总统的时候，很多人就有事不关己的想法，然而，到今天，全球局势、国内股市和就业形势，全都笼罩在这只蝴蝶的余风中动荡着。</p>
+<p>也许，Python 社区的蝴蝶效应不会那么严重，毕竟，搞技术的极客们可不是政治家。但是，我劝有些同学不要毫不在意，至少，你该对自己的立身之技的未来，多留份心。</p>
+<p>PS：为了持续关注此话题，我专门建了个微信交流群。感兴趣的同学可通过本公众号（Python猫）菜单栏的“联系作者”，加我为好友，发送暗号“PEP投票”进群（其它用意者勿扰）。猜中结果的小伙伴，将有机会获得一本技术书籍。</p>
+<p>相关链接：</p>
+<p>PEP-572知乎问题：<a href="http://t.cn/EyiHigY" target="_blank" rel="noopener">http://t.cn/EyiHigY</a></p>
+<p>7月27日的采访：<a href="http://t.cn/EyiH4ni" target="_blank" rel="noopener">http://t.cn/EyiH4ni</a></p>
+<p>7种方案的对比：<a href="http://t.cn/Eyi8D7b" target="_blank" rel="noopener">http://t.cn/Eyi8D7b</a></p>
+<p>投给哪种方案？<a href="http://t.cn/EyiQVy6" target="_blank" rel="noopener">http://t.cn/EyiQVy6</a></p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python社区/再聊聊Python中文社区的翻译/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python翻译/[译] PEP 255--简单的生成器/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这件正在发生的事，关乎所有的Python开发者……"><span class="nav-number">1.</span> <span class="nav-text">这件正在发生的事，关乎所有的Python开发者……</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Python之父的退位风波"><span class="nav-number">1.1.</span> <span class="nav-text">1. Python之父的退位风波</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么治理方案最合适？"><span class="nav-number">1.2.</span> <span class="nav-text">2.什么治理方案最合适？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

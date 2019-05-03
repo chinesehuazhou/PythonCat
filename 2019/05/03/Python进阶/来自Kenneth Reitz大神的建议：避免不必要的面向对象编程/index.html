@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="来自Kenneth Reitz大神的建议：避免不必要的面向对象编程你也许见过很多人对于Python的评价，他们说Python是“脚本语言”和“胶水语言”，在某种程度上，他们说的是对的。但是，如果你学习过Python，你会知道Python也支持面向对象的编程，更有甚者，在Python中所有东西都是对象。 事实上，Python有着很强大的支持面向对象编程的能力，比如我们刚介绍过的pathlib模块（点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python进阶/来自Kenneth Reitz大神的建议：避免不必要的面向对象编程/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="来自Kenneth Reitz大神的建议：避免不必要的面向对象编程你也许见过很多人对于Python的评价，他们说Python是“脚本语言”和“胶水语言”，在某种程度上，他们说的是对的。但是，如果你学习过Python，你会知道Python也支持面向对象的编程，更有甚者，在Python中所有东西都是对象。 事实上，Python有着很强大的支持面向对象编程的能力，比如我们刚介绍过的pathlib模块（点">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="c:/Users/yunpoyue/Desktop/备用资料/纯函数.PNG">
+<meta property="og:updated_time" content="2019-01-28T14:45:00.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="来自Kenneth Reitz大神的建议：避免不必要的面向对象编程你也许见过很多人对于Python的评价，他们说Python是“脚本语言”和“胶水语言”，在某种程度上，他们说的是对的。但是，如果你学习过Python，你会知道Python也支持面向对象的编程，更有甚者，在Python中所有东西都是对象。 事实上，Python有着很强大的支持面向对象编程的能力，比如我们刚介绍过的pathlib模块（点">
+<meta name="twitter:image" content="c:/Users/yunpoyue/Desktop/备用资料/纯函数.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶/来自Kenneth Reitz大神的建议：避免不必要的面向对象编程/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶/来自Kenneth Reitz大神的建议：避免不必要的面向对象编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="来自Kenneth-Reitz大神的建议：避免不必要的面向对象编程"><a href="#来自Kenneth-Reitz大神的建议：避免不必要的面向对象编程" class="headerlink" title="来自Kenneth Reitz大神的建议：避免不必要的面向对象编程"></a>来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</h2><p>你也许见过很多人对于Python的评价，他们说Python是“脚本语言”和“胶水语言”，在某种程度上，他们说的是对的。但是，如果你学习过Python，你会知道Python也支持面向对象的编程，更有甚者，在Python中所有东西都是对象。</p>
+<p>事实上，Python有着很强大的支持面向对象编程的能力，比如我们刚介绍过的pathlib模块（<a href="https://mp.weixin.qq.com/s/2zGUfwIYY4EVJ0NNyJkNRQ" target="_blank" rel="noopener">点链接回顾</a>），它就是一个用面向对象思想来处理文件系统的模块。</p>
+<p>可以说，Python是“能屈能伸”吧，小打小闹的时候开箱即用轻松上手，认真严肃起来耍大刀也是虎虎生风不遑多让。</p>
+<p>只不过，面向对象就一定是好事么？支持面向对象编程，就一定要时刻这样用么？</p>
+<p>下面段落出自《Python最佳实践指南》，这是由圈内大神Kenneth Reitz发起和维护的开源项目（文末附了相关链接），让我们一起来看看K神提出的建议。</p>
+<h2 id="Kenneth-Reitz大神的建议"><a href="#Kenneth-Reitz大神的建议" class="headerlink" title="Kenneth Reitz大神的建议"></a>Kenneth Reitz大神的建议</h2><p>Python 有时被描述为一种面向对象的编程语言。这可能对大家有些误导，需要加以澄清。</p>
+<p>在 Python 中，所有东西都视为一个对象，并且可以按对象处理。当我们说，函数是“一级”对象，就是将函数视为对象的意思。函数、类、字符串，甚至类型都是 Python 中的对象：像任何对象一样，它们有一个类型，可以作为函数参数传递，并且它们可能有方法和属性。按这种理解， Python 是一种面向对象的语言。</p>
+<p>但是，<strong>与 Java 不同， Python 并没有将面向对象的编程作为主要的编程范例来实施。</strong> Python 项目不采用面向对象的方式是完全可行的，即不使用或很少使用类定义、类继承或特定于面向对象编程的任何其他机制。</p>
+<p>此外，从 <a href="http://docs.python-guide.org/en/latest/writing/structure/#modules" target="_blank" rel="noopener">模块</a> 部分可以看出， Python 处理模块和名称空间的方式为开发人员提供了一种自然的方法来确保抽象层的封装和分离，这两者都是使用面向对象的最常见原因。因此，当业务模型不需要面向对象时， Python 程序员有更大的自由来不使用面向对象编程。</p>
+<p><strong>基于一些因素的考虑，我们应避免不必要的面向对象编程。</strong> 当我们想将一些状态和功能粘合在一起时，定义自定义类是很有用的。在函数编程的讨论中，我们指出，“不必要的面向对象编程”这个问题出自方程的“状态”部分。</p>
+<p>在某些体系结构中，例如典型的 web 应用程序，会生成多个 Python 进程实例，以响应可能同时发生的外部请求。在这种情况下，将一些状态保存到实例对象中，意味着保留一些关于世界的静态信息，这很容易出现并发或竞争问题。有时，在对象的初始化（通常用 <code>__init__()</code> 方法来完成）状态和实际使用对象方法的状态之间，世界信息可能已经改变，保持的状态可能已经过时。例如，一个请求加载了内存中的某一项，并将其标记为由用户读取。而另一个请求同时要求删除该项，这可能发生在第一个进程加载该项之后，然后我们必须将其标记为已删除对象。</p>
+<p><strong>上述以及其他问题引出了这样的想法：使用无状态函数是一种更好的编程范例。</strong> </p>
+<p><strong>另一种说法是建议尽可能少的使用具有隐式上下文和副作用的函数和程序。</strong>函数的隐式上下文由全局变量和持久层中的数据项（使用方法访问）组成。副作用是指函数对其隐式上下文所做的更改。如果函数会保存或删除全局变量或持久层中的数据，则称它有副作用。</p>
+<p>将有上下文和副作用的函数与逻辑函数（称为纯函数）隔离开来，可以获得以下好处：</p>
+<ul>
+<li>纯函数是确定性的：给定一个固定的输入，输出始终是相同的。</li>
+<li>纯函数需要重构或优化时，更容易更改或替换。</li>
+<li>纯函数更易于使用单元测试进行测试：对于复杂的上下文设置和事后的数据清理的需求更少。</li>
+<li>纯函数更容易操作、修饰和传递。</li>
+</ul>
+<p>总之，针对某些体系结构，由于没有上下文或副作用，<strong>纯函数是比类和对象更有效的构建块</strong> 。</p>
+<p>显然，面向对象编程在许多情况下是有用的，甚至是必要的，例如在开发图形化桌面应用程序或游戏时，被操作的东西（窗口、按钮、化身、车辆）在计算机内存中具有相对较长的寿命。</p>
+<h2 id="猫猫的思考"><a href="#猫猫的思考" class="headerlink" title="猫猫的思考"></a>猫猫的思考</h2><p>以上就是K神的建议。他在后半段提到了纯函数（pure functions），这让猫猫联想到了函数式编程（Functional Programming），但纯函数似乎是一种更具普遍性的东西，它就像是一种数学上的定义。纯函数真的有那么神么？</p>
+<p>于是，猫猫去google了“纯函数”。没想到，排在前面的结果竟然全跟Javascript相关。</p>
+<p><img src="C:\Users\yunpoyue\Desktop\备用资料\纯函数.PNG" alt="纯函数"></p>
+<p>除去维基百科的条目，第一个答案指向了一本GitBook《JS函数式编程指南》，好奇的猫猫点进去看了，结果大为叹服！建议大家有条件的话都去读一下（链接见文末，不懂js也不影响理解）。</p>
+<p>非常巧合的是，这本书的作者也发表了他对于面向对象编程的看法：</p>
+<blockquote>
+<p>我最喜欢的名言之一是 Erlang 语言的作者 Joe Armstrong 说的这句话：“面向对象语言的问题是，它们永远都要随身携带那些隐式的环境。你只需要一个香蕉，但却得到一个拿着香蕉的大猩猩…以及整个丛林”。</p>
+</blockquote>
+<p>读完《纯函数的好处》章节，猫猫提炼了几条笔记。一方面是为了加强对纯函数的理解，在实战中规避一些“不纯”的用法，另一方面，也提出了几个思考和疑问，今后在学习Python的过程中，留神找到答案：</p>
+<p>1、避免使用不纯的函数。JS中的splice是个不纯的函数，那Python中是否也有这样的函数呢？</p>
+<p>2、下例中第一个是不纯的，因为函数的结果取决于minimum这个可变变量，换句话说，它取决于系统状态（system state）；这一点令人沮丧，因为它引入了外部的环境，从而增加了认知负荷（cognitive load）。（题外话：这个例子，猫猫大有感触。公司有个项目的老版本代码中，充斥了各种全局变量，小伙伴们在维护时吃了好多苦头！）JS中可以用Object.freeze 方法令minimum成为不可变对象，Python中有类似的实现么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 不纯的</span><br><span class="line">var minimum = 21;</span><br><span class="line">var checkAge = function(age) &#123;</span><br><span class="line">  return age &gt;= minimum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 纯的</span><br><span class="line">var checkAge = function(age) &#123;</span><br><span class="line">  var minimum = 21;</span><br><span class="line">  return age &gt;= minimum;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>3、不纯函数会带来“副作用”，其“作用”本身没有坏处，但其“副”是滋生bug的温床。并不是说，要禁止使用一切副作用，而是说，要让它们在可控的范围内发生。坚持这种「相同输入得到相同输出」的原则。</p>
+<p>4、纯函数实际上就是数学定义中的函数。<strong>“函数是不同数值之间的特殊关系：每一个输入值返回且只返回一个输出值。”</strong> </p>
+<p>5、追求“纯”的理由：可缓存性（有点像生成器，延迟执行）、可移植性／自文档化（因其完全自给自足，依赖关系明确）、可测试性（为函数式环境定制的测试工具，JS中有Quickcheck，Python中有么？）、合理性（引用透明性：一段代码可以替换成它执行所得的结果，而且是在不改变整个程序行为的前提下替换）、并行代码（纯函数根本不需要访问共享的内存，而且纯函数也不会因副作用而进入竞争态（race condition））。</p>
+<p>今天的分享就到这了，最后再啰嗦几句。本篇文章里，一句Python代码都没有，真的是够“干”的了。猫猫有时候挺喜欢看这样的文章，因为它会带给你思想上的启迪，就像是绝世高人在传授秘籍心法一样。所以，猫猫也喜欢转述和思考这类问题，比如之前发过的一篇《<a href="https://mp.weixin.qq.com/s/OKf7N3xxrS0tJ_K8Srw-jA" target="_blank" rel="noopener">超强汇总：学习Python列表，只需这篇文章就够了</a>》，就不仅仅有代码层面的内容，还特意加入了Guido老爹关于Python列表索引为何从0开始的解释，以及其它编程语言对索引值的考虑。</p>
+<p>不记得在哪里曾看到过一句话，送予大家共勉：</p>
+<blockquote>
+<p>如果一个人眼里只看得见代码，那他跟咸（ma）鱼（nong）有啥区别？</p>
+</blockquote>
+<p>最后的最后：由于开通得晚，公众号没有留言功能，你若觉得本文对你有帮助，欢迎点赞支持哦。最后的PS：后台回复“爱学习”，免费获得20本精选电子书。</p>
+<p>扩展阅读：<br>Python最佳实践指南（中文）：</p>
+<p><a href="https://pythoncaff.com/docs/python-guide/2018" target="_blank" rel="noopener">https://pythoncaff.com/docs/python-guide/2018</a></p>
+<p><a href="https://pythonguidecn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">https://pythonguidecn.readthedocs.io/zh/latest/</a></p>
+<p>Python最佳实践指南（英文）:<br><a href="https://docs.python-guide.org/" target="_blank" rel="noopener">https://docs.python-guide.org/</a></p>
+<p>JS 函数式编程指南：<br><a href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch3.html" target="_blank" rel="noopener">https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch3.html</a></p>
+<hr>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶/学习Python，怎能不懂点PEP呢？/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶/给Python初学者的文件读写指南/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#来自Kenneth-Reitz大神的建议：避免不必要的面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kenneth-Reitz大神的建议"><span class="nav-number">2.</span> <span class="nav-text">Kenneth Reitz大神的建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猫猫的思考"><span class="nav-number">3.</span> <span class="nav-text">猫猫的思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

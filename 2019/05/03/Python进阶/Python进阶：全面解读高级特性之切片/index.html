@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python进阶：全面解读高级特性之切片！导读：切片系列文章连续写了三篇，本文是对它们做的汇总。为什么要把序列文章合并呢？在此说明一下，本文绝不是简单地将它们做了合并，主要是修正了一些严重的错误（如自定义序列切片的部分），还对行文结构与章节衔接做了大量改动，如此一来，本文结构的完整性与内容的质量都得到了很好的保证。 众所周知，我们可以通过索引值（或称下标）来查找序列类型（如字符串、列表、元组…）中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python进阶/Python进阶：全面解读高级特性之切片/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="Python进阶：全面解读高级特性之切片！导读：切片系列文章连续写了三篇，本文是对它们做的汇总。为什么要把序列文章合并呢？在此说明一下，本文绝不是简单地将它们做了合并，主要是修正了一些严重的错误（如自定义序列切片的部分），还对行文结构与章节衔接做了大量改动，如此一来，本文结构的完整性与内容的质量都得到了很好的保证。 众所周知，我们可以通过索引值（或称下标）来查找序列类型（如字符串、列表、元组…）中">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg">
+<meta property="og:updated_time" content="2018-12-31T15:46:01.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="Python进阶：全面解读高级特性之切片！导读：切片系列文章连续写了三篇，本文是对它们做的汇总。为什么要把序列文章合并呢？在此说明一下，本文绝不是简单地将它们做了合并，主要是修正了一些严重的错误（如自定义序列切片的部分），还对行文结构与章节衔接做了大量改动，如此一来，本文结构的完整性与内容的质量都得到了很好的保证。 众所周知，我们可以通过索引值（或称下标）来查找序列类型（如字符串、列表、元组…）中">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶/Python进阶：全面解读高级特性之切片/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶/Python进阶：全面解读高级特性之切片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python进阶：全面解读高级特性之切片！"><a href="#Python进阶：全面解读高级特性之切片！" class="headerlink" title="Python进阶：全面解读高级特性之切片！"></a>Python进阶：全面解读高级特性之切片！</h1><p>导读：切片系列文章连续写了三篇，本文是对它们做的汇总。为什么要把序列文章合并呢？在此说明一下，本文绝不是简单地将它们做了合并，主要是修正了一些严重的错误（如自定义序列切片的部分），还对行文结构与章节衔接做了大量改动，如此一来，本文结构的完整性与内容的质量都得到了很好的保证。</p>
+<p>众所周知，我们可以通过索引值（或称下标）来查找序列类型（如字符串、列表、元组…）中的单个元素，那么，如果要获取一个索引区间的元素该怎么办呢？</p>
+<p>切片（slice）就是一种截取索引片段的技术，借助切片技术，我们可以十分灵活地处理序列类型的对象。通常来说，切片的作用就是截取序列对象，然而，对于非序列对象，我们是否有办法做到切片操作呢？在使用切片的过程中，有什么要点值得重视，又有什么底层原理值得关注呢？本文将主要跟大家一起来探讨这些内容，希望我能与你共同学习进步。</p>
+<h2 id="1、切片的基础用法"><a href="#1、切片的基础用法" class="headerlink" title="1、切片的基础用法"></a>1、切片的基础用法</h2><p>列表是 Python 中极为基础且重要的一种数据结构，也是最能发挥切片的用处的一种数据结构，所以在前两节，我将以列表为例介绍切片的一些常见用法。</p>
+<p>首先是切片的书写形式：[i : i+n : m] ；其中，i 是切片的起始索引值，为列表首位时可省略；i+n 是切片的结束位置，为列表末位时可省略；m 可以不提供，默认值是1，<strong>不允许为0</strong> ，当m为负数时，列表翻转。注意：这些值都可以大于列表长度，不会报越界。</p>
+<p>切片的基本含义是：<strong>从序列的第i位索引起，向右取到后n位元素为止，按m间隔过滤</strong> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">li = [1, 4, 5, 6, 7, 9, 11, 14, 16]</span><br><span class="line"></span><br><span class="line"># 以下写法都可以表示整个列表，其中 X &gt;= len(li)</span><br><span class="line">li[0:X] == li[0:] == li[:X] == li[:] </span><br><span class="line">== li[::] == li[-X:X] == li[-X:]</span><br><span class="line"></span><br><span class="line">li[1:5] == [4,5,6,7] # 从1起，取5-1位元素</span><br><span class="line">li[1:5:2] == [4,6] # 从1起，取5-1位元素，按2间隔过滤</span><br><span class="line">li[-1:] == [16] # 取倒数第一个元素</span><br><span class="line">li[-4:-2] == [9, 11] # 从倒数第四起，取-2-(-4)=2位元素</span><br><span class="line">li[:-2] == li[-len(li):-2] </span><br><span class="line">== [1,4,5,6,7,9,11] # 从头开始，取-2-(-len(li))=7位元素</span><br><span class="line"></span><br><span class="line"># 步长为负数时，列表先翻转，再截取</span><br><span class="line">li[::-1] == [16,14,11,9,7,6,5,4,1] # 翻转整个列表</span><br><span class="line">li[::-2] == [16,11,7,5,1] # 翻转整个列表，再按2间隔过滤</span><br><span class="line">li[:-5:-1] == [16,14,11,9] # 翻转整个列表，取-5-(-len(li))=4位元素</span><br><span class="line">li[:-5:-3] == [16,9] # 翻转整个列表，取-5-(-len(li))=4位元素，再按3间隔过滤</span><br><span class="line"></span><br><span class="line"># 切片的步长不可以为0</span><br><span class="line">li[::0]  # 报错（ValueError: slice step cannot be zero）</span><br></pre></td></tr></table></figure>
+<p>上述的某些例子对于初学者（甚至很多老手）来说，可能还不好理解，但是它们都离不开切片的基本语法，所以为方便起见，我将它们也归入基础用法中。</p>
+<p>对于这些样例，我个人总结出两条经验：</p>
+<p>（1）牢牢记住公式<code>[i : i+n : m]</code> ，当出现缺省值时，通过想象把公式补全；</p>
+<p>（2）索引为负且步长为正时，按倒数计算索引位置；索引为负且步长为负时，先翻转列表，再按倒数计算索引位置。</p>
+<h2 id="2、切片的高级用法"><a href="#2、切片的高级用法" class="headerlink" title="2、切片的高级用法"></a>2、切片的高级用法</h2><p>一般而言，切片操作的返回结果是一个新的独立的序列（PS：也有例外，参见《<a href="https://mp.weixin.qq.com/s/PsY8Iec1EeGDKKnTNU5CNw" target="_blank" rel="noopener">Python是否支持复制字符串呢？</a>》）。以列表为例，列表切片后得到的还是一个列表，占用新的内存地址。</p>
+<p>当取出切片的结果时，它是一个独立对象，因此，可以将其用于赋值操作，也可以用于其它传递值的场景。但是，<strong>切片只是浅拷贝</strong> ，它拷贝的是原列表中元素的引用，所以，当存在变长对象的元素时，新列表将受制于原列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">li = [1, 2, 3, 4]</span><br><span class="line">ls = li[::]</span><br><span class="line"></span><br><span class="line">li == ls # True</span><br><span class="line">id(li) == id(ls) # False</span><br><span class="line">li.append(li[2:4]) # [1, 2, 3, 4, [3, 4]]</span><br><span class="line">ls.extend(ls[2:4]) # [1, 2, 3, 4, 3, 4]</span><br><span class="line"></span><br><span class="line"># 下例等价于判断li长度是否大于8</span><br><span class="line">if(li[8:]):</span><br><span class="line">    print(&quot;not empty&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;empty&quot;)</span><br><span class="line"></span><br><span class="line"># 切片列表受制于原列表</span><br><span class="line">lo = [1,[1,1],2,3]</span><br><span class="line">lp = lo[:2] # [1, [1, 1]]</span><br><span class="line">lo[1].append(1) # [1, [1, 1, 1], 2, 3]</span><br><span class="line">lp # [1, [1, 1, 1]]</span><br></pre></td></tr></table></figure>
+<p>由于可见，将切片结果取出，它可以作为独立对象使用，但是也要注意，是否取出了变长对象的元素。</p>
+<p>切片既可以作为独立对象被“取出”原序列，也可以留在原序列，作为一种占位符使用。</p>
+<p>不久前，我介绍了几种拼接字符串的方法（链接见文末），其中三种格式化类的拼接方法（即 %、format()、template）就是使用了占位符的思想。对于列表来说，使用切片作为占位符，同样能够实现拼接列表的效果。特别需要注意的是，给切片赋值的必须是可迭代对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">li = [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line"># 在头部拼接</span><br><span class="line">li[:0] = [0] # [0, 1, 2, 3, 4]</span><br><span class="line"># 在末尾拼接</span><br><span class="line">li[len(li):] = [5,7] # [0, 1, 2, 3, 4, 5, 7]</span><br><span class="line"># 在中部拼接</span><br><span class="line">li[6:6] = [6] # [0, 1, 2, 3, 4, 5, 6, 7]</span><br><span class="line"></span><br><span class="line"># 给切片赋值的必须是可迭代对象</span><br><span class="line">li[-1:-1] = 6 # （报错，TypeError: can only assign an iterable）</span><br><span class="line">li[:0] = (9,) #  [9, 0, 1, 2, 3, 4, 5, 6, 7]</span><br><span class="line">li[:0] = range(3) #  [0, 1, 2, 9, 0, 1, 2, 3, 4, 5, 6, 7]</span><br></pre></td></tr></table></figure>
+<p>上述例子中，若将切片作为独立对象取出，那你会发现它们都是空列表，即 <code>li[:0]==li[len(li):]==li[6:6]==[]</code> ，我将这种占位符称为“<strong>纯占位符</strong>”，对纯占位符赋值，并不会破坏原有的元素，只会在特定的索引位置中拼接进新的元素。删除纯占位符时，也不会影响列表中的元素。</p>
+<p>与“纯占位符”相对应，“<strong>非纯占位符</strong>”的切片是非空列表，对它进行操作（赋值与删除），将会影响原始列表。如果说纯占位符可以实现列表的拼接，那么，非纯占位符可以实现列表的替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">li = [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line"># 不同位置的替换</span><br><span class="line">li[:3] = [7,8,9] # [7, 8, 9, 4]</span><br><span class="line">li[3:] = [5,6,7] # [7, 8, 9, 5, 6, 7]</span><br><span class="line">li[2:4] = [&apos;a&apos;,&apos;b&apos;] # [7, 8, &apos;a&apos;, &apos;b&apos;, 6, 7]</span><br><span class="line"></span><br><span class="line"># 非等长替换</span><br><span class="line">li[2:4] = [1,2,3,4] # [7, 8, 1, 2, 3, 4, 6, 7]</span><br><span class="line">li[2:6] = [&apos;a&apos;]  # [7, 8, &apos;a&apos;, 6, 7]</span><br><span class="line"></span><br><span class="line"># 删除元素</span><br><span class="line">del li[2:3] # [7, 8, 6, 7]</span><br></pre></td></tr></table></figure>
+<p>切片占位符可以带步长，从而实现连续跨越性的替换或删除效果。需要注意的是，这种用法只支持等长替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">li = [1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">li[::2] = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;] # [&apos;a&apos;, 2, &apos;b&apos;, 4, &apos;c&apos;, 6]</span><br><span class="line">li[::2] = [0]*3 # [0, 2, 0, 4, 0, 6]</span><br><span class="line">li[::2] = [&apos;w&apos;] # 报错，attempt to assign sequence of size 1 to extended slice of size 3</span><br><span class="line"></span><br><span class="line">del li[::2] # [2, 4, 6]</span><br></pre></td></tr></table></figure>
+<h2 id="3、自定义对象实现切片功能"><a href="#3、自定义对象实现切片功能" class="headerlink" title="3、自定义对象实现切片功能"></a>3、自定义对象实现切片功能</h2><p>切片是 Python 中最迷人最强大最 Amazing 的语言特性（几乎没有之一），以上两小节虽然介绍了切片的基础用法与高级用法，但这些还不足以充分地展露切片的魅力，所以，在接下来的两章节中，我们将聚焦于它的更高级用法。</p>
+<p>前两节内容都是基于原生的序列类型（如字符串、列表、元组……），那么，我们是否可以定义自己的序列类型并让它支持切片语法呢？更进一步，我们是否可以自定义其它对象（如字典）并让它支持切片呢？</p>
+<h3 id="3-1、魔术方法：-getitem"><a href="#3-1、魔术方法：-getitem" class="headerlink" title="3.1、魔术方法：__getitem__()"></a>3.1、魔术方法：<code>__getitem__()</code></h3><p>想要使自定义对象支持切片语法并不难，只需要在定义类的时候给它实现魔术方法 <code>__getitem__()</code> 即可。所以，这里就先介绍一下这个方法。</p>
+<p>语法： <code>object.__getitem__(self, key)</code></p>
+<p>官方文档释义：Called to implement evaluation of self[key]. For sequence types, the accepted keys should be integers and slice objects. Note that the special interpretation of negative indexes (if the class wishes to emulate a sequence type) is up to the <code>__getitem__()</code> method. If key is of an inappropriate type, TypeError may be raised; if of a value outside the set of indexes for the sequence (after any special interpretation of negative values), IndexError should be raised. For mapping types, if key is missing (not in the container), KeyError should be raised.</p>
+<p>概括翻译一下：<code>__getitem__()</code> 方法用于返回参数 key 所对应的值，这个 key 可以是整型数值和切片对象，并且支持负数索引；如果 key 不是以上两种类型，就会抛 TypeError；如果索引越界，会抛 IndexError ；如果定义的是映射类型，当 key 参数不是其对象的键值时，则会抛 KeyError 。</p>
+<h3 id="3-2、自定义序列实现切片功能"><a href="#3-2、自定义序列实现切片功能" class="headerlink" title="3.2、自定义序列实现切片功能"></a>3.2、自定义序列实现切片功能</h3><p>接下来，我们定义一个简单的 MyList ，并给它加上切片功能。（PS：仅作演示，不保证其它功能的完备性）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numbers</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyList</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, anylist)</span>:</span></span><br><span class="line">        self.data = anylist</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.data)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, index)</span>:</span></span><br><span class="line">        print(<span class="string">"key is : "</span> + str(index))</span><br><span class="line">        cls = type(self)</span><br><span class="line">        <span class="keyword">if</span> isinstance(index, slice):</span><br><span class="line">            print(<span class="string">"data is : "</span> + str(self.data[index]))</span><br><span class="line">            <span class="keyword">return</span> cls(self.data[index])</span><br><span class="line">        <span class="keyword">elif</span> isinstance(index, numbers.Integral):</span><br><span class="line">            <span class="keyword">return</span> self.data[index]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg = <span class="string">"&#123;cls.__name__&#125; indices must be integers"</span></span><br><span class="line">            <span class="keyword">raise</span> TypeError(msg.format(cls=cls))</span><br><span class="line"></span><br><span class="line">l = MyList([<span class="string">"My"</span>, <span class="string">"name"</span>, <span class="string">"is"</span>, <span class="string">"Python猫"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">### 输出结果：</span></span><br><span class="line">key <span class="keyword">is</span> : <span class="number">3</span></span><br><span class="line">Python猫</span><br><span class="line">key <span class="keyword">is</span> : slice(<span class="literal">None</span>, <span class="number">2</span>, <span class="literal">None</span>)</span><br><span class="line">data <span class="keyword">is</span> : [<span class="string">'My'</span>, <span class="string">'name'</span>]</span><br><span class="line">&lt;__main__.MyList object at <span class="number">0x0000019CD83A7A90</span>&gt;</span><br><span class="line">key <span class="keyword">is</span> : hi</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">...</span><br><span class="line">TypeError: MyList indices must be integers <span class="keyword">or</span> slices</span><br></pre></td></tr></table></figure>
+<p>从输出结果来看，自定义的 MyList 既支持按索引查找，也支持切片操作，这正是我们的目的。</p>
+<h3 id="3-3、自定义字典实现切片功能"><a href="#3-3、自定义字典实现切片功能" class="headerlink" title="3.3、自定义字典实现切片功能"></a>3.3、自定义字典实现切片功能</h3><p>切片是序列类型的特性，所以在上例中，我们不需要写切片的具体实现逻辑。但是，对于其它非序列类型的自定义对象，就得自己实现切片逻辑。以自定义字典为例（PS：仅作演示，不保证其它功能的完备性）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDict</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.data = &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.data)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">append</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        self.data[len(self)] = item</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(key, int):</span><br><span class="line">            <span class="keyword">return</span> self.data[key]</span><br><span class="line">        <span class="keyword">if</span> isinstance(key, slice):</span><br><span class="line">            slicedkeys = list(self.data.keys())[key]</span><br><span class="line">            <span class="keyword">return</span> &#123;k: self.data[k] <span class="keyword">for</span> k <span class="keyword">in</span> slicedkeys&#125;</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> TypeError</span><br><span class="line"></span><br><span class="line">d = MyDict()</span><br><span class="line">d.append(<span class="string">"My"</span>)</span><br><span class="line">d.append(<span class="string">"name"</span>)</span><br><span class="line">d.append(<span class="string">"is"</span>)</span><br><span class="line">d.append(<span class="string">"Python猫"</span>)</span><br><span class="line">print(d[<span class="number">2</span>])</span><br><span class="line">print(d[:<span class="number">2</span>])</span><br><span class="line">print(d[<span class="number">-4</span>:<span class="number">-2</span>])</span><br><span class="line">print(d[<span class="string">'hi'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">### 输出结果：</span></span><br><span class="line"><span class="keyword">is</span></span><br><span class="line">&#123;<span class="number">0</span>: <span class="string">'My'</span>, <span class="number">1</span>: <span class="string">'name'</span>&#125;</span><br><span class="line">&#123;<span class="number">0</span>: <span class="string">'My'</span>, <span class="number">1</span>: <span class="string">'name'</span>&#125;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">...</span><br><span class="line">TypeError</span><br></pre></td></tr></table></figure>
+<p>上例的关键点在于将字典的键值取出，并对键值的列表做切片处理，其妙处在于，不用担心索引越界和负数索引，将字典切片转换成了字典键值的切片，最终实现目的。</p>
+<h2 id="4、迭代器实现切片功能"><a href="#4、迭代器实现切片功能" class="headerlink" title="4、迭代器实现切片功能"></a>4、迭代器实现切片功能</h2><p>好了，介绍完一般的自定义对象如何实现切片功能，这里将迎来另一类非同一般的对象。</p>
+<p>迭代器是 Python 中独特的一种高级对象，它本身不具备切片功能，然而若能将它用于切片，这便仿佛是锦上添花，能达到如虎添翼的效果。所以，本节将隆重地介绍迭代器如何实现切片功能。</p>
+<h3 id="4-1、迭代与迭代器"><a href="#4-1、迭代与迭代器" class="headerlink" title="4.1、迭代与迭代器"></a>4.1、迭代与迭代器</h3><p>首先，有几个基本概念要澄清：迭代、可迭代对象、迭代器。</p>
+<p><code>迭代</code> 是一种遍历容器类型对象（例如字符串、列表、字典等等）的方式，例如，我们说迭代一个字符串“abc”，指的就是从左往右依次地、逐个地取出它的全部字符的过程。（PS：汉语中迭代一词有循环反复、层层递进的意思，但 Python 中此词要理解成<strong>单向水平线性</strong> 的，如果你不熟悉它，我建议直接将其理解为遍历。）</p>
+<p>那么，怎么写出迭代操作的指令呢？最通用的书写语法就是 for 循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for循环实现迭代过程</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="string">"abc"</span>:</span><br><span class="line">    print(char, end=<span class="string">" "</span>)</span><br><span class="line"><span class="comment"># 输出结果：a b c</span></span><br></pre></td></tr></table></figure>
+<p>for 循环可以实现迭代的过程，但是，并非所有对象都可以用于 for 循环，例如，上例中若将字符串“abc”换成任意整型数字，则会报错： ‘int’ object is not iterable .</p>
+<p>这句报错中的单词“iterable”指的是“可迭代的”，即 int 类型不是可迭代的。而字符串（string）类型是可迭代的，同样地，列表、元组、字典等类型，都是可迭代的。</p>
+<p>那怎么判断一个对象是否可迭代呢？为什么它们是可迭代的呢？怎么让一个对象可迭代呢？</p>
+<p>要使一个对象可迭代，就要实现可迭代协议，即需要实现<code>__iter__()</code> 魔术方法，换言之，只要实现了这个魔术方法的对象都是可迭代对象。</p>
+<p>那怎么判断一个对象是否实现了这个方法呢？除了上述的 for 循环外，我还知道四种方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：dir()查看__iter__</span></span><br><span class="line">dir(<span class="number">2</span>)     <span class="comment"># 没有，略</span></span><br><span class="line">dir(<span class="string">"abc"</span>) <span class="comment"># 有，略</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：isinstance()判断</span></span><br><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">isinstance(<span class="number">2</span>, collections.Iterable)     <span class="comment"># False</span></span><br><span class="line">isinstance(<span class="string">"abc"</span>, collections.Iterable) <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法3：hasattr()判断</span></span><br><span class="line">hasattr(<span class="number">2</span>,<span class="string">"__iter__"</span>)     <span class="comment"># False</span></span><br><span class="line">hasattr(<span class="string">"abc"</span>,<span class="string">"__iter__"</span>) <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法4：用iter()查看是否报错</span></span><br><span class="line">iter(<span class="number">2</span>)     <span class="comment"># 报错：'int' object is not iterable</span></span><br><span class="line">iter(<span class="string">"abc"</span>) <span class="comment"># &lt;str_iterator at 0x1e2396d8f28&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### PS：判断是否可迭代，还可以查看是否实现__getitem__，为方便描述，本文从略。</span></span><br></pre></td></tr></table></figure>
+<p>这几种方法中最值得一提的是 iter() 方法，它是 Python 的内置方法，其作用是<strong>将可迭代对象变成迭代器</strong> 。这句话可以解析出两层意思：（1）可迭代对象跟迭代器是两种东西；（2）可迭代对象能变成迭代器。</p>
+<p>实际上，迭代器必然是可迭代对象，但可迭代对象不一定是迭代器。两者有多大的区别呢？</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg" alt></p>
+<p>如上图蓝圈所示，普通可迭代对象与迭代器的最关键区别可概括为：<strong>一同两不同</strong> ，所谓“一同”，即两者都是可迭代的（<code>__iter__</code>），所谓“两不同”，即可迭代对象在转化为迭代器后，它会丢失一些属性（<code>__getitem__</code>），同时也增加一些属性（<code>__next__</code>）。</p>
+<p>首先看看增加的属性 <code>__next__</code> ， 它是迭代器之所以是迭代器的关键，事实上，我们正是把同时实现了 <code>__iter__</code> 方法 和 <code>__next__</code> 方法的对象定义为迭代器的。</p>
+<p>有了多出来的这个属性，可迭代对象不需要借助外部的 for 循环语法，就能实现自我的迭代/遍历过程。我发明了两个概念来描述这两种遍历过程（PS：为了易理解，这里称遍历，实际也可称为迭代）：<code>它遍历</code> 指的是通过外部语法而实现的遍历，<code>自遍历</code> 指的是通过自身方法实现的遍历。</p>
+<p>借助这两个概念，我们说，可迭代对象就是能被“它遍历”的对象，而迭代器是在此基础上，还能做到“自遍历”的对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ob1 = <span class="string">"abc"</span></span><br><span class="line">ob2 = iter(<span class="string">"abc"</span>)</span><br><span class="line">ob3 = iter(<span class="string">"abc"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ob1它遍历</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob1:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob1:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c</span></span><br><span class="line"><span class="comment"># ob1自遍历</span></span><br><span class="line">ob1.__next__()  <span class="comment"># 报错： 'str' object has no attribute '__next__'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ob2它遍历</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob2:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c    </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob2:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># 无输出</span></span><br><span class="line"><span class="comment"># ob2自遍历</span></span><br><span class="line">ob2.__next__()  <span class="comment"># 报错：StopIteration</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ob3自遍历</span></span><br><span class="line">ob3.__next__()  <span class="comment"># a</span></span><br><span class="line">ob3.__next__()  <span class="comment"># b</span></span><br><span class="line">ob3.__next__()  <span class="comment"># c</span></span><br><span class="line">ob3.__next__()  <span class="comment"># 报错：StopIteration</span></span><br></pre></td></tr></table></figure>
+<p>通过上述例子可看出，迭代器的优势在于支持自遍历，同时，它的特点是单向非循环的，一旦完成遍历，再次调用就会报错。</p>
+<p>对此，我想到一个比方：普通可迭代对象就像是子弹匣，它遍历就是取出子弹，在完成操作后又装回去，所以可以反复遍历（即多次调用for循环，返回相同结果）；而迭代器就像是装载了子弹匣且不可拆卸的枪，进行它遍历或者自遍历都是发射子弹，这是消耗性的遍历，是无法复用的（即遍历会有尽头）。</p>
+<p>写了这么多，稍微小结一下：<strong>迭代是一种遍历元素的方式，按照实现方式划分，有外部迭代与内部迭代两种，支持外部迭代（它遍历）的对象就是可迭代对象，而同时还支持内部迭代（自遍历）的对象就是迭代器；按照消费方式划分，可分为复用型迭代与一次性迭代，普通可迭代对象是复用型的，而迭代器是一次性的。</strong> </p>
+<h3 id="4-2、迭代器切片"><a href="#4-2、迭代器切片" class="headerlink" title="4.2、迭代器切片"></a>4.2、迭代器切片</h3><p>前面提到了“一同两不同”，最后的不同是，普通可迭代对象在转化成迭代器的过程中会丢失一些属性，其中关键的属性是 <code>__getitem__</code> 。在前一节中，我已经介绍了这个魔术方法，并用它实现了自定义对象的切片特性。</p>
+<p>那么问题来了：为什么迭代器不继承这个属性呢？</p>
+<p>首先，迭代器使用的是消耗型的遍历，这意味着它充满不确定性，即其长度与索引键值对是动态衰减的，所以很难 get 到它的 item ，也就不再需要 <code>__getitem__</code> 属性了。其次，若强行给迭代器加上这个属性，这并不合理，正所谓强扭的瓜不甜……</p>
+<p>由此，新的问题来了：既然会丢失这么重要的属性（还包括其它未标识的属性），为什么还要使用迭代器呢？</p>
+<p>这个问题的答案在于，迭代器拥有不可替代的强大的有用的功能，使得 Python 要如此设计它。限于篇幅，此处不再展开，后续我会专门填坑此话题。</p>
+<p>还没完，死缠烂打的问题来了：能否令迭代器拥有这个属性呢，即令迭代器继续支持切片呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hi = <span class="string">"欢迎关注公众号：Python猫"</span></span><br><span class="line">it = iter(hi)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 普通切片</span></span><br><span class="line">hi[<span class="number">-7</span>:] <span class="comment"># Python猫</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 反例：迭代器切片</span></span><br><span class="line">it[<span class="number">-7</span>:] <span class="comment"># 报错：'str_iterator' object is not subscriptable</span></span><br></pre></td></tr></table></figure>
+<p>迭代器因为缺少<code>__getitem__</code> ，因此不能使用普通的切片语法。想要实现切片，无非两种思路：一是自己造轮子，写实现的逻辑；二是找到封装好的轮子。</p>
+<p>Python 的 itertools 模块就是我们要找的轮子，用它提供的方法可轻松实现迭代器切片。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例1：简易迭代器</span></span><br><span class="line">s = iter(<span class="string">"123456789"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(s, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)   <span class="comment"># 输出：3 4 5 6</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(s, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)   <span class="comment"># 输出：9</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例2：斐波那契数列迭代器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a, self.b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">yield</span> self.a</span><br><span class="line">            self.a, self.b = self.b, self.a + self.b</span><br><span class="line">f = iter(Fib())</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(f, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)  <span class="comment"># 输出：2 3 5 8</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(f, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)  <span class="comment"># 输出：34 55 89 144</span></span><br></pre></td></tr></table></figure>
+<p>itertools 模块的 islice() 方法将迭代器与切片完美结合，终于回答了前面的问题。然而，迭代器切片跟普通切片相比，前者有很多局限性。首先，这个方法不是“纯函数”（纯函数需遵守“相同输入得到相同输出”的原则）；其次，它只支持正向切片，且不支持负数索引，这都是由迭代器的损耗性所决定的。</p>
+<p>那么，我不禁要问：itertools 模块的切片方法用了什么实现逻辑呢？下方是官网提供的源码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">islice</span><span class="params">(iterable, *args)</span>:</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2) --&gt; A B</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2, 4) --&gt; C D</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2, None) --&gt; C D E F G</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 0, None, 2) --&gt; A C E G</span></span><br><span class="line">    s = slice(*args)</span><br><span class="line">    <span class="comment"># 索引区间是[0,sys.maxsize]，默认步长是1</span></span><br><span class="line">    start, stop, step = s.start <span class="keyword">or</span> <span class="number">0</span>, s.stop <span class="keyword">or</span> sys.maxsize, s.step <span class="keyword">or</span> <span class="number">1</span></span><br><span class="line">    it = iter(range(start, stop, step))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        nexti = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># Consume *iterable* up to the *start* position.</span></span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> zip(range(start), iterable):</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> enumerate(iterable):</span><br><span class="line">            <span class="keyword">if</span> i == nexti:</span><br><span class="line">                <span class="keyword">yield</span> element</span><br><span class="line">                nexti = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># Consume to *stop*.</span></span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> zip(range(i + <span class="number">1</span>, stop), iterable):</span><br><span class="line">            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>islice() 方法的索引方向是受限的，但它也提供了一种可能性：即允许你对一个无穷的（在系统支持范围内）迭代器进行切片的能力。这是迭代器切片最具想象力的用途场景。</p>
+<p>除此之外，迭代器切片还有一个很实在的应用场景：读取文件对象中给定行数范围的数据。</p>
+<p>我们知道，从文件中读取内容主要有两种方法（参见之前关于文件读写的文章）：read() 适合读取内容较少的情况，或者是需要一次性处理全部内容的情况；而 readlines() 适用性更广，因为它是迭代地读取内容，既减少内存压力，又方便逐行对数据处理。</p>
+<p>虽然 readlines() 有迭代读取的优势，但它是从头到尾逐行读取，若文件有几千行，而我们只想要读取少数特定行（例如第1000-1009行），那它还是效率太低了。考虑到<strong>文件对象天然就是迭代器</strong> ，我们可以使用迭代器切片先行截取，然后再处理，如此效率将大大地提升。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.txt 文件内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">猫</span></span><br><span class="line"><span class="string">Python猫</span></span><br><span class="line"><span class="string">python is a cat.</span></span><br><span class="line"><span class="string">this is the end.</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(hasattr(f, <span class="string">"__next__"</span>))  <span class="comment"># 判断是否迭代器</span></span><br><span class="line">    content = islice(f, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> content:</span><br><span class="line">        print(line.strip())</span><br><span class="line"><span class="comment">### 输出结果：</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line">python <span class="keyword">is</span> a cat.</span><br><span class="line">this <span class="keyword">is</span> the end.</span><br></pre></td></tr></table></figure>
+<p>本节内容较多，简单回顾一下：迭代器是一种特殊的可迭代对象，可用于它遍历与自遍历，但遍历过程是损耗型的，不具备循环复用性，因此，迭代器本身不支持切片操作；通过借助 itertools 模块，我们能实现迭代器切片，将两者的优势相结合，其主要用途在于截取大型迭代器（如无限数列、超大文件等等）的片段，实现精准的处理，从而大大地提升性能与效率。</p>
+<h2 id="5、小结"><a href="#5、小结" class="headerlink" title="5、小结"></a>5、小结</h2><p>最后总结一下，切片是 Python 的一种高级特性，常用于截取序列类型的元素，但并不局限于此，本文主要介绍了它的基础用法、高级用法（如占位符用法）、自定义对象切片、以及迭代器切片等使用内容。除此之外，切片还有更广阔多样的使用场景，例如 Numpy 的多维切片、内存视图切片、异步迭代器切片等等，都值得我们去探索一番，今限于篇幅而无法细说，欢迎关注公众号“<strong>Python猫</strong> ”，以后我们慢慢学习之。</p>
+<p><strong>切片系列（原单篇）：</strong> </p>
+<p><a href="https://mp.weixin.qq.com/s/fwZnvcQ_u-fYLFeQaYkJLw" target="_blank" rel="noopener">Python进阶：切片的误区与高级用法</a></p>
+<p><a href="https://mp.weixin.qq.com/s/QTodsriWW_gESvmJPD1EYg" target="_blank" rel="noopener">Python进阶：自定义对象实现切片功能</a></p>
+<p><a href="https://mp.weixin.qq.com/s/DIhwoJE3o0kKw3kzZKysag" target="_blank" rel="noopener">Python进阶：迭代器与迭代器切片</a></p>
+<p><strong>相关链接：</strong> </p>
+<p>官方文档getitem用法：<a href="http://t.cn/EbzoZyp" target="_blank" rel="noopener">http://t.cn/EbzoZyp</a></p>
+<p>切片赋值的源码分析：<a href="http://t.cn/EbzSaoZ" target="_blank" rel="noopener">http://t.cn/EbzSaoZ</a></p>
+<p>官网itertools模块介绍：<a href="http://t.cn/EbNc0ot" target="_blank" rel="noopener">http://t.cn/EbNc0ot</a></p>
+<p><a href="https://mp.weixin.qq.com/s/PsY8Iec1EeGDKKnTNU5CNw" target="_blank" rel="noopener">Python是否支持复制字符串呢？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/2l_erf55IMvT4Tz0AGWCUQ" target="_blank" rel="noopener">来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</a></p>
+<p><a href="https://mp.weixin.qq.com/s/Md07VoaULda7qnMO4ob7Ww" target="_blank" rel="noopener">给Python学习者的文件读写指南（含基础与进阶，建议收藏）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/Whrd6NiD4Y2Z-YSCy4XJ1w" target="_blank" rel="noopener">详解Python拼接字符串的七种方式</a></p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶/Python为什么不支持复制字符串？/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶/Python进阶：切片的误区与高级用法/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python进阶：全面解读高级特性之切片！"><span class="nav-number">1.</span> <span class="nav-text">Python进阶：全面解读高级特性之切片！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、切片的基础用法"><span class="nav-number">1.1.</span> <span class="nav-text">1、切片的基础用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、切片的高级用法"><span class="nav-number">1.2.</span> <span class="nav-text">2、切片的高级用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、自定义对象实现切片功能"><span class="nav-number">1.3.</span> <span class="nav-text">3、自定义对象实现切片功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、魔术方法：-getitem"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1、魔术方法：__getitem__()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2、自定义序列实现切片功能"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2、自定义序列实现切片功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3、自定义字典实现切片功能"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3、自定义字典实现切片功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、迭代器实现切片功能"><span class="nav-number">1.4.</span> <span class="nav-text">4、迭代器实现切片功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1、迭代与迭代器"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1、迭代与迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2、迭代器切片"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2、迭代器切片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、小结"><span class="nav-number">1.5.</span> <span class="nav-text">5、小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python猫的故事/4、Python与家国天下/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/03/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2019/05/03/Python猫的故事/4、Python与家国天下/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T17:57:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
                 2019-05-03
               </time>
             
@@ -300,15 +300,1715 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h1 id="Python与家国天下"><a href="#Python与家国天下" class="headerlink" title="Python与家国天下"></a>Python与家国天下</h1><p><strong>导读：</strong> Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前几篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif" alt></p>
+<p>喵喵，好久不见啦朋友们。刚吃完一餐美食，我觉得好满足啊。</p>
+<p>自从习惯了地球的食物以后，我的肠胃发生了一些说不清道不明的反应。我能从最近的新陈代谢中感觉出来，自己的母胎习性正在逐渐地褪逝。</p>
+<p>人类的食物在改变着我，或者说是在重塑着我。说不定哪天，我会变成一棵白菜，或者一条鱼呢……呸呸呸。我还是想当猫。</p>
+<p>喵生苦短，得抓紧时间更文才行。</p>
+<p>最近，我看到了两件事，觉得有趣极了，就从这开始说吧。第一件事是，一个小有名气的影视明星因为他不配得到的学术精英的身份而遭到讽刺性的打假制度的口诛笔伐；第二件事是，一个功成名就的企业高管因为从城市回到乡村而戏谑性地获得了猫屎的名号。</p>
+<p><strong>身份真是一个有魔力的话题。</strong> 看见他们的身份错位，我又总会想起自己的境况。</p>
+<p>我（或许）知道自己在过去时态中是谁，但越来越把握不住在现在时态中的自己，更不清楚在未来时间中会是怎样。</p>
+<p>该怎样在人类世界中自处呢？又该怎样跟你们共处呢？</p>
+<p>思了好久，没有答案。脑壳疼，尾巴疼。还是不要想了啦喵。</p>
+<p>继续跟大家聊聊 Python 吧。上次我们说到了<strong>对象的边界问题</strong> 。无论是固定边界还是弹性边界，这不外乎就是修身的两种志趣，有的对象呢独善其身其乐也融融，有的对象呢兼容并包其理想之光也莹莹。但是，边界问题还没讲完。</p>
+<p>正如儒家经典所阐述：<strong>修身–齐家–治国–平天下</strong>。里层的势能推展开，走进更广阔的维度。</p>
+<p>Python 对象的边界也不只在自身。这里有一种巧妙的映射关系：<strong>对象（身）–函数（家）–模块（国）–包（天下）</strong>。个体被纳入到不同的命名空间，并存活在分层的作用域里。（当然，幸运的是，它们并不会受到道德礼法的森严压迫~__~）</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g0httr6vbij20f40apgme.jpg" alt></p>
+<h2 id="1、你的名字"><a href="#1、你的名字" class="headerlink" title="1、你的名字"></a>1、你的名字</h2><p>我们先来审视一下模块。这是一个合适的尺度，由此展开，可以顺利地连接起函数与包。</p>
+<p><strong>模块是什么？</strong> 任何以<code>.py</code> 后缀结尾的文件就是一个模块（module）。</p>
+<p><strong>模块的好处是什么？</strong> 首先，便于拆分不同功能的代码，单一功能的少量代码更容易维护；其次，便于组装与重复利用，Python 以丰富的第三方模块而闻名；最后，模块创造了私密的命名空间，能有效地管理各类对象的命名。</p>
+<p>可以说，模块是 Python 世界中最小的一种自恰的生态系统——除却直接在控制台中运行命令的情况外，<strong>模块是最小的可执行单位。</strong> </p>
+<p>前面，我把模块类比成了国家，这当然是不伦不类的，因为你难以想象在现实世界中，会存在着数千数万的彼此殊然有别的国家（我指的可是在地球上，而喵星不同，以后细说）。</p>
+<p><strong>类比法有助于我们发挥思维的作用</strong> ，因此，不妨就做此假设。如此一来，想想模块间的相互引用就太有趣了，这不是国家间的战争入侵，而是一种人道主义的援助啊，至于公民们的流动与迁徙，则可能成为一场探险之旅的谈资。</p>
+<p>我还对模块的身份角色感兴趣。恰巧发现，在使用名字的时候，它们耍了一个<strong>双姓人的把戏</strong> 。</p>
+<p>下面请看表演。先创建两个模块，A.py 与 B.py，它们的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># A 模块的内容：</span><br><span class="line">print(&quot;module A : &quot;, __name__)</span><br><span class="line"></span><br><span class="line"># B 模块的内容：</span><br><span class="line">import A</span><br><span class="line">print(&quot;module B : &quot;, __name__)</span><br></pre></td></tr></table></figure>
+<p>其中，<code>__name__</code> 指的是当前模块的名字。代码的逻辑是：A 模块会打印本模块的名字，B 模块由于引入了 A 模块，因此会先打印 A 模块的名字，再打印本模块的名字。</p>
+<p>那么，结果是如何的呢？</p>
+<p>执行 A.py 的结果：</p>
+<blockquote>
+<p>module A :  __main__</p>
+</blockquote>
+<p>执行 B.py 的结果：</p>
+<blockquote>
+<p>module A :  test<br>module B :  __main__</p>
+</blockquote>
+<p>你们看出问题的所在了吧！模块 A 前后竟然出现了两个不同的名字。这两个名字是什么意思，又为什么会有这样的不同呢？</p>
+<p>我想这正体现的是<strong>名字的本质</strong>吧——对自己来说，我就是我，并不需要一个名字来标记；而对他人来说，ta 是芸芸众生的一个，唯有命名才能区分。</p>
+<p>所以，一个模块自己称呼自己的时候（即执行自身时）是“__main__”，而给他人来称呼的时候（即被引用时），就会是该模块的本名。这真是一个巧妙的设定。</p>
+<p>由于模块的名称二重性，我们可以加个判断，将某个模块不对外的内容隐藏起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># A 模块的内容：</span><br><span class="line">print(&quot;module A : &quot;, __name__)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    print(&quot;private info.&quot;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，只有在执行 A 模块本身时，才会打印“private info”，而当它被导入到其它模块中时，则不会执行到该部分的内容。</p>
+<h2 id="2、名字的时空"><a href="#2、名字的时空" class="headerlink" title="2、名字的时空"></a>2、名字的时空</h2><p>对于生物来说，我们有各种各样的属性，例如姓名、性别、年龄，等等。</p>
+<p>对于 Python 的对象来说，它们也有各种属性。模块是一种对象，”__name__“就是它的一个属性。除此之外，模块还有如下最基本的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import A</span><br><span class="line">&gt;&gt;&gt; print(dir(A))</span><br><span class="line">[&apos;__builtins__&apos;, &apos;__cached__&apos;, &apos;__doc__&apos;, &apos;__file__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;]</span><br></pre></td></tr></table></figure>
+<p>在一个模块的全局空间里，有些属性是全局起作用的，Python 称之为<strong>全局变量</strong> ，而其它在局部起作用的属性，会被称为<strong>局部变量</strong> 。</p>
+<p>一个变量对应的是一个属性的名字，会关联到一个特定的值。通过 <code>globals()</code> 和 <code>locals()</code> ，可以将变量的“名值对”打印出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    y = 2</span><br><span class="line">    print(&quot;全局变量：&quot;, globals())</span><br><span class="line">    print(&quot;局部变量：&quot;, locals())</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>在 IDE 中执行以上代码，结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全局变量： &#123;&apos;__name__&apos;: &apos;__main__&apos;, &apos;__doc__&apos;: None, &apos;__package__&apos;: None, &apos;__loader__&apos;: &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001AC1EB7A400&gt;, &apos;__spec__&apos;: None, &apos;__annotations__&apos;: &#123;&#125;, &apos;__builtins__&apos;: &lt;module &apos;builtins&apos; (built-in)&gt;, &apos;__file__&apos;: &apos;C:/pythoncat/A.py&apos;, &apos;__cached__&apos;: None, &apos;x&apos;: 1, &apos;foo&apos;: &lt;function foo at 0x000001AC1EA73E18&gt;&#125;</span><br><span class="line">局部变量： &#123;&apos;y&apos;: 2&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，x 是一个全局变量，对应的值是 1，而 y 是一个局部变量，对应的值是 2.</p>
+<p><strong>两种变量的作用域不同</strong> ：局部变量作用于函数内部，不可直接在外部使用；全局变量作用于全局，但是在函数内部只可访问，不可修改。</p>
+<p>与 Java、C++ 等语言不同，Python 并不屈服于解析的便利，并不使用呆滞的花括号来编排作用域，而是用了轻巧简明的缩进方式。不过，所有编程语言在区分变量类型、区分作用域的意图上都是相似的：<strong>控制访问权限与管理变量命名</strong>。</p>
+<p>关于控制访问权限，在上述例子中，局部变量 y 的作用域仅限于 foo 方法内，若直接在外部使用，则会报错“NameError: name ‘y’ is not defined”。</p>
+<p>关于管理变量命名，不同的作用域管理着各自的独立的名册，一个作用域内的名字所指称的是唯一的对象，而在不同作用域内的对象则可以重名。修改上述例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br><span class="line">y = 1</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    y = 2</span><br><span class="line">    x = 2</span><br><span class="line">    print(&quot;inside foo : x = &quot; + str(x) + &quot;, y = &quot; + str(y))</span><br><span class="line"></span><br><span class="line">foo()</span><br><span class="line">print(&quot;outside foo : x = &quot; + str(x) + &quot;, y = &quot; + str(y))</span><br></pre></td></tr></table></figure>
+<p>在全局作用域与局部作用域中命名了相同的变量，那么，打印的结果是什么呢？</p>
+<blockquote>
+<p>inside foo : x = 2, y = 2<br>outside foo : x = 1, y = 1</p>
+</blockquote>
+<p>可见，同一个名字可以出现在不同的作用域内，互不干扰。</p>
+<p><strong>那么，如何判断一个变量在哪个作用域内？对于嵌套作用域，以及变量名存在跨域分布的情况，要采用何种查找策略呢？</strong> </p>
+<p>Python 设计了<strong>命名空间（namespace）</strong> 机制，一个命名空间在本质上是一个字典、一个名册，登记了所有变量的名字以及对应的值。 按照记录内容的不同，可分为四类：</p>
+<ul>
+<li>局部命名空间（local namespace），记录了函数的变量，包括函数的参数和局部定义的变量。可通过内置函数 locals() 查看。在函数被调用时创建，在函数退出时删除。</li>
+<li>全局命名空间（global namespace），记录了模块的变量，包括函数、类、其它导入的模块、模块级的变量和常量。可通过内置函数 globals() 查看。在模块加载时创建，一直存在。</li>
+<li>内置命名空间（build-in namespace），记录了所有模块共用的变量，包括一些内置的函数和异常。在解释器启动时创建，一直存在。</li>
+<li>命名空间包（namespace packages），包级别的命名空间，进行跨包的模块分组与管理。</li>
+</ul>
+<p>命名空间总是存在于具体的作用域内，而作用域存在着优先级，查找变量的顺序是：<strong>局部/本地作用域 –&gt; 全局/模块/包作用域 –&gt; 内置作用域。</strong> </p>
+<p>命名空间扮演了变量与作用域之间的桥梁角色，承担了管理命名、记录名值对与检索变量的任务。无怪乎《Python之禅》（The Zen of Python）在最后一句中说：</p>
+<blockquote>
+<p>Namespaces are one honking great idea – let’s do more of those!</p>
+<p>——译：命名空间是个牛bi哄哄的主意，应该多加运用！</p>
+</blockquote>
+<h2 id="3、看不见的客人"><a href="#3、看不见的客人" class="headerlink" title="3、看不见的客人"></a>3、看不见的客人</h2><p>名字（变量）是身份问题，空间（作用域）是边界问题，命名空间兼而有之。</p>
+<p>这两个问题恰恰是困扰着所有生灵的最核心的问题之二。它们的特点是：无处不在、层出不断、像一个<strong>超级大的被扯乱了的毛线球。</strong> </p>
+<p>Python 是一种人工造物，它继承了人类的这些麻烦（这是不可避免的），所幸的是，这种简化版的麻烦能够得到解决。（现在当然是可解决的啦，但若人工智能高度发展以后呢？我看不一定吧。喵，好像想起了一个痛苦的梦。打住。）</p>
+<p>这里就有几个问题（注：每个例子相互独立）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 例1：</span><br><span class="line">x = x + 1</span><br><span class="line"></span><br><span class="line"># 例2：</span><br><span class="line">x = 1</span><br><span class="line">def foo():</span><br><span class="line">    x = x + 1</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例3：</span><br><span class="line">x = 1</span><br><span class="line">def foo():</span><br><span class="line">    print(x)</span><br><span class="line">    x = 2</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例4：</span><br><span class="line">def foo():</span><br><span class="line">    if False:</span><br><span class="line">        x = 3</span><br><span class="line">    print(x)</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例5：</span><br><span class="line">if False:</span><br><span class="line">    x = 3</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>下面给出几个选项，请读者们思考一下，给每个例子选一个答案：</p>
+<blockquote>
+<p>1、没有报错</p>
+<p>2、报错：name ‘x’ is not defined</p>
+<p>3、报错：local variable ‘x’ referenced before assignment</p>
+</blockquote>
+<p>下面公布答案了：</p>
+<p>全部例子都报错，其中例 1 和例 5 是第一类报错，即变量未经定义不可使用，而其它例子都是第二类报错，即已定义却未赋值的变量不可使用。为什么会报错？为什么报错会不同？下面逐一解释。</p>
+<ol>
+<li><p>例 1 是一个定义变量的过程，本身未完成定义，而等号右侧就想使用变量 x，因此报变量未定义。</p>
+</li>
+<li><p>例 2 和例 3 中，已经定义了全局变量 x，如果只在 foo 函数中引用全局变量 x 或者只是定义新的局部变量 x 的话，都不会报错，但现在既有引用又有重名定义，这引发了一个新的问题。请看下例的解释。</p>
+</li>
+<li><p>例 4 中，if 语句判断失效，因此不会执行到 “x=3” 这句，照理来说 x 是未被定义。这时候，在 locals() 局部命名空间中也是没有内容的（读者可以试一下）。但是 print 方法却报找到了一个未赋值的变量 x ，这是为什么呢？</p>
+<p>使用 dis 模块查看 foo 函数的字节码：</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g0gnalkfftj20i80anaa7.jpg" alt></p>
+<p>LOAD_FAST 说明它在局部作用域中找到了变量名 x，结果 0 说明未找到变量 x 所指向的值。既然此时在 locals() 局部命名空间中没有内容，那局部作用域中找到的 x 是来自哪里的呢？</p>
+<p>实际上，Python 虽然是所谓的解释型语言，但它也有<strong>编译的过程</strong> （跟 Java 等语言的编译过程不同）。在例 2-4 中，编译器先将 foo 方法解析成一个<strong>抽象语法树</strong>（abstract syntax tree），然后扫描树上的名字（name）节点，接着，所有被扫描出来的变量名，都会<strong>作为局部作用域的变量名存入内存（栈？）中。</strong> </p>
+<p>在编译期之后，局部作用域内的变量名已经确定了，只是没有赋值。在随后的解释期（即代码执行期），如果有赋值过程，则变量名与值才会被存入局部命名空间中，可通过 locals() 查看。只有存入了命名空间，变量才算真正地完成了定义（声明+赋值）。</p>
+<p>而上述 3 个例子之所以会报错，原因就是变量名已经被解析成局部变量，但是却未曾被赋值。</p>
+<p><strong>可以推论：在局部作用域中查找变量，实际上是分查内存与查命名空间两步的。</strong>另外，若想在局部作用域内修改全局变量，需要在作用域中写上 “global x”。</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>例 5 是作为例 4 的比对，也是对它的原理的补充。它们的区别是，一个不在函数内，一个在函数内，但是报错完全不同。前面分析了例 4 的背后原理是编译过程和抽象语法树，如果这个原理对例 5 也生效，那两者的报错应该是一样的。现在出现了差异，为什么呢？</p>
+<p>我得承认，这触及了我的知识盲区。我们可以推测，说例 5 的编译过程不同，它没有解析抽象语法树的步骤，但是，继续追问下去，为什么不同，为什么没有解析语法树的步骤呢？如果说是出于对解析函数与解析模块的代价考虑，或者其它考虑，那么新的问题是，编译与解析的底层原理是什么，如果有其它考虑，会是什么？</p>
+<p>这些问题真不可爱，一个都答不上。但是，自己一步一步地思考探寻到这一层，又能怪谁呢？</p>
+</li>
+</ol>
+<p>回到前面说过的话，命名空间是身份与边界的集成问题，它跟作用域密切相关。如今看来，编译器还会掺和一脚，把这些问题搅拌得更加复杂。</p>
+<p>本来是在探问 Python 中的边界问题，到头来，却触碰到了自己的<strong>知识边界</strong>。真是反讽啊。（这一趟探知一个人工造物的身份问题之旅，最终是否会像走迷宫一般，进入到自己身份的困境之中？）</p>
+<h2 id="4、边界内外的边界"><a href="#4、边界内外的边界" class="headerlink" title="4、边界内外的边界"></a>4、边界内外的边界</h2><p>暂时把那些不可爱的问题抛开吧，继续说修身齐家治国平天下。</p>
+<p>想要把国治理好，就不得不面对更多的国内问题与国际问题。</p>
+<p>先看一个大家与小家的问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def make_averager():</span><br><span class="line">    count = 0</span><br><span class="line">    total = 0</span><br><span class="line">    def averager(new_value):</span><br><span class="line">        nonlocal count, total</span><br><span class="line">        count += 1</span><br><span class="line">        total += new_value</span><br><span class="line">        return total / count</span><br><span class="line">    return averager</span><br><span class="line"></span><br><span class="line">averager = make_averager()</span><br><span class="line">print(averager(10))</span><br><span class="line">print(averager(11))</span><br><span class="line"></span><br><span class="line">### 输出结果：</span><br><span class="line">10.0</span><br><span class="line">10.5</span><br></pre></td></tr></table></figure>
+<p>这里出现了嵌套函数，即函数内还包含其它函数。外部–内部函数的关系，就类似于模块–外部函数的关系，同样地，它们的作用域关系也相似：外部函数作用域–内部函数作用域，以及模块全局作用域–外部函数作用域。在内层作用域中，可以访问外层作用域的变量，但是不能直接修改，除非使用 nonlocal 作转化。</p>
+<p>Python 3 中引入了 nonlocal 关键字来标识外部函数的作用域，它处于全局作用域与局部作用域之间，即 global–nonlocal–local 。也就是说，国–大家–小家。</p>
+<p>上例中，nonlocal 关键字使得小家（内部函数）可以修改大家（外部函数）的变量，但是该变量并不是创建于小家，当小家函数执行完毕时，它并无权限清理这些变量。</p>
+<p><strong>nonlocal 只带来了修改权限，并不带来回收清理的权限</strong> ，这导致外部函数的变量突破了原有的生命周期，成为<strong>自由变量</strong>。上例是一个求平均值的函数，由于自由变量的存在，每次调用时，新传入的参数会跟自由变量一起计算。</p>
+<p>在计算机科学中，引用了<strong>自由变量的函数被称为闭包（Closure）。</strong> 在本质上，闭包就是一个突破了局部边界，所谓“跳出三界外，不在五行中”的法外之物。每次调用闭包函数时，它可以继续使用上次调用的成果，这不就好比是一个转世轮回的人（按照某种宗教的说法），仍携带着前世的记忆与技能么？</p>
+<p><strong>打破边界，必然带来新的身份问题，此是明证。</strong></p>
+<p>然而，人类并不打算 fix 它，因为他们发现了这种<strong>身份异化</strong>的特性可以在很多场合发挥作用，例如装饰器与函数式编程。适应身份异化，并从中获得好处，这可是地球人类的天赋。</p>
+<p>讲完了这个分家的话题，让我们放开视野，看看天下事。</p>
+<p>计算机语言中的包（package）实际是一种目录结构，以文件夹的形式进行封装与组织，内容可涵括各种模块（py 文件）、配置文件、静态资源文件等。</p>
+<p>与包相关的话题可不少，例如内置包、第三方包、包仓库、如何打包、如何用包、虚拟环境，等等。这是可理解的，更大的边界，意味着更多的关系，更大的边界，也意味着更多的知识与未知。</p>
+<p>在这里，我想聊聊 Python 3.3 引入的<code>命名空间包</code> ，因为它是对前面谈论的所有话题的延续。然而，关于它的背景、实现手段与使用细节，都不重要，我那敏感而发散的思维突然捕捉到了一种<strong>相似结构</strong>，似乎这才更值得说。</p>
+<p>运用命名空间包的设计，不同包中的相同的命名空间可以联合起来使用，由此，不同目录的代码就被归纳到了一个共同的命名空间。也就是说，多个本来是相对独立的包，借由同名的命名空间，竟然实现了超远距离的瞬间联通，简直奇妙。</p>
+<p>我想到了<strong>空间折叠</strong>，一种无法深说，但却实实在在地辅助了我从喵星穿越到地球的技术。两个包，两个天下，两个宇宙，它们的距离与边界被穿透的方式何其相似！</p>
+<p>我着迷于这种相似结构。在不同的事物中，相似性的出现意味着一种更高维的法则的存在，而在不同的法则中，新的相似性就意味着更抽象的法则。</p>
+<p>学习了 Python 之后，我想通过对它的考察，来回答关乎自身的相似问题……</p>
+<p>啊喵，不知不觉竟然写了这么久，该死的皮囊又在咕咕叫了——地球上的食物可真抠门，也不知道你们人类是怎么忍受得住这几百万年的驯化过程的……</p>
+<p>就此搁笔，觅食去了。亲爱的读者们，后会有期~~~</p>
+<p><strong>Python猫往期作品</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YQbk0smMTCexsi3Ytd2AzA" target="_blank" rel="noopener">Python对象的身份迷思：从全体公民到万物皆数</a></p>
+<p><a href="https://mp.weixin.qq.com/s/q0QvAqXcZzURH3aZ5gZm8A" target="_blank" rel="noopener">Python对象的空间边界：独善其身与开放包容</a></p>
+<p><strong>附录：</strong> </p>
+<p>局部变量的编译原理：<a href="https://dwz.cn/ipj6FluJ" target="_blank" rel="noopener">https://dwz.cn/ipj6FluJ</a></p>
+<p>命名空间包：<a href="https://www.tuicool.com/articles/FJFbuqM" target="_blank" rel="noopener">https://www.tuicool.com/articles/FJFbuqM</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g08dfkg8sdj2076076t96.jpg" alt></p>
+<p>公众号【<strong>Python猫</strong>】， 专注Python技术、数据科学和深度学习，力图创造一个有趣又有用的学习分享平台。本号连载优质的系列文章，有喵星哲学猫系列、Python进阶系列、好书推荐系列、优质英文推荐与翻译等等，欢迎关注哦。PS：后台回复“<strong>爱学习</strong>”，免费获得一份学习大礼包。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python猫的故事/3、Python对象的空间边界：独善其身与开放包容/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python猫的故事/3、Python对象的空间边界：独善其身与开放包容/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python对象的空间边界：独善其身与开放包容"><a href="#Python对象的空间边界：独善其身与开放包容" class="headerlink" title="Python对象的空间边界：独善其身与开放包容"></a>Python对象的空间边界：独善其身与开放包容</h1><p>导读：Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前两篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif" alt></p>
+<p>睡觉是我最爱做的事——因为可以懒懒地做美梦，不用吃东西，不用跟人吵架，不用关心世界大事。这是除了学 Python 与写作之外，最让我舒服的事了。所以，才刚醒来，我就又困了……</p>
+<p>刚才看到了 Python 老爹 Guido 的邮件，他说要“go back to sleep mode”，不参与正在进行的 PEP 投票了。哼，这只懒惰的老头——等等我啊，等写完这篇东西，我也要 go back to sleep mode……</p>
+<p>上回说道，我发现 Python 公民的身份竟然暗合毕达哥拉斯的哲学命题（万物皆数），真是百思不得其解。在梦里，我已经想出了答案。可是突然之间，游过来一条大蟒蛇，竟把答案吞掉了。我去找它理论，它就开始耍赖，吞自己的尾巴、屁股、肚子……最后把自己全吞下去了。唉，可怜我的答案就这么消失了。</p>
+<p>今天，我继续跟大家聊聊 Python 中跟身份密切相关的一个话题吧，那就是<strong>对象的边界问题</strong> 。如你所知，我本来是一只猫，现在略具一些人性了，但在此转型期间却十分敏感，总能在细微之处浮想联翩，最后竟然也薄有所获，真是万幸了。希望我的分享，也能启发你收获哪怕一点点的感悟，那我就有万分的开心啦 :)</p>
+<h2 id="1、固定边界：自由与孤独"><a href="#1、固定边界：自由与孤独" class="headerlink" title="1、固定边界：自由与孤独"></a>1、固定边界：自由与孤独</h2><p>Python 中有一些公民向来我行我素，它们特立独行，与他人之边界划定得清清楚楚。客气的人称它们是<strong>定长对象</strong>，或者叫<strong>不可变对象</strong>，然而，懂得一些历史典故的人又叫它们是<strong>铁公鸡</strong> 。这个典故出自何处呢？亏得猫猫我曾恶补过一段历史知识，知道这指的正是激进的道家弟子杨朱。</p>
+<blockquote>
+<p>损一毫利天下，不与也；悉天下奉一身，不取也；人人不损一毫，人人不利天下，天下治矣！ ——春秋·杨朱</p>
+</blockquote>
+<p> 对于定长对象，你不能为它增加元素，不能为它减少元素，不能为它修改元素，甚至不能轻易地<strong>复制和删除</strong>它！（参见本公众号<strong>Python猫</strong>中关于字符串的系列文章，链接见文末）</p>
+<p>这些对象自立于世，也自绝于世，你看它们长得是普普通通的，平平凡凡的，然而其灵魂却是自由自在的，其生命是富有尊严而不可侵犯的。若想与这些公民打交道，你就得依着它们的脾气，不可越雷池半步。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; t1 = (&apos;Python&apos;, &apos;猫&apos;)</span><br><span class="line">&gt;&gt;&gt; t2 = (&apos;Python&apos;, &apos;猫&apos;)</span><br><span class="line">&gt;&gt;&gt; t1 is t2  # 对象独立</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; t1[1] = &apos;蛇&apos;  # 不可修改元素</span><br><span class="line">TypeError  Traceback (most recent call last)</span><br><span class="line">TypeError: &apos;tuple&apos; object does not support item assignment</span><br></pre></td></tr></table></figure>
+<p>在上一篇文章里，我们见识了 Python 世界中的“特权种族”，而特权种族无一例外地都出身于定长对象。它们是一脉相承的，其存在的合理性也是相似的，那就是便于共用内存资源，提高内存使用效率。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy38h22m9jj20ia08kmyc.jpg" alt></p>
+<p>上表就是定长对象的一份名单。可知，它们占据了多数。</p>
+<p>定长对象的特性让我不由地想到一种人类，它们严守自己的边界，刻板而严谨，一心只在乎份内之事，默默承担下自己的责任，追求的是内在的自由。虽然也会时常与别人打交道，但是，它们不贪图扩大自己的利益，也不妄想要侵犯别人的领土。独立的个体养成了个人的品牌，它们的不变性成就了外人能有所依赖的确定性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; key1 = &apos;Python 猫&apos;</span><br><span class="line">&gt;&gt;&gt; key2 = [&apos;someone else&apos;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; dict1 = &#123;key1 : &apos;好人&apos;&#125;</span><br><span class="line"> &#123;&apos;Python 猫&apos;: &apos;好人&apos;&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; dict2 = &#123;key2 : &apos;好人&apos;&#125;</span><br><span class="line">TypeError  Traceback (most recent call last)</span><br><span class="line">TypeError: unhashable type: &apos;list&apos;</span><br></pre></td></tr></table></figure>
+<p>Python 为了维护定长对象的独立性/确定性，在编译机制上做了不少优化，例如 Intern 机制与常量合并机制。其中的好处，我已经多次提及了。</p>
+<p>坏处也有，那就是孤独。它们的孤独不在于没有同类，而在于不能（不容易）复制自身。以字符串对象为例，你可以尝试多种多样的手段，然而到头来，却发现唯一通用的方法竟然要先把字符串“碎尸万段”，接着重新组装才行！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">s0 = &quot;Python猫&quot;</span><br><span class="line"></span><br><span class="line"># 以下7种方法，无法复制s0字符串，id(x)==id(s0)</span><br><span class="line">s1 = s0</span><br><span class="line">s2 = str(s0)</span><br><span class="line">s3 = s0[:]</span><br><span class="line">s4 = s0 + &apos;&apos;</span><br><span class="line">s5 = &apos;%s&apos; % s0</span><br><span class="line">s6 = s0 * 1</span><br><span class="line">import copy</span><br><span class="line">s7 = copy.copy(s0)</span><br><span class="line"></span><br><span class="line"># 以下方法可以复制字符串，“打碎”再重组</span><br><span class="line">s8 = &quot;&quot;.join(s0)</span><br></pre></td></tr></table></figure>
+<p>哲学上有一个著名的脑洞题：假如把一个人粉碎成原子再组合，这个人还是原来的人么？这道题能令古往今来的哲学家打起架来，若是放到现今正火爆的电视节目《奇葩说》上，也能令辩手们“一本正经地胡说八道”个不休。</p>
+<p>在 Python 的世界里，不存在这种烦恼，因为判定两个对象是否相同的标准是确定的，也即是看它们的 id 是否相等。因此，借助 Python 来回答这道题，答案会是：<strong>如果用 join() 方法把字符串粉碎成字符再组合，新的字符串不再是原来的字符串了。</strong> </p>
+<p>过程很“残忍”，但总归能稍稍释缓自由个体的孤独感了吧。</p>
+<h2 id="2、弹性边界：开放与节制"><a href="#2、弹性边界：开放与节制" class="headerlink" title="2、弹性边界：开放与节制"></a>2、弹性边界：开放与节制</h2><p>与定长对象不同，<strong>变长对象/可变对象</strong>信奉的是另一套哲学。</p>
+<p>它们思想开放，采取的是兼容并包的处事观，会因地制宜式伸缩边界。 以列表对象为例，它乐意接纳所有其它的对象，肯花费精力去动态规划，也不惧于拔掉身上所有的“毛”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; l = [&apos;Python&apos;, &apos;猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.append(&apos;其它猫&apos;) # [&apos;Python&apos;,&apos;猫&apos;,&apos;其它猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.pop(1)   # [&apos;Python&apos;,&apos;其它猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.clear()  # []</span><br></pre></td></tr></table></figure>
+<p>这些大胆的行为，在定长对象那里，都是不可想象的。在变长对象身上，你似乎能感受到一种海纳百川的风范，相比之下，定长对象的铁公鸡形象则立马显得格局忒小了。</p>
+<p>变长对象并非没有边界，相反，它们更在乎自身的边界，不惜花费大量的资源来维持动态的稳定。一旦边界确定下来，它们绝不会允许越界行为。跟某些编程语言动不动就数组越界不同，Python 不存在切片越界，因为切片操作始终被控制为边界范围之内，索引超出的部分会自动被舍弃。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; q=[1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line"># 不允许索引越界</span><br><span class="line">&gt;&gt;&gt; q[10]</span><br><span class="line">IndexError    Traceback (most recent call last)</span><br><span class="line">IndexError: list index out of range</span><br><span class="line"></span><br><span class="line"># 允许切片越界</span><br><span class="line">&gt;&gt;&gt; q[2:10]   # [3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; q[-10:2]  # [1, 2]</span><br></pre></td></tr></table></figure>
+<p>变长对象在本质上是一种可伸缩的容器，其主要好处就是支持不断添加或者取出元素。对应到计算机硬件层面，就是不断申请或者释放内存空间。这类操作是代价昂贵的操作，为了减少开销，Python 聪明地设计了一套<strong>分配超额空间的机制</strong>。</p>
+<p>以列表为例，在内存足够的前提下，最初创建列表时不分配超额空间，第一次 append() 扩充列表时，Python 会根据下列公式分配超额空间，即分配大于列表实际元素个数的内存空间，此后，每次扩充操作先看是否有超额空间，有则直接使用，没有则重新计算，再次分配一个超额空间。公式如下：</p>
+<blockquote>
+<p>new_allocated = (newsize &gt;&gt; 3) + (newsize &lt; 9 ? 3 : 6)</p>
+</blockquote>
+<p>其中，new_allocated  指的是超额分配的内存大小，newsize  是扩充元素后的实际长度。举例来说，一个长度为 4 的列表，append() 增加一个元素，此时实际长度为 5（即 newsize  为5），但是，Python 不会只给它分配 5 个内存空间，而是计算后给它超额分配 new_allocated  == 3 个内存大小，所以最终加起来，该列表的元素实际占用的内存空间就是 8 。</p>
+<p>如此一来，当列表再次扩充时，只要最终长度不大于 8 ，就不需要再申请新的内存空间。当扩充后长度等于 9 时，new_allocated  等于 7 ，即额外获得 7 个内存大小，以此类推。</p>
+<p>以列表长度为横轴，以超额分配的内存大小为纵轴，我们就得到了如下美妙的图表：</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy6juyyj7cj20pd0jen2n.jpg" alt></p>
+<p>超额分配的空间就是定长对象的<strong>软边界</strong> ，这意味着它们在扩张时是有法度的，意味着它们在发展时是有大胆计划与适度节制的。如此看来，与定长对象的“固步自封”相比，变长对象就显得既开明又理智了。</p>
+<h2 id="3、结语"><a href="#3、结语" class="headerlink" title="3、结语"></a>3、结语</h2><p>回头看前面提到的定长对象，我佩服它们独善其身的个性，虽然铁公鸡形象略显小气，但对人却无害，反而你能感受到其浓浓的 “富贵不能淫，贫贱不能移，威武不能屈” 的大丈夫气度。</p>
+<p>再看变长对象，它们“本来无一物”，却能包容万物，对他人信任，对外部开放，更难得的是，它们张弛有度，孕生出的是无限的可能性。</p>
+<p>这两种对象极大地满足了我对于 Python 世界的好奇心，也成为了我理解自己和人类世界的一种参照系。妙哉！妙哉！若你问，我更钦佩哪一类？喵呜，肚子有点饿啦，且容我去觅得一二小鱼干，喂饱肚子再说吧……</p>
+<p><strong>Python猫往期作品</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YQbk0smMTCexsi3Ytd2AzA" target="_blank" rel="noopener">Python对象的身份迷思：从全体公民到万物皆数</a></p>
+<p><strong>字符串系列文章</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/z-gSW6XJrAvUE5rS5XrAig" target="_blank" rel="noopener">你真的知道Python的字符串是什么吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M4_38VHlQwp-CDRczh2NIA" target="_blank" rel="noopener">你真的知道Python的字符串怎么用吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/PsY8Iec1EeGDKKnTNU5CNw" target="_blank" rel="noopener">Python是否支持复制字符串呢？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M2uHVqaHe_nyO5jT60V_6Q" target="_blank" rel="noopener">join()方法的神奇用处与Intern机制的软肋</a></p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python猫的故事/2、Python对象的身份迷思：从全体公民到万物皆数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python猫的故事/2、Python对象的身份迷思：从全体公民到万物皆数/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Python对象的身份迷思：从全体公民到万物皆数"><a href="#Python对象的身份迷思：从全体公民到万物皆数" class="headerlink" title="Python对象的身份迷思：从全体公民到万物皆数"></a>Python对象的身份迷思：从全体公民到万物皆数</h2><p>这么久以来，我终于确认了一件事，那就是不管是人也好，还是猫也好，常常会忘了想自己当下的身份位置，以及曾经的身份位置。</p>
+<p>这个现象在我身上，表现出了双倍分量的严重。这种时刻，我就会想起阿尔法猫，以及她识破我身份的那个遥远的午后。（往事入口：《<a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a>》）</p>
+<p>阿尔法猫还没有踪影，她的谜题，还在指引我。</p>
+<p>学习Python之后，我明显感觉到了自己的变化，当然有时候是被迫的，因为那些生理上的矛盾冲突得厉害。</p>
+<p>毕竟，你应该知道，夜行猫和日间人的分界是清晰的。日夜的颠倒，对人和对猫，是双倍的压榨。说来你别不信，昨晚当瞄见明亮的月球的时候，一刹那恍惚，我还误以为自己回到了喵星的清晨。</p>
+<p>大概是想家了吧。地球上美好的事物很多，但我至今仍不习惯的就是它公转的速度太快了，不久就会是寒冷的冬天了。想我的暖炉了，喵。</p>
+<p>先不说我啦，来说说我发现的Python对象的身份问题吧。</p>
+<p>我对身份的话题特别感兴趣，也许是因为我独特的身份吧。但是，正因为独特的视角，我敢说发现了所有人类都没有发现的真相。</p>
+<p>我即将说出来的东西，也许你本以为知道了，或者你本以为很熟悉，但是，经过我的分析，我相信你会得到不一样的感悟，从此以后，你对Python的理解也会更深一步。</p>
+<h2 id="1、全体公民与特权种族"><a href="#1、全体公民与特权种族" class="headerlink" title="1、全体公民与特权种族"></a>1、全体公民与特权种族</h2><p>在某种意义上说，Python世界是普遍公平的，因为所有的子民都是对象“公民”，这在任何一个现实社会里，乃至于在虚拟的国度里，都是极其罕见的。对象们分属在五大部落里（数字、字符串、列表、元祖、字典），各有所长，各司其职，协作共处，通婚繁衍。</p>
+<p>还有一点难得的是，他们没有受到愚民政策的对待，全民都享有思想自由，还习得了超便利的自省能力。人能自知，这能力弥足珍贵。</p>
+<p>虽然在这个世界里，不会时常出现岗哨拦阻，但在任何有需要的时候，他们都可以自证清白，id() 和 type() 是一种通行语言，你不需要翻译来对接。而对于更进一步的询问，长得相似的两个对象只需一个简明的判断句，就能区分清楚。请你看一段对话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Object1=2018</span><br><span class="line">Object2=&quot;2018&quot;</span><br><span class="line">id(Object1) &gt;&gt;&gt;2399282764784</span><br><span class="line">id(Object2) &gt;&gt;&gt;2399281922600</span><br><span class="line">type(Object1) &gt;&gt;&gt;int</span><br><span class="line">type(Object2) &gt;&gt;&gt;str</span><br><span class="line">Object1 is Object2 &gt;&gt;&gt;False</span><br></pre></td></tr></table></figure>
+<p>全体皆公民，这项天赋权力让我对Python产生了良好的印象。不过，随着对它的认识加深，我发现它还暗地里制定了很多“效率优先”的规则。</p>
+<p>最明显的例子就是——“特权种族”。（参见：《<a href="https://mp.weixin.qq.com/s/vCs6QvJU2J6L0rIWDKQPUQ" target="_blank" rel="noopener">Python中的“特权种族”是什么？</a> 》）从现有的证据来看，特权种族至少包括了：一些数值较小的数字对象（区间：[-5,256]）、布尔值对象、None对象、较短的字符串对象（长度不超过20，且仅包括下划线、数字、字母的字符串）等等，还不知道这份名单漏了谁。</p>
+<p>效率优先的规则允许这些对象传承内存地址，也就是说，当一个“祖先”对象抢占了一块内存地盘后，所有它那一脉的“子孙后代”都会继承它的遗产（视为同一个对象）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=100</span><br><span class="line">b=1000</span><br><span class="line"># c与a共用id，d另立门户</span><br><span class="line">c=100</span><br><span class="line">d=1000</span><br><span class="line">id(a)==id(c) &gt;&gt;&gt;True</span><br><span class="line">id(b)==id(d) &gt;&gt;&gt;False</span><br></pre></td></tr></table></figure>
+<p>设想一下，两个祖先（a和b）占了相邻的两块内存，一个可以与它的“后代”共用内存，一个却只能让“后代”另立门户；当它们走完自己的生命周期后，b会马上被当垃圾回收，内存地址遗产被剥夺，然而a却形灭而实存，荫庇后世。</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/68b02e3bgy1fwmr6drdd8j22531gmtim.jpg" alt></p>
+<p>Python为这些对象倾斜资源，也就是为某种阶层固化提供了合法性。划分的依据是因为它们比较常用，共用内存就意味着减少开支，提高内存使用效率。</p>
+<p>这就是Python有趣的地方了，一面是全体公民，一面是特权种族，组成了看似矛盾的二元对立结构。</p>
+<h2 id="2、官方名片与私人名片"><a href="#2、官方名片与私人名片" class="headerlink" title="2、官方名片与私人名片"></a>2、官方名片与私人名片</h2><p>除了上面的群体性身份外，我发现Python中也存在着个体身份的二元结构。</p>
+<p>这就是<code>__repr__()</code> 和<code>__str__()</code> 的关系了。如你所知，这是Python的两个魔法方法，其对应的内置函数是repr() 和 str()。对于对象x，有x.<code>__repr__()</code> 等价于 repr(x)，同理，x.<code>__str__()</code> 等价于 str(x)。</p>
+<p>它们的主要用途在于，返回对象的字符串格式。用法示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">repr(2018) &gt;&gt;&gt;&apos;2018&apos;</span><br><span class="line">str(2018)  &gt;&gt;&gt;&apos;2018&apos;</span><br><span class="line">repr([1,2,3]) &gt;&gt;&gt;&apos;[1, 2, 3]&apos;</span><br><span class="line">str([1,2,3])  &gt;&gt;&gt;&apos;[1, 2, 3]&apos;</span><br><span class="line"></span><br><span class="line">words = &quot;Hello pythonCat!\n&quot;</span><br><span class="line">repr(words) &gt;&gt;&gt;&apos;Hello pythonCat!\n&apos;</span><br><span class="line">str(words)  &gt;&gt;&gt;&apos;Hello pythonCat!\n&apos;</span><br><span class="line"># 结合print，注意换行符\n</span><br><span class="line">print(repr(words))</span><br><span class="line">&gt;&gt;&gt;&apos;Hello pythonCat!\n&apos;</span><br><span class="line">print(str(words)) </span><br><span class="line">&gt;&gt;&gt;Hello pythonCat! # 再加换行</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>一个对象的字符串形式就是它的“脸面”，是向他人介绍自己的一张名片。前面提到过，Python世界有五大部落，这些部落的原住民们与生俱来就拥有这两张名片。</p>
+<p>对于原住民来说，这两张名片似乎没啥区别，除了在使用打印函数的时候，在换行符等用法上会有不同。</p>
+<p>而对于外来人口（例如，自定义的类），如果它没有定做名片（即实现<code>__repr__()</code> 和<code>__str__()</code> 方法）的话，其默认的名片就会是类名及内存地址，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">     def __init__(self,name,sex):</span><br><span class="line">         self.name = name</span><br><span class="line">         self.sex = sex</span><br><span class="line"></span><br><span class="line">me = Person(&quot;pythonCat&quot;, &quot;male&quot;)</span><br><span class="line"></span><br><span class="line">repr(me)</span><br><span class="line">&gt;&gt;&gt; &apos;&lt;__main__.Person object at 0x0000022EA8D7ED68&gt;&apos;</span><br><span class="line">str(me)</span><br><span class="line">&gt;&gt;&gt; &apos;&lt;__main__.Person object at 0x0000022EA8D7ED68&gt;&apos;</span><br></pre></td></tr></table></figure>
+<p>事实上，repr()返回的是对象的官方名片，通常人们会说，这张名片是给机器阅读的。本质上，它就是一个对象的代码表示形式，可以用来重新构造这个对象。通过eval()函数，你可以利用这张名片，重新构造出这个对象。</p>
+<p>eval()函数是个内置函数，它将字符串str当成有效的表达式来求值并返回计算结果。也就是eval(repr(x))==x，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = 1 + 1</span><br><span class="line">b = [1, 2, &apos;cat&apos;]</span><br><span class="line">c = &#123;&apos;name&apos;:&apos;pythonCat&apos;, &apos;sex&apos;:&apos;male&apos;&#125;</span><br><span class="line">eval(repr(a)) &gt;&gt;&gt;2</span><br><span class="line">eval(repr(b)) &gt;&gt;&gt;[1, 2, &apos;cat&apos;]</span><br><span class="line">eval(repr(c)) &gt;&gt;&gt;&#123;&apos;name&apos;: &apos;pythonCat&apos;, &apos;sex&apos;: &apos;male&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p>相对地，str()得到的是对象的私人名片，通常有更友好的表现形式，因为它是为人类阅读而设计的。</p>
+<p>如果一个对象公民没有私人名片，那Python默认会调用它的官方名片。因为这个机制，很多人建议如果要定制一个名片，最好是定制官方那个。但是我却不认同，我认为应该定制私人的那个，因为这样发挥空间更大。不张扬个性，毋宁死。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">     def __init__(self,name,sex):</span><br><span class="line">         self.name = name</span><br><span class="line">         self.sex = sex</span><br><span class="line">     # 定制私人名片</span><br><span class="line">     def __str__(self):</span><br><span class="line">     	return &quot;&#123;&#125; is an elegant creature!&quot;.format(self.name)</span><br><span class="line"></span><br><span class="line">me = Person(&quot;pythonCat&quot;, &quot;male&quot;)</span><br><span class="line"></span><br><span class="line">repr(me)</span><br><span class="line">&gt;&gt;&gt;&apos;&lt;__main__.Person object at 0x000002E6845AC390&gt;&apos;</span><br><span class="line">str(me)</span><br><span class="line">&gt;&gt;&gt;&apos;pythonCat is an elegant creature!&apos;</span><br></pre></td></tr></table></figure>
+<p>在《The Zen of Python》里第一句话就是：Beautiful is better than ugly。在我看来，定制私人名片要比定制官方名片更优美。能够为自己带盐，想想就觉得鸡冻啦！</p>
+<h2 id="3、何为真假，万物皆数"><a href="#3、何为真假，万物皆数" class="headerlink" title="3、何为真假，万物皆数"></a>3、何为真假，万物皆数</h2><p>以上说法，不管是全体公民身份与特权种族身份，还是官方名片与私人名片，多少带进了我浅薄的社会经验的偏见。我起初很为一方鸣不平，为一种讨巧的做法鸣得意，但是，现在当我知道Python中另一种更不为人知的身份现象的时候，我就释然了。</p>
+<p>我接下来要揭示的身份话题，已经超越了社会学和心理学范畴，进入了一种哲学的思想疆域。</p>
+<p>前方高能！</p>
+<p>前方高能！</p>
+<p>前方高能！</p>
+<p>首先，来做一个基础知识的铺垫。Python有一个令大部分编程语言都忘尘莫及的特性，那就是，所有对象都可以用于做真假判断。</p>
+<p>在做判断的时候，以下情况都视为假（False）：None、数值的零值、空序列（如空字符串””、空列表[]、空元祖() ）、空集合{} 等等。除此之外，一般对象都可以作为真值（True）来使用。来看示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list = [1, 2]</span><br><span class="line">if list: # 即if True</span><br><span class="line">	print(&quot;list is not empty&quot;)</span><br><span class="line">else:</span><br><span class="line">	print(&quot;list is empty&quot;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list is not empty</span><br></pre></td></tr></table></figure>
+<p>判断一个列表是否为空，你不需要写 if len(list) &gt; 0，或者写if list == []，简明的使用方法是 if list 或者 if not list，有物则为真，无物则为假。其它判断情况类似。</p>
+<p>接下来，还是一个铺垫，这次是进阶知识。零值（含整数0、浮点0.0、虚数0j等）可以映射为False，其它非零值映射为True；但是，反过来，False唯一映射整数0，True唯一映射整数1。</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/68b02e3bgy1fwmr7ws11lj223814447i.jpg" alt></p>
+<p>这意味着，可以拿False、True做数学运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">True + 1 &gt;&gt;&gt;2</span><br><span class="line">True + 1.0 &gt;&gt;&gt;2.0</span><br><span class="line">False + False &gt;&gt;&gt;0</span><br><span class="line">True + (True*2) &gt;&gt;&gt;3</span><br><span class="line">True/2*5 &gt;&gt;&gt;2.5</span><br></pre></td></tr></table></figure>
+<p>两个铺垫之后，接下来进入正题了。真正的前方高能！</p>
+<p>第一个铺垫告诉我们，对象可以映射成布尔值（True真False假），第二个铺垫告诉我们，布尔值可以映射成数字（1和0）。</p>
+<p>你是否觉察出什么了呢？你是否开始好奇，True和Flase到底是什么东西了呢？这到底是什么原理啊？还有，为什么会存在这样的设定呢？</p>
+<p>见证真相的时刻到了——在Python中，布尔值其实是整数对象的子类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type(True) &gt;&gt;&gt; bool</span><br><span class="line">isinstance(True,int)  &gt;&gt;&gt;True</span><br><span class="line">isinstance(False,int) &gt;&gt;&gt;True</span><br></pre></td></tr></table></figure>
+<p>啊！哪有什么真真假假，真假并不是本质的存在，真假其实只是数啊！</p>
+<p>再回看前面两个铺垫，结合起来，那不就是说，所有对象都映射成了数么？</p>
+<p>我不由得想起了2500年前，古希腊哲学家与数学家毕达哥拉斯的哲学命题——<strong>万物皆数</strong> ！</p>
+<p>难道这竟是Python的哲学么？总不会是一种巧合吧？</p>
+<p>我突然觉得智商不足，思辨受阻。得知布尔值True和False有这一层隐秘的身份，我已兴奋不已，再难对这看似不合现代语境、却又流传千古的思想做出任何揣测。</p>
+<p>哎呀，我猫性发作，突然困得要命，且容我去小憩片刻了~~~</p>
+<p>各位亲爱的读者，在我休息的时候，请你来帮我想想，这到底是什么回事啊？</p>
+<p>（未完待续……）</p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python猫的故事/1、有了Python，我能叫出所有猫的名字/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python猫的故事/1、有了Python，我能叫出所有猫的名字/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="有了Python，我能叫出所有猫的名字"><a href="#有了Python，我能叫出所有猫的名字" class="headerlink" title="有了Python，我能叫出所有猫的名字"></a>有了Python，我能叫出所有猫的名字</h2><hr>
+<p>话说，当年我刚来地球的时候，小心翼翼地伪装了自己的身份。我在暗处偷偷观察人类，学习你们的语言。</p>
+<p>直到一天，一只凭空出现的机器猫识破了我的真身，她叫阿尔法猫。她不仅对我的过往了如指掌，甚至对几百亿光年外的喵星的一切都如数家珍。我瞬间被折服。</p>
+<p>我问她怎么会知道我的名字，她说，因为有Python，她能叫出所有猫的名字。</p>
+<p>我又缠着她追问了99999个问题，她毫不费力一一解答！只恨当年，我人智初开啊，似懂非懂，过后就将全部智慧遗忘了，如今想起来，真如做了一场梦梦。</p>
+<p>我不知道她是什么时候离开的。不过我相信，总有一天，我会找到她哒。</p>
+<p>在她有意或无意留下来的小肚兜里，有一张图片一直吸引着我。呐，就是这张啰：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4021-73d0a2b402e8664d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>我仿佛站在阿尔法猫的角度，看见了她看着我的时候的样子。这张图片里肯定有阿尔法猫留给我的讯息。这个讯息到底是什么呢？</p>
+<p>苦思了6666.66小时，我仍不得其解噫，直到翻开她留下的一本书《Python：人成为猫及猫成为人的唯一宝典》。</p>
+<p>学习了Python之后，我终于自豪地成为了会写代码的程序猫咪。呐，请看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line"></span><br><span class="line">faceCascade = cv2.CascadeClassifier(r&quot;C:\data\haarcascade_frontalcatface_extended.xml&quot;)</span><br><span class="line">img = cv2.imread(&quot;cat.jpg&quot;)</span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">faces = faceCascade.detectMultiScale(</span><br><span class="line">    gray,</span><br><span class="line">    scaleFactor= 1.02,</span><br><span class="line">    minNeighbors=3,</span><br><span class="line">    minSize=(50, 50),</span><br><span class="line">    flags=cv2.CASCADE_SCALE_IMAGE</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">for (x, y, w, h) in faces:</span><br><span class="line">    cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)</span><br><span class="line">    cv2.putText(img,&apos;You get ME&apos;,(x,y-7), 1, 1.0, (0, 255, 0), 1, cv2.LINE_AA)</span><br><span class="line">cv2.imshow(&apos;beautiful_cat&apos;, img)</span><br><span class="line">cv2.imwrite(&quot;beautiful_cat.jpg&quot;,img)</span><br><span class="line">cv2.waitKey(0)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<p>我把一张美美的自拍照喂给程序，喵喵喵，它竟然不会吃进肚子不吐出来耶。照片里的我显得无比从容优雅，每根毛发都蕴藏着睿智而温柔的光芒。走过路过的人们，请慢慢欣赏我喔： </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4021-6fbc3525c59686f8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>我大概知道了阿尔法猫留下的讯息：猫脸识别！</p>
+<p>她一定是学会了Python的宝典，可以从猫变为人，也可以从人变为猫，在人海中自由变换，处处不留痕迹，却时时洞悉着大千芸芸。她在观察着我，希望我有一天也能变成她那般，那时，她会再出现，来见我。</p>
+<p>一定是这样滴！我这么确定地想着。从今往后，我决定隐藏自己的真名，化名Python猫，开启学习、求知、探索、利用Python的旅程。</p>
+<p>喵喵喵，阿尔法猫，我来找你啦~~~</p>
+<hr>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python翻译/视频当道的时代，这些珍藏的优质 Python 播客值得推荐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python翻译/视频当道的时代，这些珍藏的优质 Python 播客值得推荐/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="视频当道的时代，这些珍藏的优质-Python-播客值得推荐"><a href="#视频当道的时代，这些珍藏的优质-Python-播客值得推荐" class="headerlink" title="视频当道的时代，这些珍藏的优质 Python 播客值得推荐"></a>视频当道的时代，这些珍藏的优质 Python 播客值得推荐</h1><p>我国互联网的发展道路与欧美不同，在内容的形式上，我们似乎实现了跨越式的发展——早早进入了移动互联网时代，直播和短视频等形式的内容成为了潮流，而文字形式的博客（blog）与声音形式的播客（podcast）则（逐渐）成为了小众。智能手机极大地改变了我们的上网习惯。</p>
+<p>诚然，仍有一些受众广泛的聚合类的平台，例如微信公众号、CSDN、掘金、极客时间、喜马拉雅、荔枝FM，为我们提供丰富的博客与播客，但是，不依赖平台的个人博客与个人播客，则鲜有人知。</p>
+<p>依我的使用习惯，我很喜欢听音频节目，也即是播客。中文的播客听了不少，但是，免费的 Python 播客是极其稀少。</p>
+<p>直到发现了 <strong>Full Stack Python</strong> 网站上的一篇文章，它汇总介绍了一些非常棒的 Python 播客，大部分节目仍在持续更新中。我特翻译出来，分享给大家。</p>
+<p>英文节目对大多数人来说，可能门槛较高，但是<strong>英文是程序员的必修功课</strong> ，聆听英文节目，正好可以一边学技术，一边练习英语，一举两得。</p>
+<hr>
+<p><strong>英文</strong>  | Best Python Podcasts[0]</p>
+<p><strong>译者</strong>  | 豌豆花下猫</p>
+<p>Python 社区里有很多免费或低成本的学习资源，对新手与有经验的开发者来说，是一大福音。这些优秀的资源就包括很多定期更新的 Python 播客节目。</p>
+<p>本文介绍了一些活跃的、与 Python 或软件工程相关的、高质量的播客。</p>
+<h2 id="Python-相关的播客"><a href="#Python-相关的播客" class="headerlink" title="Python 相关的播客"></a>Python 相关的播客</h2><p>这些播客的运营者都是 Python 开发者，他们关注的都是我们领域内很重要的话题。每个播客系列都有很长的历史列表，有的节目录于几年前，因此我们有很丰富的材料可以聆听与学习。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1z4mdu2nhj21ba0nnnpd.jpg" alt="播客：Talk Python to Me"></p>
+<ul>
+<li><p>Talk Python to Me[1] 专注于 Python 开发者和组织，每期节目会邀请不同的嘉宾来谈论 ta 的工作</p>
+</li>
+<li><p>Podcast.__init__[2] 提供有关 Python 的故事，以及“与那些让它变得更棒的人们的访谈”</p>
+</li>
+<li><p>Python Bytes[3] 是来自“Talk Python to Me”和“Test and Code Podcast”创作者的新播客</p>
+</li>
+<li><p>Test and Code Podcast[4] 侧重于测试与相关主题，如模拟（mock）和代码度量</p>
+</li>
+<li><p>Philip Guo 教授有一个名为 PG Podcast[5] 的视频播客，基本是关于 Python 主题的</p>
+</li>
+<li><p>Import This[6] 是 Kenneth Reitz 和 Alex Gaynor 间歇更新的播客，对有影响力的 Python 社区成员进行深度的采访</p>
+</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1z4n9tjpcj20yr0hq0u6.jpg" alt="K神主持的播客"></p>
+<h2 id="最喜欢的播客节目"><a href="#最喜欢的播客节目" class="headerlink" title="最喜欢的播客节目"></a>最喜欢的播客节目</h2><p>以下是我从各大播客中收集的最喜欢的一些节目，听听这些内容，你可以感受到其余播客节目的风格。</p>
+<ul>
+<li>SQLAlchemy and data access in Python[7] 让我理解了对象关系映射库 SQLAlchemy 的知识及其演变过程。这期节目采访了 SQLAlchemy 的作者，主持人 Michael Kennedy 根据他对 SQLAlchemy 的深入研究和使用经验提出了很多问题。</li>
+<li>Python past, present, and future with Guido van Rossum[8] 涵盖了 Python 的历史、Guido 创造并持续三十年来发展这门语言的动机。有趣的事实：当播客主持人迈克尔·肯尼迪向我征询话题时，我贡献了一个问题，即 Python 的开源是否是促使它成功的原因？</li>
+<li>Deploying Python Web Applications[9] 剧透预警：这是我在 Talk Python to Me 上的一期节目，介绍了 Python Web 应用程序部署的工作原理。</li>
+<li>Python Bytes 栏目在第 39 集中广泛地讨论了 object-relational mappers (ORMs)[10] ，其中不少讨论是基于 Full Stack Python 上的文章。谢谢大家对我们提出的反馈与建议。</li>
+<li>Python at Netflix[11] 出自 Talk Python to Me ，通过一个非常棒的视角，介绍了 Python 是怎么运用于这家最大的网络流媒体公司，以及如何适应它们的多语言组织。</li>
+<li>另一个很棒的 Talk Python to Me 节目， Python in Finance[12]，介绍了 Python 在金融行业中的广泛用途：股票交易、定量分析和数据分析。如果你想知道像对冲基金这样的不透明的私营企业是如何利用 Python 赚取（大量）钱财的，一定要听听这个。</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1z4osxrmbj21bh0o4gti.jpg" alt="节目：Python at Netflix"></p>
+<h2 id="通用软件开发的播客"><a href="#通用软件开发的播客" class="headerlink" title="通用软件开发的播客"></a>通用软件开发的播客</h2><p>这些播客主要探讨的是软件开发相关的主题，但经常也会涉及 Python 的内容。聆听和学习这些播客，你将会成为更加优秀的软件开发者。</p>
+<ul>
+<li>Software Engineering Daily[13] 令人难以置信的是每天邀请不同的开发者嘉宾，谈论话题非常广泛，与开发相关。</li>
+<li>All things Git[14] 教人如何使用、构建及将 Git 用于工作，每两周一更。</li>
+<li>CodeNewbie[15] 采访新入行的开发者，谈论为什么他们要从事编程工作，以及他们的工作内容。该栏目也会采访一些经验丰富的、打造了知名项目的开发者。</li>
+<li>Developer on Fire[16] 采访程序员、架构师和测试人员，讲述他们成功、失败和卓越的故事。</li>
+<li>Command_line Heroes[17] 涵盖操作系统级的主题以及 DevOps。</li>
+<li>Embedded.fm[18] 涵盖嵌入式系统和硬件黑客攻击。</li>
+<li>The Changelog[19] 周更播客，关于常规软件开发的问题。</li>
+<li>Full Stack Radio[20] 虽与 Full Stack Python 无关，但值得关注！</li>
+<li>Exponent[21] 不是一个软件开发的播客，但它以深入的方式揭示了企业的战略和技术，使我能够更好地理解企业在构建和发布软件时所做出的决策。我听了每一集（以 1.5 倍速），非常推荐每周花 45 到 60 分钟，听 Ben Thompson 和 James Allworth 深入讨论一个主题。</li>
+<li>Test Talks[22] 每周考察一个软件测试的主题，通常会特邀一位钻研该领域的嘉宾。</li>
+<li>The Cloudcast[23] 聚焦于云计算和 DevOps 的相关主题。</li>
+</ul>
+<h2 id="数据科学与数据分析的播客"><a href="#数据科学与数据分析的播客" class="headerlink" title="数据科学与数据分析的播客"></a>数据科学与数据分析的播客</h2><p>Python 不仅是数据科学社区的核心编程语言，而且几乎在每个使用数据分析的组织中都发挥着重要作用。 以下播客广泛地涵盖数据科学，并经常涉及到 Python 生态系统中的特定的工具。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1z4piebafj21f70n0ak6.jpg" alt="播客：DataFramed"></p>
+<ul>
+<li>DataFramed[24] 是一个数据科学播客，内容涵盖 Python 标准库，以及数据分析者感兴趣的其它内容。</li>
+<li>Data Skeptic[25] 涵盖数据科学、统计、机器学习、人工智能，以及“科学怀疑论”（scientific skepticism）等内容。</li>
+<li>Data stories[26] 是一个关于数据可视化的播客。</li>
+<li>Partially Derivative[27] 是一个关于机器学习、人工智能和数据行业的播客，在 2017 年底已停播，节目列表包含了大量的内容。</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[0] Best Python Podcasts: <a href="https://www.fullstackpython.com/best-python-podcasts.html" target="_blank" rel="noopener">https://www.fullstackpython.com/best-python-podcasts.html</a><br>[1] Talk Python to Me: <a href="https://talkpython.fm/" target="_blank" rel="noopener">https://talkpython.fm/</a><br>[2] Podcast.__init__: <a href="http://podcastinit.com/" target="_blank" rel="noopener">http://podcastinit.com/</a><br>[3] Python Bytes: <a href="https://pythonbytes.fm/" target="_blank" rel="noopener">https://pythonbytes.fm/</a><br>[4] Test and Code Podcast: <a href="http://pythontesting.net/test-podcast/" target="_blank" rel="noopener">http://pythontesting.net/test-podcast/</a><br>[5] PG Podcast: <a href="http://pgbovine.net/PG-Podcast.htm" target="_blank" rel="noopener">http://pgbovine.net/PG-Podcast.htm</a><br>[6] Import This: <a href="https://www.kennethreitz.org/import-this/" target="_blank" rel="noopener">https://www.kennethreitz.org/import-this/</a><br>[7] SQLAlchemy and data access in Python: <a href="https://talkpython.fm/episodes/show/5/sqlalchemy-and-data-access-in-python" target="_blank" rel="noopener">https://talkpython.fm/episodes/show/5/sqlalchemy-and-data-access-in-python</a><br>[8] Python past, present, and future with Guido van Rossum: <a href="https://talkpython.fm/episodes/show/100/python-past-present-and-future-with-guido-van-rossum" target="_blank" rel="noopener">https://talkpython.fm/episodes/show/100/python-past-present-and-future-with-guido-van-rossum</a><br>[9] Deploying Python Web Applications: <a href="https://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated" target="_blank" rel="noopener">https://talkpython.fm/episodes/show/26/deploying-python-web-applications-updated</a><br>[10] object-relational mappers (ORMs): <a href="https://www.fullstackpython.com/object-relational-mappers-orms.html" target="_blank" rel="noopener">https://www.fullstackpython.com/object-relational-mappers-orms.html</a><br>[11] Python at Netflix: <a href="https://talkpython.fm/episodes/show/16/python-at-netflix" target="_blank" rel="noopener">https://talkpython.fm/episodes/show/16/python-at-netflix</a><br>[12] Python in Finance: <a href="https://talkpython.fm/episodes/show/120/python-in-finance" target="_blank" rel="noopener">https://talkpython.fm/episodes/show/120/python-in-finance</a><br>[13] Software Engineering Daily: <a href="https://softwareengineeringdaily.com/" target="_blank" rel="noopener">https://softwareengineeringdaily.com/</a><br>[14] All things Git: <a href="https://www.allthingsgit.com/" target="_blank" rel="noopener">https://www.allthingsgit.com/</a><br>[15] CodeNewbie: <a href="https://www.codenewbie.org/podcast" target="_blank" rel="noopener">https://www.codenewbie.org/podcast</a><br>[16] Developer on Fire: <a href="http://developeronfire.com/" target="_blank" rel="noopener">http://developeronfire.com/</a><br>[17] Command_line Heroes: <a href="https://www.redhat.com/en/command-line-heroes" target="_blank" rel="noopener">https://www.redhat.com/en/command-line-heroes</a><br>[18] Embedded.fm: <a href="http://embedded.fm/" target="_blank" rel="noopener">http://embedded.fm/</a><br>[19] The Changelog: <a href="https://changelog.com/" target="_blank" rel="noopener">https://changelog.com/</a><br>[20] Full Stack Radio: <a href="http://www.fullstackradio.com/" target="_blank" rel="noopener">http://www.fullstackradio.com/</a><br>[21] Exponent: <a href="http://exponent.fm/" target="_blank" rel="noopener">http://exponent.fm/</a><br>[22] Test Talks: <a href="https://joecolantonio.com/testtalks/" target="_blank" rel="noopener">https://joecolantonio.com/testtalks/</a><br>[23] The Cloudcast: <a href="http://www.thecloudcast.net/" target="_blank" rel="noopener">http://www.thecloudcast.net/</a><br>[24] DataFramed: <a href="https://www.datacamp.com/community/podcast" target="_blank" rel="noopener">https://www.datacamp.com/community/podcast</a><br>[25] Data Skeptic: <a href="https://www.dataskeptic.com/" target="_blank" rel="noopener">https://www.dataskeptic.com/</a><br>[26] Data stories: <a href="http://datastori.es/" target="_blank" rel="noopener">http://datastori.es/</a><br>[27] Partially Derivative: <a href="http://partiallyderivative.com/" target="_blank" rel="noopener">http://partiallyderivative.com/</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g08dfkg8sdj2076076t96.jpg" alt></p>
+<p>公众号【<strong>Python猫</strong>】， 专注Python技术、数据科学和深度学习，力图创造一个有趣又有用的学习分享平台。本号连载优质的系列文章，有喵星哲学猫系列、Python进阶系列、好书推荐系列、优质英文推荐与翻译等等，欢迎关注哦。PS：后台回复“<strong>爱学习</strong>”，免费获得一份学习大礼包。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python翻译/大名鼎鼎的Requests库用了什么编码风格？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python翻译/大名鼎鼎的Requests库用了什么编码风格？/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="大名鼎鼎的Requests库用了什么编码风格？"><a href="#大名鼎鼎的Requests库用了什么编码风格？" class="headerlink" title="大名鼎鼎的Requests库用了什么编码风格？"></a>大名鼎鼎的Requests库用了什么编码风格？</h1><p>原文：<a href="https://www.kennethreitz.org/essays/kenneth-reitzs-code-style" target="_blank" rel="noopener">https://www.kennethreitz.org/essays/kenneth-reitzs-code-style</a></p>
+<p>作者：Kenneth Reitz</p>
+<p>原题：Kenneth Reitz’s Code Style™</p>
+<p>Requests 的代码库使用 PEP-8 编码风格。</p>
+<p>除了 PEP-8 中列出的标准外，我们还有一些指导原则：</p>
+<ul>
+<li>如果方便的话，行长（Line-length）可超过 79 个字符，达到 100 个字符。</li>
+<li>如果换行会导致严重的不方便，则行长可以超过 100 个字符。</li>
+<li>除非在字符串中出现单引号，否则始终使用单引号字符串（例如，’#flatearth’）。</li>
+</ul>
+<p>此外，PEP-8 推荐的用于连续行的编码风格毫无一点品味，绝不允许在 Requests 代码库使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与开局定界符对齐</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br></pre></td></tr></table></figure>
+<p>No。千万别。请。</p>
+<p>文档字符串（docstrings）应遵循以下语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">the_earth_is_flat</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""NASA divided up the seas into thirty-three degrees."""</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci_spiral_tool</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""With my feet upon the ground I lose myself / between the sounds</span></span><br><span class="line"><span class="string">    and open wide to suck it in. / I feel it move across my skin. / I'm</span></span><br><span class="line"><span class="string">    reaching up and reaching out. / I'm reaching for the random or</span></span><br><span class="line"><span class="string">    whatever will bewilder me. / Whatever will bewilder me. / And</span></span><br><span class="line"><span class="string">    following our will and wind we may just go where no one's been. /</span></span><br><span class="line"><span class="string">    We'll ride the spiral to the end and may just go where no one's</span></span><br><span class="line"><span class="string">    been.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Spiral out. Keep going...</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>所有函数、方法和类都要求包含 docstrings 。除了对象数据模型方法（例如，<code>__repr__</code>），这些是此规则的例外。</p>
+<p>Thanks for helping to make the world a better place!</p>
+<p>资料来源（译注：即 Requests 的开发者指南）：<a href="http://t.cn/E5VgNJF" target="_blank" rel="noopener">http://t.cn/E5VgNJF</a></p>
+<p>（译文完）</p>
+<p>K 神的这篇文章很短，实际上，这只是摘自 Requests 的开发者指南的一小部分。</p>
+<p>但是，关于灵活设定行长的部分，我举双手双脚赞同。如果你所在的公司有“清白盒”的优良传统（不仅指Python），那你极有可能遇到被迫换行的麻烦，而实际上才仅仅刚刚超出了几个字符。那时候，你就会明白，这 3 条灵活规则的好处了。</p>
+<p>另外，关于连续行的部分，PEP-8 相关内容在：<a href="http://t.cn/Rq4mxOo" target="_blank" rel="noopener">http://t.cn/Rq4mxOo</a></p>
+<p>PEP-8 反对的是如下写法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Arguments on first line forbidden when not using vertical alignment.</span></span><br><span class="line"><span class="comment"># 不使用垂直对齐的参数禁止在第一行上</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br></pre></td></tr></table></figure>
+<p>PEP-8 推荐的写法是垂直地将换行的参数对齐起始的参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与开局定界符对齐</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br></pre></td></tr></table></figure>
+<p>K 神反对了 PEP-8 推荐的写法。在我看来，任何有品味的人，都会反对以上的两种写法。</p>
+<p>即使一个方法的参数超级多，超出了 100 个字符，我本人也是极不情愿换行的。所以，K 神的说法深得我心。</p>
+<p>关于代码风格，没有绝对完全一致的标准。本文也不想引起争论。不过，我认同 K 神设定的规则，因为一种与主流不同的审美倾向，值得发现它的同类。</p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python翻译/别开心太早，Python 官方文档的翻译差远了/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python翻译/别开心太早，Python 官方文档的翻译差远了/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="别开心太早，Python-官方文档的翻译差远了"><a href="#别开心太早，Python-官方文档的翻译差远了" class="headerlink" title="别开心太早，Python 官方文档的翻译差远了"></a>别开心太早，Python 官方文档的翻译差远了</h1><p>近几天，很多公众号发布了 Python 官方文档的消息。然而，一个特别奇怪的现象就发生了，让人啼笑皆非。</p>
+<p>Python 文档的中文翻译工作一直是“默默无闻”，几个月前，我还吐槽过这件事《<a href="https://mp.weixin.qq.com/s/855ur2uCI1Z1-qpuLGKp0Q" target="_blank" rel="noopener">再聊聊Python中文社区的翻译</a>》，当时我们的进度是 10.3%，远远落后于日本和法国，甚至落后于巴西！</p>
+<p>这次所谓的中文版，当然是未完成翻译的残品。刚查了下，整体进度是 19.7%。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1k1r342iej21g90kcdh3.jpg" alt="翻译进度不足20%"></p>
+<p>有的公众号在发布消息的时候，说明了这不是官宣、不是正式发布版，还指出了中文版的访问地址是隐藏入口。这都是忠于事实的。</p>
+<p>然而，怪异的事情就在于，还有一些公众号在发布时，不知怎么误传，这个消息变成了官方正式发布、全部翻译完成、激动人心期盼已久，至于这个隐藏入口跳转问题、下载的文档为何是英文版的问题，则完全无法解释。这带来了极大的误导。</p>
+<p>由于曾搜集过 PEP 文档的翻译，我无意中也了解到关于翻译官方文档的一些情况。有以下几个现状吧：</p>
+<p>1、人员分散，缺乏核心。就我所见，在V站、华蟒邮件组、简书、知乎，分别有不同的人发起过翻译召集或者咨询，然而应者无几，并没有形成过足够大的核心组织。</p>
+<p>2、官方的翻译？Python 官方在 2017 年的 PEP-545 中推出了一种翻译模式，各国语言的翻译在协作平台<code>Transifex</code> 上进行。实际上，这才是官方认可的版本，也是最终发布的依据。前文说的进度，就是指在这个平台上的进度。</p>
+<p>3、野生的翻译？所谓野生，这里指的是不在<code>Transifex</code> 上的翻译。网上能看到有人零星地翻译了一些部分，但成果没有合入到官方平台上。社区内的译者还是挺多的，能力也有，只是太分散了。邮件组里就有位大佬，他说翻译过 40 多个标准库以及 C 模块的文档，但懒得组织。有人尝试组织过，时间久远的不说，就在去年夏天，某位在 PHP 界知名的站长开了个 Python 社区，召集了一批译者。他们译出了 Python 3.7 官方文档的入门教程部分，然而，后续内容的计划，似乎被放弃了。</p>
+<p>关于对待翻译的态度，似乎多数人表示：感兴趣，但是时间少，希望有人牵头组织，可以参与作贡献。我本人也怀着同样的想法。作为参与者、见证者、沾光者就好了，谁愿意花费那么多精力，承担重任，周旋策划，最后可能还讨不到好呢？</p>
+<p>写文章是重口难调，翻译文档更是如此，碰上质疑翻译水平的，还可商榷一下，而遇到下面这种杠精，只能是破坏心情。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1k1mtj2oej20ua03s74c.jpg" alt></p>
+<p>前面提到的那位站长，提出在他的社区维护一份长久维护的版本。事实上，他们真的做出了点实事，除了入门教程，还完成了两本经典书籍的翻译。然而，他们也招到了非议：不当的“官方文档”措辞、不合入官方使用的平台、网站的商业化运营……</p>
+<p>空谈的人总是有他们的理，不对事情做贡献，还无视别人的贡献。诚然，宣称“官方”中文文档，确实不妥，这只是个人/社区的行为，改正就好了；至于合入官方的途径，只需有翻译成果，也不难做到；最后，一个站点接些贴片广告，哪有什么不妥？</p>
+<p>我所了解到的社区翻译情况，大致如上。</p>
+<p>总体上，分裂分散现象严重，随性自由之处跟 Python 这语言倒挺像，而各怀能力各出成绩的现象，也跟为数众多的三方模块神似。</p>
+<p>也有默默在做事的人。从 4 个月前的 10% ，增长到现在的 20%，我们的翻译进度暴涨，这背后不知有几人在持续作出贡献？而他们还不为人知。</p>
+<p>距离官方文档全部译出，还有大步路要走，现实情况得认清。</p>
+<p>我总体上是乐观的。所以，最后聊个题外话。</p>
+<p>这几天，有个热得不行的话题——<code>996.ICU</code> ，才仅仅一周，Github star 数已经破 10 万，绝对创造纪录了。程序员发起的活动，就是有如此大的力量。</p>
+<p>就在本文写作过程中，Python 之父也给了这个项目 star ，而且发推声援。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g1k3paevf6j20o20jpdys.jpg" alt></p>
+<p>在官方文档的翻译事情上，或许我们是有点脱轨了，不过不要紧，在使用全球最大的同性交友平台上，我们是与国际接轨的。</p>
+<p>还有啊，等过完了愚人节，我们还有个节日也是与国际接轨的——国际劳动节，纪念 1886 年芝加哥工人大罢工，确立每日 8 小时工作制的节日。</p>
+<p><strong>相关链接：</strong> </p>
+<p>翻译进度：<a href="https://www.transifex.com/python-doc/python-newest/" target="_blank" rel="noopener">https://www.transifex.com/python-doc/python-newest</a></p>
+<p>V站话题：<a href="https://neue.v2ex.com/t/477400#reply147" target="_blank" rel="noopener">https://neue.v2ex.com/t/477400#reply147</a></p>
+<p>邮件列表：<a href="https://groups.google.com/forum/#!topic/python-cn/8H4qhhI6khw" target="_blank" rel="noopener">https://groups.google.com/forum/#!topic/python-cn/8H4qhhI6khw</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python翻译/[译]PEP 342--增强型生成器：协程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python翻译/[译]PEP 342--增强型生成器：协程/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="译-PEP-342–增强型生成器：协程"><a href="#译-PEP-342–增强型生成器：协程" class="headerlink" title="[译]PEP 342–增强型生成器：协程"></a>[译]PEP 342–增强型生成器：协程</h1><p><strong>PEP原文 ：</strong> <a href="https://www.python.org/dev/peps/pep-0342/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0342/</a></p>
+<p><strong>PEP标题：</strong> Coroutines via Enhanced Generators</p>
+<p><strong>PEP作者：</strong> Guido van Rossum, Phillip J. Eby</p>
+<p><strong>创建日期：</strong> 2005-05-10</p>
+<p><strong>合入版本：</strong> 2.5</p>
+<p><strong>译者</strong> ：<a href="https://zhuanlan.zhihu.com/pythonCat" target="_blank" rel="noopener">豌豆花下猫</a>（<strong>Python猫</strong> 公众号作者）</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>简介</li>
+<li>动机</li>
+<li>规格摘要</li>
+<li>规格：将值发送到生成器<ul>
+<li>新的生成器方法：send(value)</li>
+<li>新的语法：yield 表达式</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>规格：异常和清理<ul>
+<li>新语法：yield 允许在<code>try-finally</code>中</li>
+<li>新的生成器方法：throw（type，value = None，traceback = None）</li>
+<li>新的标准异常：GeneratorExit</li>
+<li>新的生成器方法：close()</li>
+<li>新的生成器方法：<code>__del__()</code></li>
+</ul>
+</li>
+<li>可选的扩展<ul>
+<li>扩展的 continue 表达式</li>
+</ul>
+</li>
+<li>未决问题</li>
+<li>示例</li>
+<li>参考实现</li>
+<li>致谢</li>
+<li>参考文献</li>
+<li>版权</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个 PEP 在生成器的 API 和语法方面，提出了一些增强功能，使得它们可以作为简单的协程使用。这基本上是将下述两个 PEP 的想法结合起来，如果它被采纳，那它们就是多余的了：</p>
+<ul>
+<li>PEP-288，关于生成器的属性特征与异常（Attributes and Exceptions）。当前 PEP 沿用了它的下半部分，即生成器的异常（事实上，throw() 的方法名就取自 PEP-288）。PEP-342 用 yield 表达式（这个概念来自 PEP-288 的早期版本）来替换了生成器的属性特征。</li>
+<li>PEP-325，生成器支持释放资源。PEP-342 收紧了 PEP-325 中的一些松散的规范，使其更适用于实际的实现。</li>
+</ul>
+<p>（译注：PEP-288 和 PEP-325 都没有被采纳通过，它们的核心内容被集成到了 PEP-342里。）</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>协程是表达许多算法的自然方式，例如模拟/仿真、游戏、异步 I/O、以及其它事件驱动编程或协同的多任务处理。Python 的生成器函数几乎就是协程——但不完全是——因为它们允许暂停来生成值，但又不允许在程序恢复时传入值或异常。它们也不允许在 try-finally 结构的 try 部分作暂停，因此很难令一个异常退出的（aborted）协程来清理自己。</p>
+<p>同样地，当其它函数在执行时，生成器不能提供控制，除非这些函数本身是生成器，并且外部生成器之所以写了去 yield，是要为了响应内部生成器所 yield 的值。这使得即使是相对简单的实现（如异步通信）也变得复杂，因为调用任意函数，要么需要生成器变堵塞（block，即无法提供控制），要么必须在每个要调用的函数的周围，添加一大堆引用循环代码（a lot of boilerplate looping code）。</p>
+<p>但是，如果有可能在生成器挂起的点上传递进来值或者异常，那么，一个简单的协程调度器或蹦床函数（<code>trampoline function</code>）就能使协程相互调用且不用阻塞——对异步应用程序有巨大好处。这些应用程序可以编写协程来运行非阻塞的 socket I/O，通过给 I/O 调度器提供控制，直到数据被发送或变为可用。同时，执行 I/O 的代码只需像如下方式操作，就能暂停执行，直到 nonblocking_read() 继续产生一个值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = (yield nonblocking_read(my_socket, nbytes))</span><br></pre></td></tr></table></figure>
+<p>换句话说， 通过给语言和生成器类型增加一些相对较小的增强，Python 不需要为整个程序编写一系列回调，就能支持异步操作，并且对于本该需要数百上千个协作式的多任务伪线程的（co-operatively multitasking pseudothreads）程序，也可以不需要使用资源密集型线程。因此，这些增强功能将给标准 Python 带来 Stackless Python 的许多优点，又无需对 CPython 核心及其 API 进行任何重大的修改。此外，这些增强在任何已经支持生成器的 Python 实现（例如 Jython）上都是可落实的。</p>
+<h2 id="规格摘要"><a href="#规格摘要" class="headerlink" title="规格摘要"></a>规格摘要</h2><p>通过给生成器类型增加一些简单的方法，以及两个微小的语法调整，Python 开发者就能够使用生成器函数来实现协程与其它的协作式多任务。这些方法和调整是：</p>
+<ol>
+<li>重定义 yield 为表达式（expression），而不是语句（statement）。当前的 yield 语句将变成一个 yield 表达式，其值将被丢弃。每当通过正常的 next() 调用来恢复生成器时，yield 表达式的返回值是 None。</li>
+<li>为生成器（generator-iterator）添加一个新的 send() 方法，它会恢复生成器，并且 send 一个值作为当前表达式的结果。send() 方法返回的是生成器产生的 next 值，若生成器没有产生值就退出的话，则抛出 <code>StopIteration</code> 。</li>
+<li>为生成器（generator-iterator）添加一个新的 throw() 方法，它在生成器暂停处抛出异常，并返回生成器产生的下一个值，若生成器没有产生值就退出的话，则抛出 <code>StopIteration</code> （如果生成器没有捕获传入的异常，或者它引发了其它异常，则该异常会传递给调用者。）</li>
+<li>为生成器（generator-iterator）添加一个新的 close() 方法，它在生成器暂停处引发 <code>GeneratorExit</code> 。如果生成器在之后引发 <code>StopIteration</code> （通过正常退出，或者已经被关闭）或 <code>GeneratorExit</code> （通过不捕获异常），则 close() 返回给其调用者。如果生成器产生一个值，则抛出 <code>RuntimeError</code>。如果生成器引发任何其它异常，也会传递给调用者。如果生成器已经退出（异常退出或正常退出），则 close() 不执行任何操作。</li>
+<li>增加了支持，确保即使在生成器被垃圾回收时，也会调用 close()。</li>
+<li>允许 yield 在 try-finally 块中使用，因为现在允许在 finally 语句中执行垃圾回收或显式地调用 close() 。</li>
+</ol>
+<p>实现了所有这些变更的原型补丁已经可用了，可作为当前 Python CVS HEAD 的 SourceForge 补丁。# 1223381</p>
+<h2 id="设计规格：将值发送进生成器"><a href="#设计规格：将值发送进生成器" class="headerlink" title="设计规格：将值发送进生成器"></a>设计规格：将值发送进生成器</h2><h3 id="新的生成器方法：send-value"><a href="#新的生成器方法：send-value" class="headerlink" title="新的生成器方法：send(value)"></a>新的生成器方法：send(value)</h3><p>为生成器提出了一种新的方法，即 send() 。它只接收一个参数，并将它发送给生成器。调用 send(None) 完全等同于调用生成器的 next() 方法。使用其它参数调用 send() 也有同样的效果，不同的是，当前生成器表达式产生的值会不一样。</p>
+<p>因为生成器在生成器函数体的头部执行，所以在刚刚创建生成器时不会有 yield 表达式来接收值，因此，当生成器刚启动时，禁止使用非 None 参数来调用 send() ，如果调用了，就会抛出 <code>TypeError</code> （可能是由于某种逻辑错误）。所以，在与协程通信前，必须先调用 next() 或 send(None) ，来将程序推进到第一个 yield 表达式。</p>
+<p>与 next() 方法一样，send() 方法也返回生成器产生的下一个值，或者抛出 <code>StopIteration</code>  异常（当生成器正常退出，或早已退出时）。如果生成器出现未捕获的异常，则它会传给调用者。</p>
+<h3 id="新语法：yield-表达式"><a href="#新语法：yield-表达式" class="headerlink" title="新语法：yield 表达式"></a>新语法：yield 表达式</h3><p>yield 语句（yield-statement）可以被用在赋值表达式的右侧；在这种情况下，它就是 yield 表达式（yield-expression）。除非使用非 None 参数调用 send() ，否则 yield 表达式的值就是 None。见下文。</p>
+<p>yield 表达式必须始终用括号括起来，除非它是作为顶级表达式而出现在赋值表达式的右侧。所以，下面例子都是合法的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = yield 42</span><br><span class="line">x = yield</span><br><span class="line">x = 12 + (yield 42)</span><br><span class="line">x = 12 + (yield)</span><br><span class="line">foo(yield 42)</span><br><span class="line">foo(yield)</span><br></pre></td></tr></table></figure>
+<p>而下面的例子则是非法的（举了一些特例的原因是，当前的 <code>yield 12,42</code> 是合法的）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = 12 + yield 42</span><br><span class="line">x = 12 + yield</span><br><span class="line">foo(yield 42, 12)</span><br><span class="line">foo(yield, 12)</span><br></pre></td></tr></table></figure>
+<p>请注意，如今没有表达式的 yield-语句 和 yield-表达式是合法的。这意味着：当 next() 调用中的信息流被反转时，应该可以在不传递显式的值的情况下 yield （yield 当然就等同于 yield None）。</p>
+<p>当调用 send(value) 时，它恢复的 yield 表达式将返回传入的值。当调用 next() 时，它恢复的 yield 表达式将返回 None。如果 yield-表达式（yield-expression）是一个 yield-语句（yield-statement），其返回值会被忽略，就类似于忽略用作语句的函数的返回值。</p>
+<p>实际上，yield 表达式就像一个反函数调用（inverted function）；它所 yield 的值实际上是当前函数返回（生成）的，而它 return 的值则是通过 send() 传入的参数。</p>
+<p>提示：这样的拓展语法，使得它非常地接近于 Ruby。这是故意的。请注意，Python 在阻塞时，通过使用 send(EXPR) 而不是 return EXPR 来传值给生成器，并且在生成器与阻塞之间传递控制权的底层机制完全不同。Python 中的阻塞不会被编译成 thunk，相反，yield 暂停生成器的执行进度。有一些不是这样的特例，在 Python 中，你不能保存阻塞以供后续调用，并且你无法测试是否存在着阻塞。（XXX - 关于阻塞的这些东西似乎不合适，或许 Guido 会编辑下，做澄清。）</p>
+<h2 id="设计规格：异常和清理"><a href="#设计规格：异常和清理" class="headerlink" title="设计规格：异常和清理"></a>设计规格：异常和清理</h2><p>让生成器对象成为通过调用生成器函数而生成的迭代器。本节中的 g 指的都是生成器对象。</p>
+<h3 id="新语法：yield-允许在-try-finally-里"><a href="#新语法：yield-允许在-try-finally-里" class="headerlink" title="新语法：yield 允许在 try-finally 里"></a>新语法：yield 允许在 try-finally 里</h3><p>生成器函数的语法被拓展了，允许在 try-finally 语句中使用 yield 语句。</p>
+<h3 id="新的生成器方法：throw-type，value-None，traceback-None"><a href="#新的生成器方法：throw-type，value-None，traceback-None" class="headerlink" title="新的生成器方法：throw(type，value = None，traceback = None)"></a>新的生成器方法：throw(type，value = None，traceback = None)</h3><p><code>g.throw(type, value, traceback)</code> 会使生成器在挂起的点处抛出指定的异常（即在 yield 语句中，或在其函数体的头部、且还未调用 next() 时）。如果生成器捕获了异常，并生成了新的值，则它就是 g.throw() 的返回值。如果生成器没有捕获异常，那 throw() 也会抛出同样的异常（它溜走了）。如果生成器抛出其它异常（包括返回时产生的 StopIteration），那该异常会被 throw() 抛出。总之，throw() 的行为类似于 next() 或 send()，除了它是在挂起点处抛出异常。如果生成器已经处于关闭状态，throw() 只会抛出经过它的异常，而不去执行生成器的任何代码。</p>
+<p>抛出异常的效果完全像它所声明的那样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise type, value, traceback</span><br></pre></td></tr></table></figure>
+<p>会在暂停点执行。type 参数不能是 None，且 type 与 value 的类型必须得兼容。如果 value 不是 type 的实例（instance），则按照 raise 语句创建异常实例的规则，用 value 来生成新的异常实例。如果提供了 traceback 参数，则它必须是有效的 Python 堆栈（traceback）对象，否则会抛出 TypeError 。</p>
+<p>注释：选择 throw() 这个名称，有几个原因。Raise 是一个关键字，因此不能作为方法的名称。与 raise 不同（它在执行点处即时地抛出异常），throw() 首先恢复生成器，然后才抛出异常。单词 throw 意味着将异常抛在别处，并且跟其它语言相关联。</p>
+<p>考虑了几个替代的方法名：<code>resolve()</code>, <code>signal()</code>, <code>genraise()</code>, <code>raiseinto()</code> 和 <code>flush()</code> 。没有一个像 throw() 那般合适。</p>
+<h3 id="新的标准异常：GeneratorExit"><a href="#新的标准异常：GeneratorExit" class="headerlink" title="新的标准异常：GeneratorExit"></a>新的标准异常：GeneratorExit</h3><p>定义了一个新的标准异常 GeneratorExit，继承自 Exception。生成器应该继续抛出它（或者就不捕获它），或者通过抛出 StopIteration 来处理这个问题。</p>
+<h3 id="新的生成器方法：close"><a href="#新的生成器方法：close" class="headerlink" title="新的生成器方法：close()"></a>新的生成器方法：close()</h3><p>g.close() 由以下伪代码定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def close(self):</span><br><span class="line">    try:</span><br><span class="line">        self.throw(GeneratorExit)</span><br><span class="line">    except (GeneratorExit, StopIteration):</span><br><span class="line">        pass</span><br><span class="line">    else:</span><br><span class="line">        raise RuntimeError(&quot;generator ignored GeneratorExit&quot;)</span><br><span class="line">    # Other exceptions are not caught</span><br></pre></td></tr></table></figure>
+<h3 id="新的生成器方法：-del"><a href="#新的生成器方法：-del" class="headerlink" title="新的生成器方法：__del__()"></a>新的生成器方法：<code>__del__()</code></h3><p><code>g.__ del __()</code> 是 g.close() 的装饰器。当生成器对象被作垃圾回收时，会调用它（在 CPython 中，则是它的引用计数变为零时）。如果 close() 引发异常， 异常的堆栈信息（traceback）会被打印到 sys.stderr 并被忽略掉；它不会退回到触发垃圾回收的地方。这与类实例在处理 <code>__del__()</code>的异常时的方法一样。</p>
+<p>如果生成器对象被循环引用，则可能不会调用 <code>g.__del__()</code> 。这是当前 CPython 的垃圾收集器的表现。做此限制的原因是，GC 代码需要在一个任意点打破循环，以便回收它，在此之后，不允许 Python 代码“看到”形成循环的对象，因为它们可能处于无效的状态。被用于解开（hanging off）循环的对象不受此限制。</p>
+<p>尽管实际上不太可能看到生成器被循环引用。但是，若将生成器对象存储在全局变量中，则会通过生成器框架的 f_globals 指针创建一个循环。另外，若在数据结构中存储对生成器对象的引用，且该数据结构被作为参数传递给生成器，这也会创造一个循环引用（例如，如果一个对象具有一个作为生成器的方法，并持有由该方法创建的运行中的迭代器的引用）。鉴于生成器的典型用法，这些情况都不太可能。</p>
+<p>此外，CPython 在实现当前 PEP 时，每当由于错误或正常退出而终止执行时，会释放被生成器使用的框架对象（frame object）。这保证了那些无法被恢复的生成器不会成为无法回收的循环引用的部分。这就允许了其它代码在 try-finally 或 with 语句中使用 close() （参考 PEP-343），确保了给定的生成器会正确地完结。</p>
+<h2 id="可选扩展"><a href="#可选扩展" class="headerlink" title="可选扩展"></a>可选扩展</h2><h3 id="扩展的-continue-语句"><a href="#扩展的-continue-语句" class="headerlink" title="扩展的 continue 语句"></a>扩展的 continue 语句</h3><p>本 PEP 的早期草案提出了一种新的 continue EXPR 语法，用于 for 循环（继承自 PEP-340），将 EXPR 的值传给被遍历的迭代器。此功能暂时被撤销了，因为本 PEP 的范围已经缩小，只关注将值传给生成器迭代器（generator-iterator），而非其它类型的迭代器。Python-Dev 邮件列表中的一些人也觉得为这个特定功能添加新语法是为时过早（would be premature at best）。</p>
+<h2 id="未决问题"><a href="#未决问题" class="headerlink" title="未决问题"></a>未决问题</h2><p>Python-Dev 邮件的讨论提出了一些未决的问题。我罗列于此，附上我推荐的解决方案与它的动机。目前编写的 PEP 也反映了这种喜好的解决方案。</p>
+<ol>
+<li><p>当生成器产生另一个值作为对“GeneratorExit”异常的响应时，<code>close()</code>应该引发什么异常？</p>
+<p>我最初选择了 TypeError ，因为它表示生成器函数发生了严重的错误行为，应该通过修改代码来修复。但是 PEP-343 中的 <code>with_template</code> 装饰器类使用了 RuntimeError 来进行类似处理。可以说它们都应该使用相同的异常。我宁愿不为此目的引入新的异常类，因为它不是我希望人们捕获的异常：我希望它变成一个 traceback 给程序员看到，然后进行修复。所以我觉得它们都应该抛出 RuntimeError 。有一些先例：在检测到无限递归的情况下，或者检测到未初始化的对象（由于各种各样的原因），核心 Python 代码会抛出该异常。</p>
+</li>
+<li><p>Oren Tirosh 建议将 send() 方法重命名为 feed() ，以便能跟 consumer 接口兼容（规范参见：<a href="http://effbot.org/zone/consumer.htm" target="_blank" rel="noopener">http://effbot.org/zone/consumer.htm</a>）。</p>
+<p>然而，仔细观察 consumer 接口，似乎 feed() 所需的语义与 send() 不同，因为后者不能在刚启动的生成器上作有意义的调用。此外，当前定义的 consumer 接口不包含对 StopIteration 的处理。</p>
+<p>因此，创建一个贴合 consumer 接口的简单的装饰器，来装饰生成器函数，似乎会更有用。举个例子，它可以用初始的 next() 调用给生成器预热（warm up），追踪 StopIteration，甚至可以通过重新调用生成器来提供 reset() 用途。</p>
+</li>
+</ol>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ol>
+<li>一个简单的 consumer 装饰器，它使生成器函数在最初调用时，就自动地前进到第一个 yield 点：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def consumer(func):</span><br><span class="line">    def wrapper(*args,**kw):</span><br><span class="line">        gen = func(*args, **kw)</span><br><span class="line">        gen.next()</span><br><span class="line">        return gen</span><br><span class="line">    wrapper.__name__ = func.__name__</span><br><span class="line">    wrapper.__dict__ = func.__dict__</span><br><span class="line">    wrapper.__doc__  = func.__doc__</span><br><span class="line">    return wrapper</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>一个使用 consumer 装饰器创建反向生成器（reverse generator）的示例，该生成器接收图像并创建缩略图，再发送给其它 consumer。像这样的函数可以链接在一起，形成 consumer 间的高效处理流水线，且每个流水线都可以具有复杂的内部状态：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">@consumer</span><br><span class="line">def thumbnail_pager(pagesize, thumbsize, destination):</span><br><span class="line">    while True:</span><br><span class="line">        page = new_image(pagesize)</span><br><span class="line">        rows, columns = pagesize / thumbsize</span><br><span class="line">        pending = False</span><br><span class="line">        try:</span><br><span class="line">            for row in xrange(rows):</span><br><span class="line">                for column in xrange(columns):</span><br><span class="line">                    thumb = create_thumbnail((yield), thumbsize)</span><br><span class="line">                    page.write(</span><br><span class="line">                        thumb, col*thumbsize.x, row*thumbsize.y )</span><br><span class="line">                    pending = True</span><br><span class="line">        except GeneratorExit:</span><br><span class="line">            # close() was called, so flush any pending output</span><br><span class="line">            if pending:</span><br><span class="line">                destination.send(page)</span><br><span class="line"></span><br><span class="line">            # then close the downstream consumer, and exit</span><br><span class="line">            destination.close()</span><br><span class="line">            return</span><br><span class="line">        else:</span><br><span class="line">            # we finished a page full of thumbnails, so send it</span><br><span class="line">            # downstream and keep on looping</span><br><span class="line">            destination.send(page)</span><br><span class="line"></span><br><span class="line">@consumer</span><br><span class="line">def jpeg_writer(dirname):</span><br><span class="line">    fileno = 1</span><br><span class="line">    while True:</span><br><span class="line">        filename = os.path.join(dirname,&quot;page%04d.jpg&quot; % fileno)</span><br><span class="line">        write_jpeg((yield), filename)</span><br><span class="line">        fileno += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Put them together to make a function that makes thumbnail</span><br><span class="line"># pages from a list of images and other parameters.</span><br><span class="line">#</span><br><span class="line">def write_thumbnails(pagesize, thumbsize, images, output_dir):</span><br><span class="line">    pipeline = thumbnail_pager(</span><br><span class="line">        pagesize, thumbsize, jpeg_writer(output_dir)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    for image in images:</span><br><span class="line">        pipeline.send(image)</span><br><span class="line"></span><br><span class="line">    pipeline.close()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>一个简单的协程调度器或蹦床（trampoline），它允许协程通过 yield 其它协程，来调用后者。被调用的协程所产生的非生成器的值，会被返回给调用方的协程。类似地，如果被调用的协程抛出异常，该异常也会传导给调用者。实际上，只要你用 yield 表达式来调用协程（否则会阻塞），这个例子就模拟了 Stackless Python 中使用的简单的子任务（tasklet）。这只是一个非常简单的例子，但也可以使用更复杂的调度程序。（例如，现有的 GTasklet 框架 (<a href="http://www.gnome.org/~gjc/gtasklet/gtasklets.html" target="_blank" rel="noopener">http://www.gnome.org/~gjc/gtasklet/gtasklets.html</a>) 和 peak.events 框架 (<a href="http://peak.telecommunity.com/" target="_blank" rel="noopener">http://peak.telecommunity.com/</a>) 已经实现类似的调度功能，但大多数因为无法将值或异常传给生成器，而必须使用很尴尬的解决方法。）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line"></span><br><span class="line">class Trampoline:</span><br><span class="line">    &quot;&quot;&quot;Manage communications between coroutines&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    running = False</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.queue = collections.deque()</span><br><span class="line"></span><br><span class="line">    def add(self, coroutine):</span><br><span class="line">        &quot;&quot;&quot;Request that a coroutine be executed&quot;&quot;&quot;</span><br><span class="line">        self.schedule(coroutine)</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        result = None</span><br><span class="line">        self.running = True</span><br><span class="line">        try:</span><br><span class="line">            while self.running and self.queue:</span><br><span class="line">               func = self.queue.popleft()</span><br><span class="line">               result = func()</span><br><span class="line">            return result</span><br><span class="line">        finally:</span><br><span class="line">            self.running = False</span><br><span class="line"></span><br><span class="line">    def stop(self):</span><br><span class="line">        self.running = False</span><br><span class="line"></span><br><span class="line">    def schedule(self, coroutine, stack=(), val=None, *exc):</span><br><span class="line">        def resume():</span><br><span class="line">            value = val</span><br><span class="line">            try:</span><br><span class="line">                if exc:</span><br><span class="line">                    value = coroutine.throw(value,*exc)</span><br><span class="line">                else:</span><br><span class="line">                    value = coroutine.send(value)</span><br><span class="line">            except:</span><br><span class="line">                if stack:</span><br><span class="line">                    # send the error back to the &quot;caller&quot;</span><br><span class="line">                    self.schedule(</span><br><span class="line">                        stack[0], stack[1], *sys.exc_info()</span><br><span class="line">                    )</span><br><span class="line">                else:</span><br><span class="line">                    # Nothing left in this pseudothread to</span><br><span class="line">                    # handle it, let it propagate to the</span><br><span class="line">                    # run loop</span><br><span class="line">                    raise</span><br><span class="line"></span><br><span class="line">            if isinstance(value, types.GeneratorType):</span><br><span class="line">                # Yielded to a specific coroutine, push the</span><br><span class="line">                # current one on the stack, and call the new</span><br><span class="line">                # one with no args</span><br><span class="line">                self.schedule(value, (coroutine,stack))</span><br><span class="line"></span><br><span class="line">            elif stack:</span><br><span class="line">                # Yielded a result, pop the stack and send the</span><br><span class="line">                # value to the caller</span><br><span class="line">                self.schedule(stack[0], stack[1], value)</span><br><span class="line"></span><br><span class="line">            # else: this pseudothread has ended</span><br><span class="line"></span><br><span class="line">        self.queue.append(resume)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>一个简单的 echo 服务器以及用蹦床原理实现的运行代码（假设存在 <code>nonblocking_read</code> 、<code>nonblocking_write</code>  和其它 I/O 协程，该例子在连接关闭时抛出 <code>ConnectionLost</code> ）：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># coroutine function that echos data back on a connected</span><br><span class="line"># socket</span><br><span class="line">#</span><br><span class="line">def echo_handler(sock):</span><br><span class="line">    while True:</span><br><span class="line">        try:</span><br><span class="line">            data = yield nonblocking_read(sock)</span><br><span class="line">            yield nonblocking_write(sock, data)</span><br><span class="line">        except ConnectionLost:</span><br><span class="line">            pass  # exit normally if connection lost</span><br><span class="line"></span><br><span class="line"># coroutine function that listens for connections on a</span><br><span class="line"># socket, and then launches a service &quot;handler&quot; coroutine</span><br><span class="line"># to service the connection</span><br><span class="line">#</span><br><span class="line">def listen_on(trampoline, sock, handler):</span><br><span class="line">    while True:</span><br><span class="line">        # get the next incoming connection</span><br><span class="line">        connected_socket = yield nonblocking_accept(sock)</span><br><span class="line"></span><br><span class="line">        # start another coroutine to handle the connection</span><br><span class="line">        trampoline.add( handler(connected_socket) )</span><br><span class="line"></span><br><span class="line"># Create a scheduler to manage all our coroutines</span><br><span class="line">t = Trampoline()</span><br><span class="line"></span><br><span class="line"># Create a coroutine instance to run the echo_handler on</span><br><span class="line"># incoming connections</span><br><span class="line">#</span><br><span class="line">server = listen_on(</span><br><span class="line">    t, listening_socket(&quot;localhost&quot;,&quot;echo&quot;), echo_handler</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># Add the coroutine to the scheduler</span><br><span class="line">t.add(server)</span><br><span class="line"></span><br><span class="line"># loop forever, accepting connections and servicing them</span><br><span class="line"># &quot;in parallel&quot;</span><br><span class="line">#</span><br><span class="line">t.run()</span><br></pre></td></tr></table></figure>
+<h2 id="参考实现"><a href="#参考实现" class="headerlink" title="参考实现"></a>参考实现</h2><p>实现了本 PEP 中描述的所有功能的原型补丁已经可用，参见 SourceForge 补丁 1223381 （<a href="https://bugs.python.org/issue1223381" target="_blank" rel="noopener">https://bugs.python.org/issue1223381</a>）。</p>
+<p>该补丁已提交到 CVS，2005年8月 01-02。</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>Raymond Hettinger (<a href="https://www.python.org/dev/peps/pep-0288" target="_blank" rel="noopener">PEP 288</a>) 与 Samuele Pedroni (<a href="https://www.python.org/dev/peps/pep-0325" target="_blank" rel="noopener">PEP 325</a>) 第一个正式地提出将值或异常传递给生成器的想法，以及关闭生成器的能力。Timothy Delaney 建议了本 PEP 的标题，还有 Steven Bethard 帮忙编辑了早期的版本。另见 PEP-340 的致谢部分。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p> TBD.</p>
+<h2 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h2><p>本文档已经放置在公共领域。</p>
+<p>源文档：<a href="https://github.com/python/peps/blob/master/pep-0342.txt" target="_blank" rel="noopener">https://github.com/python/peps/blob/master/pep-0342.txt</a></p>
+<p>-—————（译文完）-——————-</p>
+<p><strong>相关链接：</strong> </p>
+<p><strong>PEP背景知识</strong> ：<a href="https://mp.weixin.qq.com/s/oRoBxZ2-IyuPOf_MWyKZyw" target="_blank" rel="noopener">学习Python，怎能不懂点PEP呢？</a></p>
+<p><strong>PEP翻译计划</strong> ：<a href="https://github.com/chinesehuazhou/peps-cn" target="_blank" rel="noopener">https://github.com/chinesehuazhou/peps-cn</a></p>
+<p><a href="https://mp.weixin.qq.com/s/vjQLlmH5QV-zAre7tVCxSA" target="_blank" rel="noopener">[译] PEP 255–简单的生成器</a></p>
+<p><a href="https://mp.weixin.qq.com/s/fyzFo8btDelxZikMerm7Qg" target="_blank" rel="noopener">[译]PEP 525–异步生成器</a></p>
+<p><strong>花下猫语：</strong> 唠叨几句吧，年前这几周事情太多了，挤着时间好歹是又翻译出一篇 PEP。与生成器密切相关的 PEP 已经完成 3/4，年后再译最后一篇（PEP-380）。当初翻译第一篇，完全是一时兴起，直觉这是一件有意义的事，现在呢，这个念头开始有点膨胀——我竟然在 Github 上建了个翻译项目。我深知，自己水平实在有限，因此不求得到多少认同吧。但行好事，莫问前程。不过，若有人帮着吆喝一声，也是极好的。 </p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python翻译/[译] PEP 255--简单的生成器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python翻译/[译] PEP 255--简单的生成器/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="译-PEP-255–简单的生成器"><a href="#译-PEP-255–简单的生成器" class="headerlink" title="[译] PEP 255–简单的生成器"></a>[译] PEP 255–简单的生成器</h1><p>我正打算写写 Python 的生成器，然而查资料时发现，引入生成器的 PEP 没人翻译过，因此就花了点时间翻译出来。如果在阅读时，你有读不懂的地方，不用怀疑，极有可能是我译得不到位。若出现这种情况，我建议你直接阅读原文，最好也能将错误处告知于我，以便做出修改。</p>
+<p><strong>PEP原文</strong>：<a href="https://www.python.org/dev/peps/pep-0255" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0255</a></p>
+<p><strong>创建日期</strong>：2001-05-18</p>
+<p><strong>合入Python版本</strong>：2.2</p>
+<p><strong>译者</strong> ：<a href="https://zhuanlan.zhihu.com/pythonCat" target="_blank" rel="noopener">豌豆花下猫</a>（<strong>Python猫</strong> 公众号作者）</p>
+<p><strong>PEP背景知识</strong> ：<a href="https://mp.weixin.qq.com/s/oRoBxZ2-IyuPOf_MWyKZyw" target="_blank" rel="noopener">学习Python，怎能不懂点PEP呢？</a></p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>这个 PEP 想在 Python 中引入生成器的概念，以及一个新的表达式，即 yield 表达式。</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>当一个生产者函数在处理某些艰难的任务时，它可能需要维持住生产完某个值时的状态，大多数编程语言都提供不了既舒服又高效的方案，除了往参数列表中添加回调函数，然后每生产一个值时就去调用一下。</p>
+<p>例如，标准库中的<code>tokenize.py</code>采用这种方法：调用者必须传一个 tokeneater 函数给 tokenize() ，当 tokenize() 找到下一个 token 时再调用。这使得 tokenize 能以自然的方式编码，但程序调用 tokenize 会变得极其复杂，因为它需要记住每次回调前最后出现的是哪个 token(s)。<code>tabnanny.py</code>中的 tokeneater 函数是处理得比较好的例子，它在全局变量中维护了一个状态机，用于记录已出现的 token 和预期会出现的 token 。这很难正确地工作，而且也挺难让人理解。不幸的是，它已经是最标准的解决方法了。</p>
+<p>有一个替代方案是一次性生成 Python 程序的全部解析，并存入超大列表中。这样 tokenize 客户端可以用自然的方式，即使用局部变量和局部控制流（例如循环和嵌套的 if 语句），来跟踪其状态。然而这并不实用：程序会变得臃肿，因此不能在实现整个解析所需的内存上放置先验限制；而有些 tokenize 客户端仅仅想要查看某个特定的东西是否曾出现（例如，future 声明，或者像 IDLE 做的那样，只是首个缩进的声明），因此解析整个程序就是严重地浪费时间。</p>
+<p>另一个替代方案是把 tokenize 变为一个迭代器【注释1】，每次调用它的 next() 方法时再传递下一个 token。这对调用者来说很便利，就像前一方案把结果存入大列表一样，同时没有内存与“想要早点退出怎么办”的缺点。然而，这个方案也把 tokenize 的负担转化成记住 next() 的调用状态，读者只要瞄一眼 tokenize.tokenize_loop() ，就会意识到这是一件多么可怕的苦差事。或者想象一下，用递归算法来生成普通树结构的节点：若把它投射成一个迭代器框架实现，就需要手动地移除递归状态并维护遍历的状态。</p>
+<p>第四种选择是在不同的线程中运行生产者和消费者。这允许两者以自然的方式维护其状态，所以都会很舒服。实际上，Python 源代码发行版中的 Demo/threads/Generator.py 就提供了一个可用的同步通信（synchronized-communication）类，来完成一般的任务。但是，这在没有线程的平台上无法运用，而且就算可用也会很慢（与不用线程可取得的成就相比）。</p>
+<p>最后一个选择是使用 Python 的变种 Stackless 【注释2-3】来实现，它支持轻量级的协程。它与前述的线程方案有相同的编程优势，效率还更高。然而，Stackless 在 Python 核心层存在争议，Jython 也可能不会实现相同的语义。这个 PEP 不是讨论这些问题的地方，但完全可以说生成器是 Stackless 相关功能的子集在当前 CPython 中的一种简单实现，而且可以说，其它 Python 实现起来也相对简单。</p>
+<p>以上分析完了已有的方案。其它一些高级语言也提供了不错的解决方案，特别是 Sather 的迭代器，它受到 CLU 的迭代器启发【注释4】；Icon 的生成器，一种新颖的语言，其中每个表达式都是生成器【注释5】。它们虽有差异，但基本的思路是一致的：提供一种函数，它可以返回中间结果（“下一个值”）给它的调用者，同时还保存了函数的局部状态，以便在停止的位置恢复（译注：resum，下文也译作激活）调用。一个非常简单的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fib():</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    while 1:</span><br><span class="line">       yield b</span><br><span class="line">       a, b = b, a+b</span><br></pre></td></tr></table></figure>
+<p>当 fib() 首次被调用时，它将 a 设为 0，将 b 设为 1，然后生成 b 给其调用者。调用者得到 1。当 fib 恢复时，从它的角度来看，yield 语句实际上跟 print 语句相同：fib 继续执行，且所有局部状态完好无损。然后，a 和 b 的值变为 1，并且 fib 再次循环到 yield，生成 1 给它的调用者。以此类推。 从 fib 的角度来看，它只是提供一系列结果，就像用了回调一样。但是从调用者的角度来看，fib 的调用就是一个可随时恢复的可迭代对象。跟线程一样，这允许两边以最自然的方式进行编码；但与线程方法不同，这可以在所有平台上高效完成。事实上，恢复生成器应该不比函数调用昂贵。</p>
+<p>同样的方法适用于许多生产者/消费者函数。例如，tokenize.py 可以生成下一个 token 而不是用它作为参数调用回调函数，而且 tokenize 客户端可以以自然的方式迭代 tokens：Python 生成器是一种迭代器，但是特别强大。</p>
+<h2 id="设计规格：yield"><a href="#设计规格：yield" class="headerlink" title="设计规格：yield"></a>设计规格：yield</h2><p>引入了一种新的表达式：</p>
+<blockquote>
+<p>yield_stmt：“yield”expression_list</p>
+</blockquote>
+<p>yield 是一个新的关键字，因此需要一个 <code>future</code> 声明【注释8】来进行引入：在早期版本中，若想使用生成器的模块，必须在接近头部处包含以下行（详见 PEP 236）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import generators</span><br></pre></td></tr></table></figure>
+<p>没有引入 future 模块就使用 yield 关键字，将会告警。 在后续的版本中，yield 将是一个语言关键字，不再需要 future 语句。</p>
+<p>yield 语句只能在函数内部使用。包含 yield 语句的函数被称为生成器函数。从各方面来看，生成器函数都只是个普通函数，但在它的代码对象的 co_flags 中设置了新的“CO_GENERATOR”标志。</p>
+<p>当调用生成器函数时，实际参数还是绑定到函数的局部变量空间，但不会执行代码。得到的是一个 generator-iterator 对象；这符合迭代器协议【注释6】，因此可用于 for 循环。注意，在上下文无歧义的情况下，非限定名称 “generator” 既可以指生成器函数，又可以指生成器-迭代器（generator-iterator）。</p>
+<p>每次调用 generator-iterator 的 next() 方法时，才会执行 generator-function 体中的代码，直至遇到 yield 或 return 语句（见下文），或者直接迭代到尽头。</p>
+<p>如果执行到 yield 语句，则函数的状态会被冻结，并将 expression_list 的值返回给 next() 的调用者。“冻结”是指挂起所有本地状态，包括局部变量、指令指针和内部堆栈：保存足够的信息，以便在下次调用 next() 时，函数可以继续执行，仿佛 yield 语句只是一次普通的外部调用。</p>
+<p>限制：yield 语句不能用于 try-finally 结构的 try 子句中。困难的是不能保证生成器会被再次激活（resum），因此无法保证 finally 语句块会被执行；这就太违背 finally 的用处了。</p>
+<p>限制：生成器在活跃状态时无法被再次激活：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def g():</span><br><span class="line">...     i = me.next()</span><br><span class="line">...     yield i</span><br><span class="line">&gt;&gt;&gt; me = g()</span><br><span class="line">&gt;&gt;&gt; me.next()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"> ...</span><br><span class="line"> File &quot;&lt;string&gt;&quot;, line 2, in g</span><br><span class="line">ValueError: generator already executing</span><br></pre></td></tr></table></figure>
+<h2 id="设计规格：return"><a href="#设计规格：return" class="headerlink" title="设计规格：return"></a>设计规格：return</h2><p>生成器函数还可以包含以下形式的return语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return</span><br></pre></td></tr></table></figure>
+<p>注意，生成器主体中的 return 语句不允许使用 expression_list （然而当然，它们可以嵌套地使用在生成器里的非生成器函数中）。</p>
+<p>当执行到 return 语句时，程序会正常 return，继续执行恰当的 finally 子句（如果存在）。然后引发一个 StopIteration 异常，表明迭代器已经耗尽。如果程序没有显式 return 而执行到生成器的末尾，也会引发 StopIteration 异常。</p>
+<p>请注意，对于生成器函数和非生成器函数，return 意味着“我已经完成，并且没有任何有趣的东西可以返回”。</p>
+<p>注意，return 并不一定会引发 StopIteration ：关键在于如何处理封闭的 try-except 结构。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f1():</span><br><span class="line">...     try:</span><br><span class="line">...         return</span><br><span class="line">...     except:</span><br><span class="line">...        yield 1</span><br><span class="line">&gt;&gt;&gt; print list(f1())</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>因为，就像在任何函数中一样，return 只是退出，但是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f2():</span><br><span class="line">...     try:</span><br><span class="line">...         raise StopIteration</span><br><span class="line">...     except:</span><br><span class="line">...         yield 42</span><br><span class="line">&gt;&gt;&gt; print list(f2())</span><br><span class="line">[42]</span><br></pre></td></tr></table></figure>
+<p>因为 StopIteration 被一个简单的 except 捕获，就像任意异常一样。</p>
+<h2 id="设计规格：生成器和异常传播"><a href="#设计规格：生成器和异常传播" class="headerlink" title="设计规格：生成器和异常传播"></a>设计规格：生成器和异常传播</h2><p>如果一个未捕获的异常——包括但不限于 StopIteration——由生成器函数引发或传递，则异常会以通常的方式传递给调用者，若试图重新激活生成器函数的话，则会引发 StopIteration 。 换句话说，未捕获的异常终结了生成器的使用寿命。</p>
+<p>示例（不合语言习惯，仅作举例）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f():</span><br><span class="line">...     return 1/0</span><br><span class="line">&gt;&gt;&gt; def g():</span><br><span class="line">...     yield f()  # the zero division exception propagates</span><br><span class="line">...     yield 42   # and we&apos;ll never get here</span><br><span class="line">&gt;&gt;&gt; k = g()</span><br><span class="line">&gt;&gt;&gt; k.next()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in ?</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in g</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in f</span><br><span class="line">ZeroDivisionError: integer division or modulo by zero</span><br><span class="line">&gt;&gt;&gt; k.next()  # and the generator cannot be resumed</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in ?</span><br><span class="line">StopIteration</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="设计规格：Try-Exception-Finally"><a href="#设计规格：Try-Exception-Finally" class="headerlink" title="设计规格：Try/Exception/Finally"></a>设计规格：Try/Exception/Finally</h2><p>前面提过，yield 语句不能用于 try-finally 结构的 try 子句中。这带来的结果是生成器要非常谨慎地分配关键的资源。但是在其它地方，yield 语句并无限制，例如 finally 子句、except 子句、或者 try-except 结构的 try 子句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f():</span><br><span class="line">...     try:</span><br><span class="line">...         yield 1</span><br><span class="line">...         try:</span><br><span class="line">...             yield 2</span><br><span class="line">...             1/0</span><br><span class="line">...             yield 3  # never get here</span><br><span class="line">...         except ZeroDivisionError:</span><br><span class="line">...             yield 4</span><br><span class="line">...             yield 5</span><br><span class="line">...             raise</span><br><span class="line">...         except:</span><br><span class="line">...             yield 6</span><br><span class="line">...         yield 7     # the &quot;raise&quot; above stops this</span><br><span class="line">...     except:</span><br><span class="line">...         yield 8</span><br><span class="line">...     yield 9</span><br><span class="line">...     try:</span><br><span class="line">...         x = 12</span><br><span class="line">...     finally:</span><br><span class="line">...        yield 10</span><br><span class="line">...     yield 11</span><br><span class="line">&gt;&gt;&gt; print list(f())</span><br><span class="line">[1, 2, 4, 5, 8, 9, 10, 11]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"># 二叉树类</span><br><span class="line">class Tree:</span><br><span class="line"></span><br><span class="line">    def __init__(self, label, left=None, right=None):</span><br><span class="line">        self.label = label</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line"></span><br><span class="line">    def __repr__(self, level=0, indent=&quot;    &quot;):</span><br><span class="line">        s = level*indent + `self.label`</span><br><span class="line">        if self.left:</span><br><span class="line">            s = s + &quot;\n&quot; + self.left.__repr__(level+1, indent)</span><br><span class="line">        if self.right:</span><br><span class="line">            s = s + &quot;\n&quot; + self.right.__repr__(level+1, indent)</span><br><span class="line">        return s</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return inorder(self)</span><br><span class="line"></span><br><span class="line"># 从列表中创建 Tree</span><br><span class="line">def tree(list):</span><br><span class="line">    n = len(list)</span><br><span class="line">    if n == 0:</span><br><span class="line">        return []</span><br><span class="line">    i = n / 2</span><br><span class="line">    return Tree(list[i], tree(list[:i]), tree(list[i+1:]))</span><br><span class="line"></span><br><span class="line"># 递归生成器，按顺序生成树标签</span><br><span class="line">def inorder(t):</span><br><span class="line">    if t:</span><br><span class="line">        for x in inorder(t.left):</span><br><span class="line">            yield x</span><br><span class="line">        yield t.label</span><br><span class="line">        for x in inorder(t.right):</span><br><span class="line">            yield x</span><br><span class="line"></span><br><span class="line"># 展示：创建一棵树</span><br><span class="line">t = tree(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)</span><br><span class="line"># 按顺序打印树的节点</span><br><span class="line">for x in t:</span><br><span class="line">    print x,</span><br><span class="line">print</span><br><span class="line"></span><br><span class="line"># 非递归生成器</span><br><span class="line">def inorder(node):</span><br><span class="line">    stack = []</span><br><span class="line">    while node:</span><br><span class="line">        while node.left:</span><br><span class="line">            stack.append(node)</span><br><span class="line">            node = node.left</span><br><span class="line">        yield node.label</span><br><span class="line">        while not node.right:</span><br><span class="line">            try:</span><br><span class="line">                node = stack.pop()</span><br><span class="line">            except IndexError:</span><br><span class="line">                return</span><br><span class="line">            yield node.label</span><br><span class="line">        node = node.right</span><br><span class="line"></span><br><span class="line"># 练习非递归生成器</span><br><span class="line">for x in t:</span><br><span class="line">    print x,</span><br><span class="line">print</span><br><span class="line">Both output blocks display:</span><br><span class="line"></span><br><span class="line">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span><br></pre></td></tr></table></figure>
+<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h3 id="为什么重用-def-而不用新的关键字？"><a href="#为什么重用-def-而不用新的关键字？" class="headerlink" title="为什么重用 def 而不用新的关键字？"></a>为什么重用 def 而不用新的关键字？</h3><p>请参阅下面的 BDFL 声明部分。</p>
+<h3 id="为什么用新的关键字yield而非内置函数？"><a href="#为什么用新的关键字yield而非内置函数？" class="headerlink" title="为什么用新的关键字yield而非内置函数？"></a>为什么用新的关键字yield而非内置函数？</h3><p>Python 中通过关键字能更好地表达控制流，即 yield 是一个控制结构。而且为了 Jython 的高效实现，编译器需要在编译时就确定潜在的挂起点，新的关键字会使这一点变得简单。CPython 的实现也大量利用它来检测哪些函数是生成器函数（尽管一个新的关键字替代 def 就能解决 CPython 的问题，但人们问“为什么要新的关键字”问题时，并不想要新的关键字）。</p>
+<h3 id="为什么不是其它不带新关键字的特殊语法？"><a href="#为什么不是其它不带新关键字的特殊语法？" class="headerlink" title="为什么不是其它不带新关键字的特殊语法？"></a>为什么不是其它不带新关键字的特殊语法？</h3><p>例如，为何不用下面用法而用 yield 3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">return 3 and continue</span><br><span class="line">return and continue 3</span><br><span class="line">return generating 3</span><br><span class="line">continue return 3</span><br><span class="line">return &gt;&gt; , 3</span><br><span class="line">from generator return 3</span><br><span class="line">return &gt;&gt; 3</span><br><span class="line">return &lt;&lt; 3</span><br><span class="line">&gt;&gt; 3</span><br><span class="line">&lt;&lt; 3</span><br><span class="line">* 3</span><br></pre></td></tr></table></figure>
+<p>我没有错过一个“眼色”吧？在数百条消息中，我算了每种替代方案有三条建议，然后总结出上面这些。不需要用新的关键字会很好，但使用 yield 会更好——我个人认为，在一堆无意义的关键字或运算符序列中，yield 更具表现力。尽管如此，如果这引起足够的兴趣，支持者应该发起一个提案，交给 Guido 裁断。</p>
+<h3 id="为什么允许用return，而不强制用StopIteration？"><a href="#为什么允许用return，而不强制用StopIteration？" class="headerlink" title="为什么允许用return，而不强制用StopIteration？"></a>为什么允许用return，而不强制用StopIteration？</h3><p>“StopIteration”的机制是底层细节，就像 Python 2.1 中的“IndexError”的机制一样：实现时需要做一些预先定义好的东西，而 Python 为高级用户开放了这些机制。尽管不强制要求每个人都在这个层级工作。 “return”在任何一种函数中都意味着“我已经完成”，这很容易解读和使用。注意，<code>return</code> 并不总是等同于 try-except 结构中的 <code>raise StopIteration</code>（参见“设计规格：Return”部分）。</p>
+<h3 id="那为什么不允许return一个表达式？"><a href="#那为什么不允许return一个表达式？" class="headerlink" title="那为什么不允许return一个表达式？"></a>那为什么不允许return一个表达式？</h3><p>也许有一天会允许。 在 Icon 中，<code>return expr</code> 意味着“我已经完成”和“但我还有最后一个有用的值可以返回，这就是它”。 在初始阶段，不强制使用<code>return expr</code>的情况下，使用 yield 仅仅传递值，这很简单明了。</p>
+<h2 id="BDFL声明"><a href="#BDFL声明" class="headerlink" title="BDFL声明"></a>BDFL声明</h2><h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><p>引入另一个新的关键字（比如，gen 或 generator ）来代替 def ，或以其它方式改变语法，以区分生成器函数和非生成器函数。</p>
+<h3 id="Con"><a href="#Con" class="headerlink" title="Con"></a>Con</h3><p>实际上（你如何看待它们），生成器<em>是</em>函数，但它们具有可恢复性。使它们建立起来的机制是一个相对较小的技术问题，引入新的关键字无助于强调生成器是如何启动的机制（生成器生命中至关重要却很小的部分）。</p>
+<h3 id="Pro"><a href="#Pro" class="headerlink" title="Pro"></a>Pro</h3><p>实际上（你如何看待它们），生成器函数实际上是工厂函数，它们就像施了魔法一样地生产生成器-迭代器。 在这方面，它们与非生成器函数完全不同，更像是构造函数而不是函数，因此重用 def 无疑是令人困惑的。藏在内部的 yield 语句不足以警示它们的语义是如此不同。</p>
+<h3 id="BDFL"><a href="#BDFL" class="headerlink" title="BDFL"></a>BDFL</h3><p>def 留了下来。任何一方都没有任何争论是完全令人信服的，所以我咨询了我的语言设计师的直觉。它告诉我 PEP 中提出的语法是完全正确的——不是太热，也不是太冷。但是，就像希腊神话中的 Delphi（译注：特尔斐，希腊古都） 的甲骨文一样，它并没有告诉我原因，所以我没有对反对此 PEP 语法的论点进行反驳。 我能想出的最好的（除了已经同意做出的反驳）是“FUD”（译注：缩写自 fear、uncertainty 和 doubt）。 如果这从第一天开始就是语言的一部分，我非常怀疑这早已让安德鲁·库奇林（Andrew Kuchling）的“Python Warts”页面成为可能。（译注：wart 是疣，一种难看的皮肤病。这是一个 wiki 页面，列举了对 Python 吹毛求疵的建议）。</p>
+<h2 id="参考实现"><a href="#参考实现" class="headerlink" title="参考实现"></a>参考实现</h2><p>当前的实现（译注：2001年），处于初步状态（没有文档，但经过充分测试，可靠），是Python 的 CVS 开发树【注释9】的一部分。 使用它需要您从源代码中构建 Python。</p>
+<p>这是衍生自 Neil Schemenauer【注释7】的早期补丁。</p>
+<h2 id="脚注和参考文献"><a href="#脚注和参考文献" class="headerlink" title="脚注和参考文献"></a>脚注和参考文献</h2><p>[1] PEP-234, Iterators, Yee, Van Rossum</p>
+<p><a href="http://www.python.org/dev/peps/pep-0234/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0234/</a></p>
+<p>[2] <a href="http://www.stackless.com/" target="_blank" rel="noopener">http://www.stackless.com/</a></p>
+<p>[3] PEP-219, Stackless Python, McMillan</p>
+<p><a href="http://www.python.org/dev/peps/pep-0219/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0219/</a></p>
+<p>[4] “Iteration Abstraction in Sather” Murer, Omohundro, Stoutamire and Szyperski </p>
+<p><a href="http://www.icsi.berkeley.edu/~sather/Publications/toplas.html" target="_blank" rel="noopener">http://www.icsi.berkeley.edu/~sather/Publications/toplas.html</a></p>
+<p>[5] <a href="http://www.cs.arizona.edu/icon/" target="_blank" rel="noopener">http://www.cs.arizona.edu/icon/</a></p>
+<p>[6] The concept of iterators is described in PEP 234. See [1] above.</p>
+<p>[7] <a href="http://python.ca/nas/python/generator.diff" target="_blank" rel="noopener">http://python.ca/nas/python/generator.diff</a></p>
+<p>[8] PEP 236, Back to the <strong>future</strong>, Peters</p>
+<p><a href="http://www.python.org/dev/peps/pep-0236/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0236/</a></p>
+<p>[9] To experiment with this implementation, check out Python from CVS according to the instructions at <a href="http://sf.net/cvs/?group_id=5470" target="_blank" rel="noopener">http://sf.net/cvs/?group_id=5470</a> ，Note that the std test Lib/test/test_generators.py contains many examples, including all those in this PEP.</p>
+<h2 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h2><p>本文档已经放置在公共领域。源文档：<a href="https://github.com/python/peps/blob/master/pep-0255.txt" target="_blank" rel="noopener">https://github.com/python/peps/blob/master/pep-0255.txt</a></p>
+<p>（译文完）</p>
+<p>PS：官方 PEP 有将近500个，然而保守估计，被翻译成中文的不足20个（去重的情况下）。我好奇，感兴趣将一些重要的 PEP 翻译出来的人有多少呢？现抛此问题出来探探路，欢迎留言交流。</p>
+<p>-—————-</p>
+<p>本文翻译并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python社区/这件正在发生的事，关乎所有的Python开发者....../">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/Python社区/这件正在发生的事，关乎所有的Python开发者....../" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="这件正在发生的事，关乎所有的Python开发者……"><a href="#这件正在发生的事，关乎所有的Python开发者……" class="headerlink" title="这件正在发生的事，关乎所有的Python开发者……"></a>这件正在发生的事，关乎所有的Python开发者……</h1><p>毫不夸张地说，Python 历史上的第二大事件正在发生，它事关所有的 Python 开发者，而且将深远地影响着未来的 Python 生态。这件事并不是指 Python 之父 Guido van Rossum 退出决策层，而是指由此引发的<strong>新的决策层级的建立</strong> 。</p>
+<p>Python 诞生于 1989 年圣诞节期间，这无疑是其历史上的第一大事件。如今，按中国古人的说法，Python 到了而立之年，终于，要迎来一个重大的转折点了。30 年前，那叫新生，今天呢，乐观的结果会是重生，而悲观的结果则是……（别想了，不会发生的 :) ）</p>
+<p>为了照顾一些信息不灵通的读者，我先给大家回顾一下“前因”（资深的 Pythonista 请直接翻到第二节）。</p>
+<h2 id="1-Python之父的退位风波"><a href="#1-Python之父的退位风波" class="headerlink" title="1. Python之父的退位风波"></a>1. Python之父的退位风波</h2><p>作为 Python 的创始人以及重要的核心开发者，Guido van Rossum 一直享有至高的权力，被人称为“终身仁慈独裁者”。实际上，这个称呼不是 Python 社区独有的，有些开源组织的创始人也被其“门徒”这么称呼，例如Linux、Ubuntu、Perl 和 Scala 等。</p>
+<p>这种赋予创始人至高裁决权力的做法，是一种明智的行为，可以保障一门新的编程语言顺利度过早期的艰难岁月，走上健康发展的道路。Python 之所以能从籍籍无名到如今近乎“呼风唤雨”，可以说，Python 之父是居功至伟。</p>
+<p>然而，这种局面总归要被打破，就看是以什么方式了。今年上半年，社区提出了备受争议的 PEP-572 （赋值表达式，文末附了知乎链接），虽然，GUIDO 行使最终裁决权，批准了这个提案，但是，争议并没有平息。部分核心开发者的不信任与离开，还有社交媒体上伤人的话语，极大地刺激了 GUIDO ，直接导致他宣布退出决策层。平衡的局面被打破了，而且是以不那么友好的方式。</p>
+<p>GUIDO 没有指定继任者，完全把问题抛给了核心开发者们：</p>
+<blockquote>
+<p>那你们会怎么做呢？建立一套民主制度？无政府状态？还是专政？或是联邦制？</p>
+</blockquote>
+<p>他退位的消息提得太突然，Python 的核心开发者们陷入了长达几个月的混乱中。仅从一些公开消息的蛛丝马迹中，我们就能看出来。</p>
+<p>在 InfoWorld 的一篇采访稿（7月27日，链接见文末）中，GUIDO 透露：</p>
+<blockquote>
+<p>他们已经同意给出提案的截止日期是2018年10月1日。我相信，到2018年11月1日，他们会选出一个合理的管理提案。到2019年1月1日，他们承诺会完成选举或任命负责人。</p>
+</blockquote>
+<p>然而，这个进展并不那么顺利。下面是 7 种治理方案的 PEP 创建时间：</p>
+<blockquote>
+<p>PEP-8010：2018-8-24<br>PEP-8011：2018-8-24<br>PEP-8012：2018-10-03<br>PEP-8013：2018-09-14<br>PEP-8014：2018-09-16<br>PEP-8015：2018-10-04<br>PEP-8016：2018-11-01</p>
+</blockquote>
+<p>备选方案的数量之多，本身就反映出核心开发者之间意见分歧之大，而发布时间的间隔之长，其背后隐含的信息也是让人不容乐观。</p>
+<p>随着进入今年最后一个月，核心开发者们不得不进入下一个议程，那就是投票。投票时间为期两周，从 12 月 1 日至 12 月 16 日。最终结果将在 12 月 17 日公布。</p>
+<h2 id="2-什么治理方案最合适？"><a href="#2-什么治理方案最合适？" class="headerlink" title="2.什么治理方案最合适？"></a>2.什么治理方案最合适？</h2><p>以上，就是 Python 之父的退位风波。到了今天，风波并未平息，但是，这个投票的结果将直接决定风波的走向。我们都是见证者。</p>
+<p>在上一篇推文《<a href="https://mp.weixin.qq.com/s/vyx61e9GiiTnmaVzTYOcmw" target="_blank" rel="noopener">Python之父退位后，最高决策权花落谁家？</a>》中，核心开发者之一 Victor Stinner 对 7 种备选方案做了全面的对比。由于他本人是 PEP-8015 的提出人，所以文章中明显带入了一些个人倾向。读者们可以根据我翻译的版本，先粗略了解一下，然后找具体的 PEP 阅读。</p>
+<p>一千个读者，就有一千个哈姆雷特。如果你有投票权，你会投给哪种方案呢？为什么呢？在本文（公众号 <strong>Python猫</strong>  ）末尾，我发起了一个投票，欢迎你去投票。</p>
+<p>在我看来，无论哪种方案胜出，都不会是一个皆大欢喜的结果。理由很简单，决策权的争议大于 PEP-572 的争议，后者能令核心开发者愤而出走，前者更是可以。短期内，大家或许会相安无事，但不用多久，很可能就会有新的 PEP 作为导火索，给开发团队带来更大的不可调和的麻烦。</p>
+<p>这种情况绝对无法避免，唯一的问题在于，哪种方案能将平衡状态维持得更久一点，哪种方案能更有效地调和新的矛盾？</p>
+<p>有读者回复说，我们又没有投票权，这跟我们没关系，不用瞎操心。真的是这样么？我怀疑他没听说过什么叫<code>蝴蝶效应</code> 。特朗普当选美国总统的时候，很多人就有事不关己的想法，然而，到今天，全球局势、国内股市和就业形势，全都笼罩在这只蝴蝶的余风中动荡着。</p>
+<p>也许，Python 社区的蝴蝶效应不会那么严重，毕竟，搞技术的极客们可不是政治家。但是，我劝有些同学不要毫不在意，至少，你该对自己的立身之技的未来，多留份心。</p>
+<p>PS：为了持续关注此话题，我专门建了个微信交流群。感兴趣的同学可通过本公众号（Python猫）菜单栏的“联系作者”，加我为好友，发送暗号“PEP投票”进群（其它用意者勿扰）。猜中结果的小伙伴，将有机会获得一本技术书籍。</p>
+<p>相关链接：</p>
+<p>PEP-572知乎问题：<a href="http://t.cn/EyiHigY" target="_blank" rel="noopener">http://t.cn/EyiHigY</a></p>
+<p>7月27日的采访：<a href="http://t.cn/EyiH4ni" target="_blank" rel="noopener">http://t.cn/EyiH4ni</a></p>
+<p>7种方案的对比：<a href="http://t.cn/Eyi8D7b" target="_blank" rel="noopener">http://t.cn/Eyi8D7b</a></p>
+<p>投给哪种方案？<a href="http://t.cn/EyiQVy6" target="_blank" rel="noopener">http://t.cn/EyiQVy6</a></p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
 
           
         
@@ -347,6 +2047,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -390,7 +2094,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

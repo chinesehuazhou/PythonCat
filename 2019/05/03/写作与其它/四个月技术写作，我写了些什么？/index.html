@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="四个月技术写作，我写了些什么？从去年国庆节开始，我连续更新了 4 个月公众号，累计发布原创文章 40 篇。 按照大多数个人订阅号的优良传统，号主应该在跨年的前后作年终总结。然而，一来我反应比较迟钝，没跟上节奏，二来当时我正在写比较重要的系列，没时间分心，所以还是慢了半拍。 现在，创作出现了空档期，而身体也出现一种魔幻性的跨移——从几千里外的城市回到分别了几百天的农村。这仿佛就在营造一种仪式感，逼使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/写作与其它/四个月技术写作，我写了些什么？/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="四个月技术写作，我写了些什么？从去年国庆节开始，我连续更新了 4 个月公众号，累计发布原创文章 40 篇。 按照大多数个人订阅号的优良传统，号主应该在跨年的前后作年终总结。然而，一来我反应比较迟钝，没跟上节奏，二来当时我正在写比较重要的系列，没时间分心，所以还是慢了半拍。 现在，创作出现了空档期，而身体也出现一种魔幻性的跨移——从几千里外的城市回到分别了几百天的农村。这仿佛就在营造一种仪式感，逼使">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-03T08:27:48.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="四个月技术写作，我写了些什么？从去年国庆节开始，我连续更新了 4 个月公众号，累计发布原创文章 40 篇。 按照大多数个人订阅号的优良传统，号主应该在跨年的前后作年终总结。然而，一来我反应比较迟钝，没跟上节奏，二来当时我正在写比较重要的系列，没时间分心，所以还是慢了半拍。 现在，创作出现了空档期，而身体也出现一种魔幻性的跨移——从几千里外的城市回到分别了几百天的农村。这仿佛就在营造一种仪式感，逼使">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/写作与其它/四个月技术写作，我写了些什么？/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/写作与其它/四个月技术写作，我写了些什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="四个月技术写作，我写了些什么？"><a href="#四个月技术写作，我写了些什么？" class="headerlink" title="四个月技术写作，我写了些什么？"></a>四个月技术写作，我写了些什么？</h1><p>从去年国庆节开始，我连续更新了 4 个月公众号，累计发布原创文章 40 篇。</p>
+<p>按照大多数个人订阅号的优良传统，号主应该在跨年的前后作年终总结。然而，一来我反应比较迟钝，没跟上节奏，二来当时我正在写比较重要的系列，没时间分心，所以还是慢了半拍。</p>
+<p>现在，创作出现了空档期，而身体也出现一种魔幻性的跨移——从几千里外的城市回到分别了几百天的农村。这仿佛就在营造一种仪式感，逼使我要把这未完成的任务做个了结。</p>
+<p>因此，现在我就来梳理梳理写出来的东西，说说我的想法吧。</p>
+<h2 id="1、Python猫的故事"><a href="#1、Python猫的故事" class="headerlink" title="1、Python猫的故事"></a>1、Python猫的故事</h2><p>这是我的主打系列，故事的主角是一只来自外太星（喵星）的猫。它外貌长什么样，我还没想好，你可以叠加所有猫的形象上去，这就是它的样子。</p>
+<p>然而，它绝不是一种固定形态的物种。编程语言（Python为主）、人类文化（文学+哲学）、人工智能、前沿科学（生物+量子物理）和幻想相交合，这些东西都会是我的灵感，也会是塑造这只猫的原力。</p>
+<p>我们认识周遭世界的过程是一种逐步扩大的过程，从点到线，到理得清的网，再到真正的网。一只作为讲述者的猫，在思考，在探知并试图融入陌生的星球的时候，会发生些什么认知层面上的结果呢？</p>
+<p>我有很多朦胧的念头。想要完全落实它们，简直不可能。有些东西就是说不清。</p>
+<p>不过，有了开端，有了大致的方向，就总是有了提起“笔”写下去的动机。</p>
+<p><a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YQbk0smMTCexsi3Ytd2AzA" target="_blank" rel="noopener">Python对象的身份迷思：从全体公民到万物皆数</a></p>
+<p><a href="https://mp.weixin.qq.com/s/q0QvAqXcZzURH3aZ5gZm8A" target="_blank" rel="noopener">Python对象的空间边界：独善其身与开放包容</a></p>
+<h2 id="2、Python进阶之路"><a href="#2、Python进阶之路" class="headerlink" title="2、Python进阶之路"></a>2、Python进阶之路</h2><p>我接触 Python 的时间并不长，在工作中用到它的时间就更短了。</p>
+<p>因为清楚地意识到自己的基础并不扎实，所以，几个月以来，我花了不少时间系统性地学习了一些内容。</p>
+<p>写作前，搜集资料，查漏补缺；写作中，发散思考，融会贯通；发布后，聆听反馈，修正错误。</p>
+<p>时间过得真快，现在能拿得出手的也就仅仅是字符串系列、切片系列和迭代器系列了。我计划继续花些时间，把重要的知识梳理一遍。</p>
+<p>通过这个系列的写作，我想驱动自己走出一条 Python 进阶之路。然后以它为基础，再进行其它领域（爬虫、数据分析、深度学习、？）的转向。</p>
+<p>在准备生成器系列的时候，我一时起了翻译 PEP 的念头，就开启了翻译 PEP 的系列。现在试水了两篇生成器相关的，年后还会翻译一篇。关于翻译，我有一些想法，今后再细说。</p>
+<p>这个系列的一些内容，其实是在给 Python 猫系列打基础做铺垫。今后，我会避免两个系列的内容重叠，也不让它们失衡，因此会想办法给 Python猫 系列留下足够的写作余地。</p>
+<p><a href="https://mp.weixin.qq.com/s/OKf7N3xxrS0tJ_K8Srw-jA" target="_blank" rel="noopener">超强汇总：学习Python列表，只需这篇文章就够了</a></p>
+<p><a href="https://mp.weixin.qq.com/s/hR2Z_duLXnN0fQ3khDPiPQ" target="_blank" rel="noopener">学习Python操作JSON，网络数据交换不用愁</a></p>
+<p><a href="https://mp.weixin.qq.com/s/Md07VoaULda7qnMO4ob7Ww" target="_blank" rel="noopener">给Python学习者的文件读写指南（含基础与进阶，建议收藏）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/2zGUfwIYY4EVJ0NNyJkNRQ" target="_blank" rel="noopener">再谈文件读写：判断文件的几种方法及其优劣对比</a></p>
+<p><a href="https://mp.weixin.qq.com/s/vCs6QvJU2J6L0rIWDKQPUQ" target="_blank" rel="noopener">Python中的“特权种族”是什么？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/Whrd6NiD4Y2Z-YSCy4XJ1w" target="_blank" rel="noopener">详解Python拼接字符串的七种方式</a></p>
+<p><a href="https://mp.weixin.qq.com/s/z-gSW6XJrAvUE5rS5XrAig" target="_blank" rel="noopener">你真的知道Python的字符串是什么吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M4_38VHlQwp-CDRczh2NIA" target="_blank" rel="noopener">你真的知道Python的字符串怎么用吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/PsY8Iec1EeGDKKnTNU5CNw" target="_blank" rel="noopener">Python是否支持复制字符串呢？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M2uHVqaHe_nyO5jT60V_6Q" target="_blank" rel="noopener">join()方法的神奇用处与Intern机制的软肋</a></p>
+<p><a href="https://mp.weixin.qq.com/s/fwZnvcQ_u-fYLFeQaYkJLw" target="_blank" rel="noopener">Python进阶：切片的误区与高级用法</a></p>
+<p><a href="https://mp.weixin.qq.com/s/DIhwoJE3o0kKw3kzZKysag" target="_blank" rel="noopener">Python进阶：迭代器与迭代器切片</a></p>
+<p><a href="https://mp.weixin.qq.com/s/IRAjR-KHZBPEEkdiofseGQ" target="_blank" rel="noopener">Python进阶：全面解读高级特性之切片！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/7MbRCn37fIIN42rLm6ho3g" target="_blank" rel="noopener">Python进阶：设计模式之迭代器模式</a></p>
+<p><a href="https://mp.weixin.qq.com/s/1fZs_yXIUhjzN0mQyujXhQ" target="_blank" rel="noopener">为什么range不是迭代器？range到底是什么类型？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/vjQLlmH5QV-zAre7tVCxSA" target="_blank" rel="noopener">[译] PEP 255–简单的生成器</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M79svUpskZQz15SxEfIWbQ" target="_blank" rel="noopener">[译]PEP 342–增强型生成器：协程</a></p>
+<h2 id="3、荐书系列"><a href="#3、荐书系列" class="headerlink" title="3、荐书系列"></a>3、荐书系列</h2><p>关于荐书系列，我是受到了经常阅读的一些电影公众号的启发。</p>
+<p>如果有一部好电影，大家就会花很长篇幅去推介它，去评论它，去宣传它。对于一些非技术类的书籍，也很可能有此待遇。</p>
+<p>可是，我们却不怎么见到技术类书籍是这样的吧？除去出版社、作者和利益相关机构，你几乎看不到有人为一本技术书籍写书评（写笔记、画思维导图的倒是挺多）。</p>
+<p>于是，我决定来尝试一下。有几篇，我特意提到了豆瓣评分和评论，现在看来模仿的痕迹太重，这类玩意对技术类书籍来说，真不合适。纯探索阶段，希望今后能拿出更好的作品。</p>
+<p>这个系列，主要还有一个考虑：促使我自己去阅读，逼着自己学会总结归纳，多产生一些积累。</p>
+<ol>
+<li>《<a href="https://mp.weixin.qq.com/s/JnoYojDsNHYkpibSfF3hOg" target="_blank" rel="noopener">编写高质量代码改善 Python 程序的 91 个建议</a>》</li>
+<li>《<a href="https://mp.weixin.qq.com/s/9RonAqwCXo_lganYvLHgVw" target="_blank" rel="noopener">Python最佳实践指南</a>》</li>
+<li>《<a href="https://mp.weixin.qq.com/s/6swAZA7baF26BlrKV7zBFg" target="_blank" rel="noopener">黑客与画家</a>》</li>
+<li>《<a href="https://mp.weixin.qq.com/s/RcvYm7Ro_nnMx0ZVrJmtyA" target="_blank" rel="noopener">Python源码剖析</a>》</li>
+<li>《<a href="https://mp.weixin.qq.com/s/UxPxSJRHk0R6ffhpl8aSpw" target="_blank" rel="noopener">Python高性能编程</a> 》</li>
+</ol>
+<h2 id="4、杂七杂八"><a href="#4、杂七杂八" class="headerlink" title="4、杂七杂八"></a>4、杂七杂八</h2><p>这部分内容也是跟技术息息相关的，例如 Python社区动态、技术写作、编程思想、技术翻译等等。</p>
+<p>其中，关于社区治理模式投票的几篇文章，我最初以为是个热点，但后来意识到，真的没有多少人关心。（我该怀疑自己的关注点呢，还是怀疑别人？）</p>
+<p>值得庆幸的是，有篇文章被两位圈内大佬转载了！我乐了好久。这里就不提名字了，总之他们是我初学 Python 时就很佩服的人，因为看了他们的一些文章，我才动了写技术文章的念头。</p>
+<p> 关于技术写作和翻译，我初见门道，今后还会多作总结分享。</p>
+<p><a href="https://mp.weixin.qq.com/s/2l_erf55IMvT4Tz0AGWCUQ" target="_blank" rel="noopener">来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</a></p>
+<p><a href="https://mp.weixin.qq.com/s/oRoBxZ2-IyuPOf_MWyKZyw" target="_blank" rel="noopener">学习Python，怎能不懂点PEP呢？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/855ur2uCI1Z1-qpuLGKp0Q" target="_blank" rel="noopener">再聊聊Python中文社区的翻译</a></p>
+<p><a href="https://mp.weixin.qq.com/s/vyx61e9GiiTnmaVzTYOcmw" target="_blank" rel="noopener">Python之父退位后，最高决策权花落谁家？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/gl8grRlvZ9ylWRdXTWUXow" target="_blank" rel="noopener">这件正在发生的事，关乎所有的Python开发者……</a></p>
+<p><a href="https://mp.weixin.qq.com/s/aLkfOoqQubjEIhF1YrLgeg" target="_blank" rel="noopener">最新进展|关于Python治理模式的投票</a></p>
+<p><a href="https://mp.weixin.qq.com/s/c7Jz0L8YBoX0Dfb5cZz9sg" target="_blank" rel="noopener">Python决策权的投票结果诞生了，“指导委员会”模式拔得头筹</a></p>
+<p><a href="https://mp.weixin.qq.com/s/cCWfbHeptEUKtI19GIxF8A" target="_blank" rel="noopener">聊聊技术写作的个人体会</a></p>
+<p><a href="https://mp.weixin.qq.com/s/jdS_hkeDxwroRU3k6or_fg" target="_blank" rel="noopener">大名鼎鼎的Requests库用了什么编码风格？</a></p>
+<h2 id="5、写在最后"><a href="#5、写在最后" class="headerlink" title="5、写在最后"></a>5、写在最后</h2><p>我承认自己是一个不擅运营的人，虽然为了提升公众号的订阅数与阅读数，也做过一些运营的尝试，但是，跟圈内的很多号主相比，差得可不止一丝半点。</p>
+<p>四个月以来，我结识了很多技术写作的号主，他们有些人创号不久，但不仅技术扎实，而且抓选题、抓热点和写作风格都极其出色，很快就成为了“当红炸子鸡”；还有的大佬，持续耕耘了几年，坐拥数十万粉丝，立品牌、出书、出课程、开知识付费、开公司，替技术人走出了一条名利双收的榜样之路。</p>
+<p>他们令我羡慕。他们皆有值得我学习取经的优点。不过我也知道，坚持自己的原则、发展自己的特色更为重要。做人也好，写公众号也好，循着自己的本心与节奏，才不至于走歪了路。</p>
+<p>所以，在以上几个系列的写作方向上，我仍会继续坚持，沉下心来学习，思考和分享。这个阶段性的小结，既是一个交代，也是新的开端。</p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/写作与其它/介绍几款 Python 静态类型检查器/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/写作与其它/纪念 Vamei/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#四个月技术写作，我写了些什么？"><span class="nav-number">1.</span> <span class="nav-text">四个月技术写作，我写了些什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Python猫的故事"><span class="nav-number">1.1.</span> <span class="nav-text">1、Python猫的故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Python进阶之路"><span class="nav-number">1.2.</span> <span class="nav-text">2、Python进阶之路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、荐书系列"><span class="nav-number">1.3.</span> <span class="nav-text">3、荐书系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、杂七杂八"><span class="nav-number">1.4.</span> <span class="nav-text">4、杂七杂八</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、写在最后"><span class="nav-number">1.5.</span> <span class="nav-text">5、写在最后</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
