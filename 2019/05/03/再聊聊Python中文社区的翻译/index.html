@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="再聊聊Python中文社区的翻译在写《学习Python，怎能不懂点PEP呢？》的时候，我已经发现国内的Python翻译环境不容乐观。这个结论可能不对，毕竟这几年Python大热，或许有不少优秀的翻译项目，只是我还不知道而已。 不管如何，接着上一篇关于“Python学习资料汉化”的话题，今天，我们再聊聊Python中文社区的翻译话题。 Python部落的翻译社很巧合的是，Python部落（公众号：P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/再聊聊Python中文社区的翻译/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="再聊聊Python中文社区的翻译在写《学习Python，怎能不懂点PEP呢？》的时候，我已经发现国内的Python翻译环境不容乐观。这个结论可能不对，毕竟这几年Python大热，或许有不少优秀的翻译项目，只是我还不知道而已。 不管如何，接着上一篇关于“Python学习资料汉化”的话题，今天，我们再聊聊Python中文社区的翻译话题。 Python部落的翻译社很巧合的是，Python部落（公众号：P">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fx6w4v3a96j21410fvtee.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fx6w4uztkej21fo0l4jsj.jpg">
+<meta property="og:updated_time" content="2018-11-14T14:08:57.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="再聊聊Python中文社区的翻译在写《学习Python，怎能不懂点PEP呢？》的时候，我已经发现国内的Python翻译环境不容乐观。这个结论可能不对，毕竟这几年Python大热，或许有不少优秀的翻译项目，只是我还不知道而已。 不管如何，接着上一篇关于“Python学习资料汉化”的话题，今天，我们再聊聊Python中文社区的翻译话题。 Python部落的翻译社很巧合的是，Python部落（公众号：P">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fx6w4v3a96j21410fvtee.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/再聊聊Python中文社区的翻译/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/再聊聊Python中文社区的翻译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="再聊聊Python中文社区的翻译"><a href="#再聊聊Python中文社区的翻译" class="headerlink" title="再聊聊Python中文社区的翻译"></a>再聊聊Python中文社区的翻译</h2><p>在写《<a href="https://mp.weixin.qq.com/s/oRoBxZ2-IyuPOf_MWyKZyw" target="_blank" rel="noopener">学习Python，怎能不懂点PEP呢？</a>》的时候，我已经发现国内的Python翻译环境不容乐观。这个结论可能不对，毕竟这几年Python大热，或许有不少优秀的翻译项目，只是我还不知道而已。</p>
+<p>不管如何，接着上一篇关于“Python学习资料汉化”的话题，今天，我们再聊聊Python中文社区的翻译话题。</p>
+<h2 id="Python部落的翻译社"><a href="#Python部落的翻译社" class="headerlink" title="Python部落的翻译社"></a>Python部落的翻译社</h2><p>很巧合的是，Python部落（公众号：<code>Python程序员</code>）刚刚低调地上线了“翻译社”功能。在公众号文章里，他们写到了推出这个项目的意图，我对此深为认可：</p>
+<blockquote>
+<p>我们要及时地了解英文Python社区的进展, 深入地发掘Python语言的能力, 积极地参与Python领域的活动和倡议. 所以, 将国外优质的文章翻译为中文呈现给大家, 这个事情刻不容缓!</p>
+</blockquote>
+<p>事先声明，这不是一篇软文，我跟他们没有合作关系。我本来计划要分享一篇英文技术博客，但是排版折腾了很久，怎么调都不如意，最后只好放弃。可是，我又不想再断更，怎么办呢？那正好借“翻译社”上线，来聊聊“Python学习资料汉化”的话题了。</p>
+<p>首先，简单介绍一下“翻译社”。它是“Python部落”网站的一个功能，以任务的形式发布了一些英文文章的链接，你可以去认领任务，按照几条质量管控的规则进行翻译和提交即可。</p>
+<p>按照任务分类，他们提供了三类翻译任务：Python、Web前端与Docker，不过点开看，只有十几篇Python文章，其它两类仍是空缺。这可以看出，他们应该是一个小团队，有想法，但刚起步。除此之外，翻译社不支持用户提交新的任务，我觉得这是一个遗憾，希望他们后续考虑下。</p>
+<p>根据公众号文章的说明，他们会给过审的翻译作品支付稿费，但这点在网站上没有体现。我知道翻译技术文章不容易，不管稿酬有多少，这都是一种积极的认可与正向激励。所以，如果有小伙伴感兴趣，可以去了解一下。</p>
+<h2 id="Pythoncaff社区"><a href="#Pythoncaff社区" class="headerlink" title="Pythoncaff社区"></a>Pythoncaff社区</h2><p>接下来，我要介绍一个Python开发者社区（网址：<a href="https://pythoncaff.com），这个社区里活跃着一些乐意参与Python翻译的小伙伴。" target="_blank" rel="noopener">https://pythoncaff.com），这个社区里活跃着一些乐意参与Python翻译的小伙伴。</a></p>
+<p>我之所以会知道这个社区，是因为第二期的荐书《<a href="https://mp.weixin.qq.com/s/9RonAqwCXo_lganYvLHgVw" target="_blank" rel="noopener">Python最佳实践指南</a>》，当时我找到了两个翻译版本，对比下来，发现这个社区的翻译版本更好，于是，我就收藏了。</p>
+<p>除了这本书，他们还组织翻译了基于Python3.7版本的《Python官方文档：入门教程》、《Python3标准库实例教程》和《Python简明教程》，翻译质量感人。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fx6w4v3a96j21410fvtee.jpg" alt></p>
+<p>这个社区表面看起来没人气，首页上竟然有半数文章发表于两周前，但是，当看到参与翻译的人数时，我又对它充满了信心。当然，这也是我向大家推荐它的理由。</p>
+<h2 id="Python-官方文档中文翻译项目"><a href="#Python-官方文档中文翻译项目" class="headerlink" title="Python 官方文档中文翻译项目"></a>Python 官方文档中文翻译项目</h2><p>虽然Pythoncaff社区组织了对Python官方文档的翻译，但他们只是完成了入门教程的部分。事实上，Python官方也有一个完整版的翻译项目。</p>
+<p>首先，我要提到 PEP 545（Python Documentation Translations），这里说明了官方的翻译项目的各项细节。官方翻译项目使用的是Transifex平台，翻译者以国家为单位组成团队，进行协作翻译。</p>
+<p>目前，有34个进行态的翻译团队，中文团队（大陆）的翻译进度刚过10%，跟排第一的日本（约80%）相比，落后很多。这项数据，从侧面印证了我之前的观点：国内的Python翻译环境不容乐观。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fx6w4uztkej21fo0l4jsj.jpg" alt></p>
+<p>尽管现状如此，但我坚信这种局面必然会得到改善。因为国内的Python学习者不仅仅是人数众多，其中有意愿和能力进行英文翻译的人也很多。</p>
+<p>或许，他们恰好不知道有这样的翻译需求，不知道有一些优秀的团队和社区可以去加入，不知道有一些翻译项目其实可以很方便地做贡献，才没有参与罢了。</p>
+<p>所以，这也是我写这篇文章的目的，希望通过介绍这方面的内容，提供些有用的信息，帮助到这些小伙伴。</p>
+<hr>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+<p>参考链接：<br><a href="https://mp.weixin.qq.com/s/QhADZ8GUOdIznpwOF9YRvw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/QhADZ8GUOdIznpwOF9YRvw</a><br><a href="https://www.python.org/dev/peps/pep-0545/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0545/</a><br><a href="https://www.jianshu.com/p/27d2f02a86e9" target="_blank" rel="noopener">https://www.jianshu.com/p/27d2f02a86e9</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python决策权的投票结果诞生了，“指导委员会”模式拔得头筹/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/这件正在发生的事，关乎所有的Python开发者....../" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#再聊聊Python中文社区的翻译"><span class="nav-number">1.</span> <span class="nav-text">再聊聊Python中文社区的翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python部落的翻译社"><span class="nav-number">2.</span> <span class="nav-text">Python部落的翻译社</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pythoncaff社区"><span class="nav-number">3.</span> <span class="nav-text">Pythoncaff社区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-官方文档中文翻译项目"><span class="nav-number">4.</span> <span class="nav-text">Python 官方文档中文翻译项目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

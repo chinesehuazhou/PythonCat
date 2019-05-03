@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python进阶：如何将字符串常量转化为变量？前几天，我们Python猫交流学习群 里的 M 同学提了个问题。这个问题挺有意思，经初次讨论，我们认为它无解。 然而，我认为它很有价值，应该继续思考怎么解决，所以就在私密的知识星球上记录了下来。 万万没想到的是，在第二天，有两位同学接连给出了解决方法！ 由此，群内出现了一轮热烈的技术交流。 本文将相关的内容要点作了梳理，并由此引申到更进一步的学习话题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python进阶：如何将字符串常量转化为变量？/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="Python进阶：如何将字符串常量转化为变量？前几天，我们Python猫交流学习群 里的 M 同学提了个问题。这个问题挺有意思，经初次讨论，我们认为它无解。 然而，我认为它很有价值，应该继续思考怎么解决，所以就在私密的知识星球上记录了下来。 万万没想到的是，在第二天，有两位同学接连给出了解决方法！ 由此，群内出现了一轮热烈的技术交流。 本文将相关的内容要点作了梳理，并由此引申到更进一步的学习话题，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1g08dfkg8sdj2076076t96.jpg">
+<meta property="og:updated_time" content="2019-03-17T04:44:31.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="Python进阶：如何将字符串常量转化为变量？前几天，我们Python猫交流学习群 里的 M 同学提了个问题。这个问题挺有意思，经初次讨论，我们认为它无解。 然而，我认为它很有价值，应该继续思考怎么解决，所以就在私密的知识星球上记录了下来。 万万没想到的是，在第二天，有两位同学接连给出了解决方法！ 由此，群内出现了一轮热烈的技术交流。 本文将相关的内容要点作了梳理，并由此引申到更进一步的学习话题，">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1g08dfkg8sdj2076076t96.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶：如何将字符串常量转化为变量？/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶：如何将字符串常量转化为变量？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python进阶：如何将字符串常量转化为变量？"><a href="#Python进阶：如何将字符串常量转化为变量？" class="headerlink" title="Python进阶：如何将字符串常量转化为变量？"></a>Python进阶：如何将字符串常量转化为变量？</h1><p>前几天，我们<code>Python猫交流学习群</code> 里的 M 同学提了个问题。这个问题挺有意思，经初次讨论，我们认为它无解。</p>
+<p>然而，我认为它很有价值，应该继续思考怎么解决，所以就在私密的知识星球上记录了下来。</p>
+<p>万万没想到的是，在第二天，有两位同学接连给出了解决方法！</p>
+<p>由此，群内出现了一轮热烈的技术交流。</p>
+<p>本文将相关的内容要点作了梳理，并由此引申到更进一步的学习话题，希望对你有所帮助。</p>
+<h2 id="1、如何动态生成变量名？"><a href="#1、如何动态生成变量名？" class="headerlink" title="1、如何动态生成变量名？"></a>1、如何动态生成变量名？</h2><p>M 同学的问题如下：</p>
+<blockquote>
+<p>打扰一下大家，请教一个问题，已知 list = [‘A’, ‘B’, ‘C’, ‘D’] , 如何才能得到以 list 中元素命名的新列表 A = [], B = [], C = [], D = [] 呢?</p>
+</blockquote>
+<p>简单理解，这个问题的意思是，<strong>将字符串内容作为其它对象的变量名。</strong> </p>
+<p>list 中的元素是字符串，此处的 ‘A’-‘D’ 是<strong>常量</strong> ，而在要求的结果中，A-D 是<strong>变量</strong> 。</p>
+<p>如果强行直接将常量当做变量使用，它会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;A&apos; = []</span><br><span class="line">...SyntaxError: can&apos;t assign to literal</span><br></pre></td></tr></table></figure>
+<p>报错中的<code>literal</code> 指的是<code>字面量</code> ，这是计算机科学中常见的一个概念，<strong>用于表达源代码中的固定值。</strong> 例如，整数、浮点数、字符串等基本类型，就是字面量。</p>
+<p>字面量指的就是一个量本身，可以理解为一种原子性的实体，当然不能再被赋值了。</p>
+<p>所以，取出的字符串内容，并不能直接用作变量名，需要另想办法。</p>
+<p>有初学者可能会想，list[0] = [] 行不行？当然不行，因为没有出现 A 。那 A = list[0] ，接着 A = [] 呢？那也不行，因为这里的 A 是你凭空定义出来的，而不是从已有条件中生成的。</p>
+<p>当时，群里只有两三个同学参与了讨论，我们没想到解决办法。但是，我觉得这个题目很有意思，值得玩味。</p>
+<p>因为，如果能解决这个问题，那就意味着可以不作预先定义，而是动态地生成变量名，这不仅能减少给变量取名的麻烦，还实现了自动编码！</p>
+<p>可以设想一下未来，人工智能在编写代码的时候，如果能根据已知条件，动态生成变量名，那编写代码的过程不就顺利多了么？（据说，现在已经有人工智能可以编写代码了，不知它在取变量名时，是用的什么方法？）</p>
+<h2 id="2、办法总是有的"><a href="#2、办法总是有的" class="headerlink" title="2、办法总是有的"></a>2、办法总是有的</h2><p>最近，学习群里蒙混进来了几个打广告的，为此，我决定提高审核门槛，例如，用群里的问题来作个考核。</p>
+<p>万万没想到的是，第一个被考核到的 Q 同学，几乎不假思索地就说出了一个解决上述问题的思路。而<strong>偏偏就是那么巧</strong> ，几乎在同时，群内的 J 同学给出了另外一个解决方法（他没看到群内的讨论，而是看到了知识星球的记录，才知道这个问题的）。</p>
+<p>也就是说，前一晚还以为无解的问题，在第二天竟得到了两种不同的解决方法！</p>
+<p>那么，他们的答案是什么呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># J 同学的解答</span><br><span class="line">&gt;&gt;&gt; list1 = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;]</span><br><span class="line">&gt;&gt;&gt; for i in list1:</span><br><span class="line">&gt;&gt;&gt;     globals()[i] = []</span><br><span class="line">&gt;&gt;&gt; A</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>这个方法通过修改全局命名空间，巧妙地“定义”出了新的变量。globals() 方法取出来的是一个字典，字符串 ‘A’ 是其中一个键值（key），而这个键值恰恰是全局命名空间中的一个变量，这就实现了从常量到变量的转化。</p>
+<p>在数据结构层面上，空列表 [] 作为一个值（value）跟它的字符串键值绑定在一起，而在运用层面上，它作为变量内容而跟变量名绑定在一起。</p>
+<p>看到这个回答的时候，我就突然想起来了，上个月转载过一篇《<a href="https://mp.weixin.qq.com/s/f9BBe2W1X1p7NcHg665I4A" target="_blank" rel="noopener">Python 动态赋值的陷阱</a>》，讲的正是<strong>动态地进行变量赋值</strong> 的问题啊！我似乎只关注了 globals() 与 locals() 用法的区别，却没有真正地掌握它们的原初用途。</p>
+<p>J 同学说，他正是看了那篇文章，才学得了这个方法。这就有意思了，我分享了一个自己囫囵吞枣的知识，然后它被 J 同学吸收掌握，最后反馈回来解决了我的难题。</p>
+<p>我真切地感受到了知识分享的魅力：<strong>知识在流动中获得生命，在碰撞中锃亮色泽。</strong> </p>
+<p>同时，我也真切地明白了一个互助的学习团体的好处：<strong>利人者也利己，互助者共同进步。</strong> </p>
+<h2 id="3、动态执行代码的方法"><a href="#3、动态执行代码的方法" class="headerlink" title="3、动态执行代码的方法"></a>3、动态执行代码的方法</h2><p>新进群的 Q 同学，提供了一个不同的答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Q 同学的解答</span><br><span class="line">&gt;&gt;&gt; list1 = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;]</span><br><span class="line">&gt;&gt;&gt; for i in list1:</span><br><span class="line">&gt;&gt;&gt;     exec(f&quot;&#123;i&#125; = []&quot;)</span><br><span class="line">&gt;&gt;&gt; A</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>他的写法用到了 Python 3.6 才引入的 f-strings 特性，事实上，在较低版本中，也是可以实现的，只需要保证 exec() 方法接收的参数是包含了变量 i 的字符串即可，例如这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 以下代码可替换上例的第 4 行</span><br><span class="line">exec(i + &quot; = []&quot;)</span><br><span class="line"># 或者：</span><br><span class="line">exec(&quot;&#123;&#125; = []&quot;.format(i))</span><br><span class="line"># 或者：</span><br><span class="line">exec(&apos; &apos;.join([i, &apos;= []&apos;]))</span><br></pre></td></tr></table></figure>
+<p>这几种写法的区别只是字符串拼接法的区别，关于如何拼接字符串，以及不同方法之间的区别，可参看《<a href="https://mp.weixin.qq.com/s/Whrd6NiD4Y2Z-YSCy4XJ1w" target="_blank" rel="noopener">详解Python拼接字符串的七种方式</a>》。</p>
+<p>Q 同学这个答案的核心在于 exec() 方法，它是内置的，用途是<strong>执行储存在字符串或文件中的代码段。</strong> </p>
+<p>它的基础用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; exec(&apos;x = 1 + 2&apos;)</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line"># 执行代码段</span><br><span class="line">&gt;&gt;&gt; s = &quot;&quot;&quot;</span><br><span class="line">&gt;&gt;&gt; x = 10</span><br><span class="line">&gt;&gt;&gt; y = 20</span><br><span class="line">&gt;&gt;&gt; sum = x + y</span><br><span class="line">&gt;&gt;&gt; print(sum)</span><br><span class="line">&gt;&gt;&gt; &quot;&quot;&quot;</span><br><span class="line">&gt;&gt;&gt; exec(s)</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+<p>看完了 exec() 的用法，我们再回来看 Q 同学的答案。for-循环中取出来的 i 是字符串，而拼接后的字符串经过 exec() 的处理，就获得了动态编写代码的效果。</p>
+<p>也就是说，因为字符串常量的内容被当做有效代码而执行了，其中的 ‘A’-‘D’ 元素，就取得了新的身份，变成了最终的 A-D 变量名。</p>
+<p>这个方法看起来很简单啊，可是由于 exec() 方法太生僻了，直到 Q 同学提出，我们才醒悟过来。</p>
+<blockquote>
+<p>注意：在 Python3 中，exec() 是个内置方法；而在 Python2 中，exec 是个语句（statement），另外有个 execfile() 方法，两者相合并，就成了 Python3 中的 exec() 方法。本文使用的是 Python3。</p>
+</blockquote>
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p>抽象一下最初的问题，它实际问的是“如何将字符串内容作为其它对象的变量名”，更进一步地讲是——“<strong>如何将常量转化为变量</strong> ”。</p>
+<p>使用直接进行赋值的静态方法，行不通。</p>
+<p>两位同学提出的方法都是间接的动态方法：<strong>一个是动态地进行变量赋值，通过修改命名空间而植入变量；一个是动态地执行代码，可以说是通过“走后门”的方式，安插了变量。</strong> </p>
+<p>两种方法殊途同归，不管是白猫还是黑猫，它们都抓到了老鼠。</p>
+<p>这两种方法已经给我们带来了很有价值的启发，同时，因为它们，群内小伙伴们更是发散地讨论一些相关联的话题，例如：S 同学提出了另一种修改命名空间中变量的写法、L 同学提到了 eval() 的意义、eval() 与 exec() 的区别、我查到了为什么要慎用 eval() 、C 与 H 同学提到了 eval() 的安全用法……</p>
+<p>虽然，某些话题无法在群聊中充分展开，但是，这些话题知识的延展联系，大大地丰富了本文开头的问题，这一个微小的问题，牵连出来了两个大的知识体系。</p>
+<p>最后，真得感谢群内的这些爱学习的优秀的同志们！除了文中提及的，还有一些同学也做了积极贡献，大家都很给力！</p>
+<p><strong>相关链接：</strong> </p>
+<p>《<a href="https://mp.weixin.qq.com/s/f9BBe2W1X1p7NcHg665I4A" target="_blank" rel="noopener">Python 动态赋值的陷阱</a>》</p>
+<p>《<a href="https://mp.weixin.qq.com/s/Whrd6NiD4Y2Z-YSCy4XJ1w" target="_blank" rel="noopener">详解Python拼接字符串的七种方式</a>》</p>
+<p>eval()、exec()及其相关函数：<a href="https://www.tuicool.com/wx/vEbeumE" target="_blank" rel="noopener">https://www.tuicool.com/wx/vEbeumE</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g08dfkg8sdj2076076t96.jpg" alt></p>
+<p>公众号【<strong>Python猫</strong>】， 专注Python技术、数据科学和深度学习，力图创造一个有趣又有用的学习分享平台。本号连载优质的系列文章，有喵星哲学猫系列、Python进阶系列、好书推荐系列、优质英文推荐与翻译等等，欢迎关注哦。PS：后台回复“<strong>爱学习</strong>”，免费获得一份学习大礼包。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶：切片的误区与高级用法/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶：自定义对象实现切片功能/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python进阶：如何将字符串常量转化为变量？"><span class="nav-number">1.</span> <span class="nav-text">Python进阶：如何将字符串常量转化为变量？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、如何动态生成变量名？"><span class="nav-number">1.1.</span> <span class="nav-text">1、如何动态生成变量名？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、办法总是有的"><span class="nav-number">1.2.</span> <span class="nav-text">2、办法总是有的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、动态执行代码的方法"><span class="nav-number">1.3.</span> <span class="nav-text">3、动态执行代码的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、总结"><span class="nav-number">1.4.</span> <span class="nav-text">4、总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

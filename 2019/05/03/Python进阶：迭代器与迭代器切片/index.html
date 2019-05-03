@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python进阶：迭代器与迭代器切片在前两篇关于 Python 切片的文章中，我们学习了切片的基础用法、高级用法、使用误区，以及自定义对象如何实现切片用法（相关链接见文末）。本文是切片系列的第三篇，主要内容是迭代器切片。 迭代器是 Python 中独特的一种高级特性，而切片也是一种高级特性，两者相结合，会产生什么样的结果呢？ 1、迭代与迭代器首先，有几个基本概念要澄清：迭代、可迭代对象、迭代器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python进阶：迭代器与迭代器切片/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="Python进阶：迭代器与迭代器切片在前两篇关于 Python 切片的文章中，我们学习了切片的基础用法、高级用法、使用误区，以及自定义对象如何实现切片用法（相关链接见文末）。本文是切片系列的第三篇，主要内容是迭代器切片。 迭代器是 Python 中独特的一种高级特性，而切片也是一种高级特性，两者相结合，会产生什么样的结果呢？ 1、迭代与迭代器首先，有几个基本概念要澄清：迭代、可迭代对象、迭代器。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg">
+<meta property="og:updated_time" content="2019-01-01T06:15:17.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="Python进阶：迭代器与迭代器切片在前两篇关于 Python 切片的文章中，我们学习了切片的基础用法、高级用法、使用误区，以及自定义对象如何实现切片用法（相关链接见文末）。本文是切片系列的第三篇，主要内容是迭代器切片。 迭代器是 Python 中独特的一种高级特性，而切片也是一种高级特性，两者相结合，会产生什么样的结果呢？ 1、迭代与迭代器首先，有几个基本概念要澄清：迭代、可迭代对象、迭代器。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶：迭代器与迭代器切片/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python进阶：迭代器与迭代器切片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python进阶：迭代器与迭代器切片"><a href="#Python进阶：迭代器与迭代器切片" class="headerlink" title="Python进阶：迭代器与迭代器切片"></a>Python进阶：迭代器与迭代器切片</h1><p>在前两篇关于 Python 切片的文章中，我们学习了切片的基础用法、高级用法、使用误区，以及自定义对象如何实现切片用法（相关链接见文末）。本文是切片系列的第三篇，主要内容是迭代器切片。</p>
+<p>迭代器是 Python 中独特的一种高级特性，而切片也是一种高级特性，两者相结合，会产生什么样的结果呢？</p>
+<h2 id="1、迭代与迭代器"><a href="#1、迭代与迭代器" class="headerlink" title="1、迭代与迭代器"></a>1、迭代与迭代器</h2><p>首先，有几个基本概念要澄清：迭代、可迭代对象、迭代器。</p>
+<p><code>迭代</code> 是一种遍历容器类型对象（例如字符串、列表、字典等等）的方式，例如，我们说迭代一个字符串“abc”，指的就是从左往右依次地、逐个地取出它的全部字符的过程。（PS：汉语中迭代一词有循环反复、层层递进的意思，但 Python 中此词要理解成<strong>单向水平线性</strong> 的，如果你不熟悉它，我建议直接将其理解为遍历。）</p>
+<p>那么，怎么写出迭代操作的指令呢？最通用的书写语法就是 for 循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for循环实现迭代过程</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="string">"abc"</span>:</span><br><span class="line">    print(char, end=<span class="string">" "</span>)</span><br><span class="line"><span class="comment"># 输出结果：a b c</span></span><br></pre></td></tr></table></figure>
+<p>for 循环可以实现迭代的过程，但是，并非所有对象都可以用于 for 循环，例如，上例中若将字符串“abc”换成任意整型数字，则会报错： ‘int’ object is not iterable .</p>
+<p>这句报错中的单词“iterable”指的是“可迭代的”，即 int 类型不是可迭代的。而字符串（string）类型是可迭代的，同样地，列表、元组、字典等类型，都是可迭代的。</p>
+<p>那怎么判断一个对象是否可迭代呢？为什么它们是可迭代的呢？怎么让一个对象可迭代呢？</p>
+<p>要使一个对象可迭代，就要实现可迭代协议，即需要实现<code>__iter__()</code> 魔术方法，换言之，只要实现了这个魔术方法的对象都是可迭代对象。</p>
+<p>那怎么判断一个对象是否实现了这个方法呢？除了上述的 for 循环外，我知道还有四种方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：dir()查看__iter__</span></span><br><span class="line">dir(<span class="number">2</span>)     <span class="comment"># 没有，略</span></span><br><span class="line">dir(<span class="string">"abc"</span>) <span class="comment"># 有，略</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：isinstance()判断</span></span><br><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">isinstance(<span class="number">2</span>, collections.Iterable)     <span class="comment"># False</span></span><br><span class="line">isinstance(<span class="string">"abc"</span>, collections.Iterable) <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法3：hasattr()判断</span></span><br><span class="line">hasattr(<span class="number">2</span>,<span class="string">"__iter__"</span>)     <span class="comment"># False</span></span><br><span class="line">hasattr(<span class="string">"abc"</span>,<span class="string">"__iter__"</span>) <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法4：用iter()查看是否报错</span></span><br><span class="line">iter(<span class="number">2</span>)     <span class="comment"># 报错：'int' object is not iterable</span></span><br><span class="line">iter(<span class="string">"abc"</span>) <span class="comment"># &lt;str_iterator at 0x1e2396d8f28&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### PS：判断是否可迭代，还可以查看是否实现__getitem__，为方便描述，本文从略。</span></span><br></pre></td></tr></table></figure>
+<p>这几种方法中最值得一提的是 iter() 方法，它是 Python 的内置方法，其作用是<strong>将可迭代对象变成迭代器</strong> 。这句话可以解析出两层意思：（1）可迭代对象跟迭代器是两种东西；（2）可迭代对象能变成迭代器。</p>
+<p>实际上，迭代器必然是可迭代对象，但可迭代对象不一定是迭代器。两者有多大的区别呢？</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bly1fynwz67tj7j20vq0bxt9t.jpg" alt></p>
+<p>如上图蓝圈所示，普通可迭代对象与迭代器的最关键区别可概括为：<strong>一同两不同</strong> ，所谓“一同”，即两者都是可迭代的（<code>__iter__</code>），所谓“两不同”，即可迭代对象在转化为迭代器后，它会丢失一些属性（<code>__getitem__</code>），同时也增加一些属性（<code>__next__</code>）。</p>
+<p>首先看看增加的属性 <code>__next__</code> ， 它是迭代器之所以是迭代器的关键，事实上，我们正是把同时实现了 <code>__iter__</code> 方法 和 <code>__next__</code> 方法的对象定义为迭代器的。</p>
+<p>有了多出来的这个属性，可迭代对象不需要借助外部的 for 循环语法，就能实现自我的迭代/遍历过程。我发明了两个概念来描述这两种遍历过程（PS：为了易理解，这里称遍历，实际也可称为迭代）：<code>它遍历</code> 指的是通过外部语法而实现的遍历，<code>自遍历</code> 指的是通过自身方法实现的遍历。</p>
+<p>借助这两个概念，我们说，可迭代对象就是能被“它遍历”的对象，而迭代器是在此基础上，还能做到“自遍历”的对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ob1 = <span class="string">"abc"</span></span><br><span class="line">ob2 = iter(<span class="string">"abc"</span>)</span><br><span class="line">ob3 = iter(<span class="string">"abc"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ob1它遍历</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob1:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob1:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c</span></span><br><span class="line"><span class="comment"># ob1自遍历</span></span><br><span class="line">ob1.__next__()  <span class="comment"># 报错： 'str' object has no attribute '__next__'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ob2它遍历</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob2:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># a b c    </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ob2:</span><br><span class="line">    print(i, end = <span class="string">" "</span>)   <span class="comment"># 无输出</span></span><br><span class="line"><span class="comment"># ob2自遍历</span></span><br><span class="line">ob2.__next__()  <span class="comment"># 报错：StopIteration</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ob3自遍历</span></span><br><span class="line">ob3.__next__()  <span class="comment"># a</span></span><br><span class="line">ob3.__next__()  <span class="comment"># b</span></span><br><span class="line">ob3.__next__()  <span class="comment"># c</span></span><br><span class="line">ob3.__next__()  <span class="comment"># 报错：StopIteration</span></span><br></pre></td></tr></table></figure>
+<p>通过上述例子可看出，迭代器的优势在于支持自遍历，同时，它的特点是单向非循环的，一旦完成遍历，再次调用就会报错。</p>
+<p>对此，我想到一个比方：普通可迭代对象就像是子弹匣，它遍历就是取出子弹，在完成操作后又装回去，所以可以反复遍历（即多次调用for循环，返回相同结果）；而迭代器就像是装载了子弹匣且不可拆卸的枪，进行它遍历或者自遍历都是发射子弹，这是消耗性的遍历，是无法复用的（即遍历会有尽头）。</p>
+<p>写了这么多，稍微小结一下：<strong>迭代是一种遍历元素的方式，按照实现方式划分，有外部迭代与内部迭代两种，支持外部迭代（它遍历）的对象就是可迭代对象，而同时还支持内部迭代（自遍历）的对象就是迭代器；按照消费方式划分，可分为复用型迭代与一次性迭代，普通可迭代对象是复用型的，而迭代器是一次性的。</strong> </p>
+<h2 id="2、迭代器切片"><a href="#2、迭代器切片" class="headerlink" title="2、迭代器切片"></a>2、迭代器切片</h2><p>前面提到了“一同两不同”，最后的不同是，普通可迭代对象在转化成迭代器的过程中会丢失一些属性，其中关键的属性是 <code>__getitem__</code> 。在《<a href="https://mp.weixin.qq.com/s/QTodsriWW_gESvmJPD1EYg" target="_blank" rel="noopener">Python进阶：自定义对象实现切片功能</a>》中，我曾介绍了这个魔术方法，并用它实现了自定义对象的切片特性。</p>
+<p>那么问题来了：为什么迭代器不继承这个属性呢？</p>
+<p>首先，迭代器使用的是消耗型的遍历，这意味着它充满不确定性，即其长度与索引键值对是动态衰减的，所以很难 get 到它的 item ，也就不再需要 <code>__getitem__</code> 属性了。其次，若强行给迭代器加上这个属性，这并不合理，正所谓强扭的瓜不甜……</p>
+<p>由此，新的问题来了：既然会丢失这么重要的属性（还包括其它未标识的属性），为什么还要使用迭代器呢？</p>
+<p>这个问题的答案在于，迭代器拥有不可替代的强大的有用的功能，使得 Python 要如此设计它。限于篇幅，此处不再展开，后续我会专门填坑此话题。</p>
+<p>还没完，死缠烂打的问题来了：能否令迭代器拥有这个属性呢，即令迭代器继续支持切片呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hi = <span class="string">"欢迎关注公众号：Python猫"</span></span><br><span class="line">it = iter(hi)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 普通切片</span></span><br><span class="line">hi[<span class="number">-7</span>:] <span class="comment"># Python猫</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 反例：迭代器切片</span></span><br><span class="line">it[<span class="number">-7</span>:] <span class="comment"># 报错：'str_iterator' object is not subscriptable</span></span><br></pre></td></tr></table></figure>
+<p>迭代器因为缺少<code>__getitem__</code> ，因此不能使用普通的切片语法。想要实现切片，无非两种思路：一是自己造轮子，写实现的逻辑；二是找到封装好的轮子。</p>
+<p>Python 的 itertools 模块就是我们要找的轮子，用它提供的方法可轻松实现迭代器切片。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例1：简易迭代器</span></span><br><span class="line">s = iter(<span class="string">"123456789"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(s, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)   <span class="comment"># 输出：3 4 5 6</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(s, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)   <span class="comment"># 输出：9</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例2：斐波那契数列迭代器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a, self.b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">yield</span> self.a</span><br><span class="line">            self.a, self.b = self.b, self.a + self.b</span><br><span class="line">f = iter(Fib())</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(f, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)  <span class="comment"># 输出：2 3 5 8</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> itertools.islice(f, <span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    print(x, end = <span class="string">" "</span>)  <span class="comment"># 输出：34 55 89 144</span></span><br></pre></td></tr></table></figure>
+<p>itertools 模块的 islice() 方法将迭代器与切片完美结合，终于回答了前面的问题。然而，迭代器切片跟普通切片相比，前者有很多局限性。首先，这个方法不是“纯函数”（纯函数需遵守“相同输入得到相同输出”的原则，之前在《<a href="https://mp.weixin.qq.com/s/2l_erf55IMvT4Tz0AGWCUQ" target="_blank" rel="noopener">来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</a>》提到过）；其次，它只支持正向切片，且不支持负数索引，这都是由迭代器的损耗性所决定的。</p>
+<p>那么，我不禁要问：itertools 模块的切片方法用了什么实现逻辑呢？下方是官网提供的源码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">islice</span><span class="params">(iterable, *args)</span>:</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2) --&gt; A B</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2, 4) --&gt; C D</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 2, None) --&gt; C D E F G</span></span><br><span class="line">    <span class="comment"># islice('ABCDEFG', 0, None, 2) --&gt; A C E G</span></span><br><span class="line">    s = slice(*args)</span><br><span class="line">    <span class="comment"># 索引区间是[0,sys.maxsize]，默认步长是1</span></span><br><span class="line">    start, stop, step = s.start <span class="keyword">or</span> <span class="number">0</span>, s.stop <span class="keyword">or</span> sys.maxsize, s.step <span class="keyword">or</span> <span class="number">1</span></span><br><span class="line">    it = iter(range(start, stop, step))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        nexti = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># Consume *iterable* up to the *start* position.</span></span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> zip(range(start), iterable):</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> enumerate(iterable):</span><br><span class="line">            <span class="keyword">if</span> i == nexti:</span><br><span class="line">                <span class="keyword">yield</span> element</span><br><span class="line">                nexti = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># Consume to *stop*.</span></span><br><span class="line">        <span class="keyword">for</span> i, element <span class="keyword">in</span> zip(range(i + <span class="number">1</span>, stop), iterable):</span><br><span class="line">            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>islice() 方法的索引方向是受限的，但它也提供了一种可能性：即允许你对一个无穷的（在系统支持范围内）迭代器进行切片的能力。这是迭代器切片最具想象力的用途场景。</p>
+<p>除此之外，迭代器切片还有一个很实在的应用场景：读取文件对象中给定行数范围的数据。</p>
+<p>在《<a href="https://mp.weixin.qq.com/s/Md07VoaULda7qnMO4ob7Ww" target="_blank" rel="noopener">给Python学习者的文件读写指南（含基础与进阶，建议收藏）</a>》里，我介绍了从文件中读取内容的几种方法：readline() 比较鸡肋，不咋用；read() 适合读取内容较少的情况，或者是需要一次性处理全部内容的情况；而 readlines() 用的较多，比较灵活，每次迭代读取内容，既减少内存压力，又方便逐行对数据处理。</p>
+<p>虽然 readlines() 有迭代读取的优势，但它是从头到尾逐行读取，若文件有几千行，而我们只想要读取少数特定行（例如第1000-1009行），那它还是效率太低了。考虑到<strong>文件对象天然就是迭代器</strong> ，我们可以使用迭代器切片先行截取，然后再处理，如此效率将大大地提升。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.txt 文件内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">猫</span></span><br><span class="line"><span class="string">Python猫</span></span><br><span class="line"><span class="string">python is a cat.</span></span><br><span class="line"><span class="string">this is the end.</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(hasattr(f, <span class="string">"__next__"</span>))  <span class="comment"># 判断是否迭代器</span></span><br><span class="line">    content = islice(f, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> content:</span><br><span class="line">        print(line.strip())</span><br><span class="line"><span class="comment">### 输出结果：</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line">python <span class="keyword">is</span> a cat.</span><br><span class="line">this <span class="keyword">is</span> the end.</span><br></pre></td></tr></table></figure>
+<h2 id="3、小结"><a href="#3、小结" class="headerlink" title="3、小结"></a>3、小结</h2><p>好啦，今天的学习就到这，小结一下：迭代器是一种特殊的可迭代对象，可用于它遍历与自遍历，但遍历过程是损耗型的，不具备循环复用性，因此，迭代器本身不支持切片操作；通过借助 itertools 模块，我们能实现迭代器切片，将两者的优势相结合，其主要用途在于截取大型迭代器（如无限数列、超大文件等等）的片段，实现精准的处理，从而大大地提升性能与效率。</p>
+<p><strong>切片系列：</strong> </p>
+<p>《<a href="https://mp.weixin.qq.com/s/fwZnvcQ_u-fYLFeQaYkJLw" target="_blank" rel="noopener">Python进阶：切片的误区与高级用法</a>》</p>
+<p>《<a href="https://mp.weixin.qq.com/s/QTodsriWW_gESvmJPD1EYg" target="_blank" rel="noopener">Python进阶：自定义对象实现切片功能</a>》</p>
+<p><strong>相关链接：</strong> </p>
+<p>《<a href="https://docs.python.org/3.7/library/itertools.html#itertools.islice" target="_blank" rel="noopener">官网的itertools模块介绍</a>》</p>
+<p>《<a href="https://mp.weixin.qq.com/s/2l_erf55IMvT4Tz0AGWCUQ" target="_blank" rel="noopener">来自Kenneth Reitz大神的建议：避免不必要的面向对象编程</a>》</p>
+<p>《<a href="https://mp.weixin.qq.com/s/Md07VoaULda7qnMO4ob7Ww" target="_blank" rel="noopener">给Python学习者的文件读写指南（含基础与进阶，建议收藏）</a>》</p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+<p>2018-12-31 更新声明：切片系列文章本是分三篇写成，现已合并成一篇。合并后，修正了一些严重的错误（如自定义序列切片的部分），还对行文结构与章节衔接做了大量改动。原系列的单篇就不删除了，毕竟也是有单独成篇的作用。特此声明，请阅读改进版—— Python进阶：全面解读高级特性之切片！<a href="https://mp.weixin.qq.com/s/IRAjR-KHZBPEEkdiofseGQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/IRAjR-KHZBPEEkdiofseGQ</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python进阶：设计模式之迭代器模式/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python骚操作：动态定义函数/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python进阶：迭代器与迭代器切片"><span class="nav-number">1.</span> <span class="nav-text">Python进阶：迭代器与迭代器切片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、迭代与迭代器"><span class="nav-number">1.1.</span> <span class="nav-text">1、迭代与迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、迭代器切片"><span class="nav-number">1.2.</span> <span class="nav-text">2、迭代器切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、小结"><span class="nav-number">1.3.</span> <span class="nav-text">3、小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

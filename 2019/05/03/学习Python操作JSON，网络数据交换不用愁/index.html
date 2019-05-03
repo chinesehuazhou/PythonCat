@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学习Python操作JSON，网络数据交换不用愁 今天，本喵带大家学学Python中操纵JSON的知识。学完本文，你可以学到如下内容： 1、JSON是什么？2、JSON与XML的优劣差异？3、将Python对象编码成JSON字符串4、将已编码的JSON字符串解码为Python对象5、解决JSON中文乱码问题 JSON是什么？JSON的全称是 JavaScript Object Notation，是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/学习Python操作JSON，网络数据交换不用愁/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="学习Python操作JSON，网络数据交换不用愁 今天，本喵带大家学学Python中操纵JSON的知识。学完本文，你可以学到如下内容： 1、JSON是什么？2、JSON与XML的优劣差异？3、将Python对象编码成JSON字符串4、将已编码的JSON字符串解码为Python对象5、解决JSON中文乱码问题 JSON是什么？JSON的全称是 JavaScript Object Notation，是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-20T14:49:41.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="学习Python操作JSON，网络数据交换不用愁 今天，本喵带大家学学Python中操纵JSON的知识。学完本文，你可以学到如下内容： 1、JSON是什么？2、JSON与XML的优劣差异？3、将Python对象编码成JSON字符串4、将已编码的JSON字符串解码为Python对象5、解决JSON中文乱码问题 JSON是什么？JSON的全称是 JavaScript Object Notation，是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/学习Python操作JSON，网络数据交换不用愁/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/学习Python操作JSON，网络数据交换不用愁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="学习Python操作JSON，网络数据交换不用愁"><a href="#学习Python操作JSON，网络数据交换不用愁" class="headerlink" title="学习Python操作JSON，网络数据交换不用愁"></a>学习Python操作JSON，网络数据交换不用愁</h2><hr>
+<p>今天，本喵带大家学学Python中操纵JSON的知识。学完本文，你可以学到如下内容：</p>
+<p>1、JSON是什么？<br>2、JSON与XML的优劣差异？<br>3、将Python对象编码成JSON字符串<br>4、将已编码的JSON字符串解码为Python对象<br>5、解决JSON中文乱码问题</p>
+<h2 id="JSON是什么？"><a href="#JSON是什么？" class="headerlink" title="JSON是什么？"></a>JSON是什么？</h2><p>JSON的全称是 JavaScript Object Notation，是一种轻量级的数据交换格式。最初，JSON 只是 JavaScript 的子集，但由于其简单易用而迅速走红。</p>
+<p>现今大部分编程语言都支持对JSON的解析与生成，而近些年异军突起的NoSQL数据库也多参照JSON来设计数据存储格式，例如Mongodb的BSON（Binary JSON）。</p>
+<p>JSON有以下六种数据类型：number、boolean、string、null、array、object。前三种很好理解，第四个null对应Python的None，最后两种，对应Python的列表和字典。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;小明&quot;,</span><br><span class="line">  &quot;age&quot;: 14,</span><br><span class="line">  &quot;gender&quot;: true,</span><br><span class="line">  &quot;grade&quot;: null,</span><br><span class="line">  &quot;skills&quot;: [</span><br><span class="line">    &quot;JavaScript&quot;,</span><br><span class="line">    &quot;Java&quot;,</span><br><span class="line">    &quot;Python&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSON与XML的优劣差异？"><a href="#JSON与XML的优劣差异？" class="headerlink" title="JSON与XML的优劣差异？"></a>JSON与XML的优劣差异？</h2><p>在JSON出现之前，人们用XML在网络上交换数据，在JSON出现后，它基本上就取代了XML的位置。两者的共同之处显而易见，它们都是结构化的语言，都可以用于网络数据的交换。</p>
+<p>两者最大的差异在于它们的“出身”不同，也就是它们被创造的目的不同。</p>
+<p>XML是W3C（万维网联盟）发布的可扩展标记语言（Extensible Markup Language），最初设计来弥补HTML的不足，以强大的扩展性满足网络信息发布的需要，与它“同级”的有：XHTML\CSS\ECMAScript等。它包含DTD、XSD、XPath、XSL等一大堆复杂的规范，在数据存储、扩展及高级检索等方面都有作用。后来被用于网络数据交换，颇有点大材小用的意思，虽然可胜任，却也有点复杂和冗余。</p>
+<p>而JSON是ECMAScript标准的子集，设计之初就是为了克服XML在数据交换上的劣势，所以一方面，它像XML一样具有简洁而清晰的层次结构，另一方面，它比XML小巧精致，更加适用于网络数据的传输。</p>
+<p>JSON也不是没有缺点，当结构层级很多的时候，它会让人陷入繁琐复杂的数据节点查找中，在可读性上要比XML差。</p>
+<h2 id="将Python对象编码成JSON字符串"><a href="#将Python对象编码成JSON字符串" class="headerlink" title="将Python对象编码成JSON字符串"></a>将Python对象编码成JSON字符串</h2><p>将python的对象转化为字符串，这个过程也称为序列化，与之相对，将JSON字符串转化为python对象，这个过程被称为反序列化。</p>
+<p>序列化格式如下，json.dumps()把python对象序列化，json.dump() 先序列化，然后将内容存入文件：</p>
+<ul>
+<li>json.dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)</li>
+<li>json.dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [1]: import json</span><br><span class="line">In [2]: d = dict(name=&apos;Tom&apos;, age=&apos;8&apos;, score=88)</span><br><span class="line">In [3]: json.dumps(d)</span><br><span class="line">Out[3]: &apos;&#123;&quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: &quot;8&quot;, &quot;score&quot;: 88&#125;&apos;</span><br><span class="line">In [4]: with open(&apos;test.json&apos;, &apos;w&apos;) as f:</span><br><span class="line">   ...:     json.dump(d, f)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用的比较多的参数有：</p>
+<ul>
+<li>ensure_ascii=True 设置是否编码为ASCII，默认是，若False，则使用原编码格式</li>
+<li>indent=None 设置打印时缩进，默认不缩进</li>
+<li>separators=None 设置分隔符，取值是(item_separator, dict_separator)元组，默认为(‘,’,’:’)，这表示keys之间用“,”隔开，而key和value之间用“:”隔开</li>
+<li>sort_keys=False  设置按key值排序，默认不排序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [15]: d = dict(name=&apos;Python猫&apos;, age=&apos;8&apos;, score=88)</span><br><span class="line"></span><br><span class="line">In [16]: json.dumps(d)</span><br><span class="line">Out[16]: &apos;&#123;&quot;name&quot;: &quot;Python\\u732b&quot;, &quot;age&quot;: &quot;8&quot;, &quot;score&quot;: 88&#125;&apos;</span><br><span class="line"></span><br><span class="line">In [17]: json.dumps(d, ensure_ascii=False, indent=4, sort_keys=True)</span><br><span class="line">Out[17]: &apos;&#123;\n    &quot;age&quot;: &quot;8&quot;,\n    &quot;name&quot;: &quot;Python猫&quot;,\n    &quot;score&quot;: 88\n&#125;&apos;</span><br><span class="line"></span><br><span class="line">In [18]: print(json.dumps(d, ensure_ascii=False, indent=4, sort_keys=True))</span><br><span class="line">&#123;</span><br><span class="line">    &quot;age&quot;: &quot;8&quot;,</span><br><span class="line">    &quot;name&quot;: &quot;Python猫&quot;,</span><br><span class="line">    &quot;score&quot;: 88</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="将已编码的JSON字符串解码为Python对象"><a href="#将已编码的JSON字符串解码为Python对象" class="headerlink" title="将已编码的JSON字符串解码为Python对象"></a>将已编码的JSON字符串解码为Python对象</h2><p>反序列化格式如下，json.loads()从内存中读取内容解析，json.load() 从文件中读取内容解析：</p>
+<ul>
+<li>json.loads(s, *, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)</li>
+<li>json.load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [1]: import json</span><br><span class="line">In [2]: d = dict(name=&apos;Tom&apos;, age=&apos;8&apos;, score=88)</span><br><span class="line">In [3]: tom_json = json.dumps(d)</span><br><span class="line">In [4]: json.loads(tom_json)</span><br><span class="line">Out[4]: &#123;&apos;age&apos;: &apos;8&apos;, &apos;name&apos;: &apos;Tom&apos;, &apos;score&apos;: 88&#125;</span><br><span class="line">In [5]: with open(&apos;test.json&apos;, &apos;r&apos;) as f:</span><br><span class="line">   ...:     print(json.load(f))</span><br><span class="line">&#123;&apos;name&apos;: &apos;Tom&apos;, &apos;age&apos;: &apos;8&apos;, &apos;score&apos;: 88&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>json.loads()比json.load() 多了一个encoding参数，可以将传入的字符串重新编码。</p>
+<h2 id="解决中文乱码问题"><a href="#解决中文乱码问题" class="headerlink" title="解决中文乱码问题"></a>解决中文乱码问题</h2><p>序列化的ensure_ascii参数与反序列化的encoding相对应，都是处理字符编码，一旦处理不好，就会导致中文乱码问题。</p>
+<p>Python2的字符编码乱七八糟，也广被人诟病，如果不幸遇到Python2项目，可参照如下例子解决。字符串在Python2内部的表示是unicode编码。因此，在做编码转换时，需要以unicode作为中间编码，即先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">m = &#123;&apos;a&apos; : &apos;你好&apos;&#125;</span><br><span class="line"></span><br><span class="line">print m</span><br><span class="line">=&gt;&#123;&apos;a&apos;: &apos;\xe4\xbd\xa0\xe5\xa5\xbd&apos;&#125;</span><br><span class="line"></span><br><span class="line">print json.dumps(m)</span><br><span class="line">=&gt;&#123;&quot;a&quot;: &quot;\u4f60\u597d&quot;&#125;</span><br><span class="line"></span><br><span class="line">print json.dumps(m,ensure_ascii=False)</span><br><span class="line">=&gt;&#123;&quot;a&quot;: &quot;浣犲ソ&quot;&#125;</span><br><span class="line"></span><br><span class="line">print json.dumps(m,ensure_ascii=False).decode(&apos;utf8&apos;).encode(&apos;gb2312&apos;)</span><br><span class="line">=&gt;&#123;&quot;a&quot;: &quot;你好&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>Python3的默认编码格式是utf-8，以上例子，只需要ensure_ascii=False，就能解决。</p>
+<p>-—————-</p>
+<p>本文原创并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/如何给列表降维？sum()函数的妙用/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/学习Python，怎能不懂点PEP呢？/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习Python操作JSON，网络数据交换不用愁"><span class="nav-number">1.</span> <span class="nav-text">学习Python操作JSON，网络数据交换不用愁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON是什么？"><span class="nav-number">2.</span> <span class="nav-text">JSON是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON与XML的优劣差异？"><span class="nav-number">3.</span> <span class="nav-text">JSON与XML的优劣差异？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将Python对象编码成JSON字符串"><span class="nav-number">4.</span> <span class="nav-text">将Python对象编码成JSON字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将已编码的JSON字符串解码为Python对象"><span class="nav-number">5.</span> <span class="nav-text">将已编码的JSON字符串解码为Python对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决中文乱码问题"><span class="nav-number">6.</span> <span class="nav-text">解决中文乱码问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

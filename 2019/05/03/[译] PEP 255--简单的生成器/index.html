@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[译] PEP 255–简单的生成器我正打算写写 Python 的生成器，然而查资料时发现，引入生成器的 PEP 没人翻译过，因此就花了点时间翻译出来。如果在阅读时，你有读不懂的地方，不用怀疑，极有可能是我译得不到位。若出现这种情况，我建议你直接阅读原文，最好也能将错误处告知于我，以便做出修改。 PEP原文：https://www.python.org/dev/peps/pep-0255 创建日期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豌豆花下猫">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/[译] PEP 255--简单的生成器/index.html">
+<meta property="og:site_name" content="豌豆花下猫">
+<meta property="og:description" content="[译] PEP 255–简单的生成器我正打算写写 Python 的生成器，然而查资料时发现，引入生成器的 PEP 没人翻译过，因此就花了点时间翻译出来。如果在阅读时，你有读不懂的地方，不用怀疑，极有可能是我译得不到位。若出现这种情况，我建议你直接阅读原文，最好也能将错误处告知于我，以便做出修改。 PEP原文：https://www.python.org/dev/peps/pep-0255 创建日期">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T13:52:29.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豌豆花下猫">
+<meta name="twitter:description" content="[译] PEP 255–简单的生成器我正打算写写 Python 的生成器，然而查资料时发现，引入生成器的 PEP 没人翻译过，因此就花了点时间翻译出来。如果在阅读时，你有读不懂的地方，不用怀疑，极有可能是我译得不到位。若出现这种情况，我建议你直接阅读原文，最好也能将错误处告知于我，以便做出修改。 PEP原文：https://www.python.org/dev/peps/pep-0255 创建日期">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/[译] PEP 255--简单的生成器/">
+
+
+
+
+
+  <title> | 豌豆花下猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/[译] PEP 255--简单的生成器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T21:21:22+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="译-PEP-255–简单的生成器"><a href="#译-PEP-255–简单的生成器" class="headerlink" title="[译] PEP 255–简单的生成器"></a>[译] PEP 255–简单的生成器</h1><p>我正打算写写 Python 的生成器，然而查资料时发现，引入生成器的 PEP 没人翻译过，因此就花了点时间翻译出来。如果在阅读时，你有读不懂的地方，不用怀疑，极有可能是我译得不到位。若出现这种情况，我建议你直接阅读原文，最好也能将错误处告知于我，以便做出修改。</p>
+<p><strong>PEP原文</strong>：<a href="https://www.python.org/dev/peps/pep-0255" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0255</a></p>
+<p><strong>创建日期</strong>：2001-05-18</p>
+<p><strong>合入Python版本</strong>：2.2</p>
+<p><strong>译者</strong> ：<a href="https://zhuanlan.zhihu.com/pythonCat" target="_blank" rel="noopener">豌豆花下猫</a>（<strong>Python猫</strong> 公众号作者）</p>
+<p><strong>PEP背景知识</strong> ：<a href="https://mp.weixin.qq.com/s/oRoBxZ2-IyuPOf_MWyKZyw" target="_blank" rel="noopener">学习Python，怎能不懂点PEP呢？</a></p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>这个 PEP 想在 Python 中引入生成器的概念，以及一个新的表达式，即 yield 表达式。</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>当一个生产者函数在处理某些艰难的任务时，它可能需要维持住生产完某个值时的状态，大多数编程语言都提供不了既舒服又高效的方案，除了往参数列表中添加回调函数，然后每生产一个值时就去调用一下。</p>
+<p>例如，标准库中的<code>tokenize.py</code>采用这种方法：调用者必须传一个 tokeneater 函数给 tokenize() ，当 tokenize() 找到下一个 token 时再调用。这使得 tokenize 能以自然的方式编码，但程序调用 tokenize 会变得极其复杂，因为它需要记住每次回调前最后出现的是哪个 token(s)。<code>tabnanny.py</code>中的 tokeneater 函数是处理得比较好的例子，它在全局变量中维护了一个状态机，用于记录已出现的 token 和预期会出现的 token 。这很难正确地工作，而且也挺难让人理解。不幸的是，它已经是最标准的解决方法了。</p>
+<p>有一个替代方案是一次性生成 Python 程序的全部解析，并存入超大列表中。这样 tokenize 客户端可以用自然的方式，即使用局部变量和局部控制流（例如循环和嵌套的 if 语句），来跟踪其状态。然而这并不实用：程序会变得臃肿，因此不能在实现整个解析所需的内存上放置先验限制；而有些 tokenize 客户端仅仅想要查看某个特定的东西是否曾出现（例如，future 声明，或者像 IDLE 做的那样，只是首个缩进的声明），因此解析整个程序就是严重地浪费时间。</p>
+<p>另一个替代方案是把 tokenize 变为一个迭代器【注释1】，每次调用它的 next() 方法时再传递下一个 token。这对调用者来说很便利，就像前一方案把结果存入大列表一样，同时没有内存与“想要早点退出怎么办”的缺点。然而，这个方案也把 tokenize 的负担转化成记住 next() 的调用状态，读者只要瞄一眼 tokenize.tokenize_loop() ，就会意识到这是一件多么可怕的苦差事。或者想象一下，用递归算法来生成普通树结构的节点：若把它投射成一个迭代器框架实现，就需要手动地移除递归状态并维护遍历的状态。</p>
+<p>第四种选择是在不同的线程中运行生产者和消费者。这允许两者以自然的方式维护其状态，所以都会很舒服。实际上，Python 源代码发行版中的 Demo/threads/Generator.py 就提供了一个可用的同步通信（synchronized-communication）类，来完成一般的任务。但是，这在没有线程的平台上无法运用，而且就算可用也会很慢（与不用线程可取得的成就相比）。</p>
+<p>最后一个选择是使用 Python 的变种 Stackless 【注释2-3】来实现，它支持轻量级的协程。它与前述的线程方案有相同的编程优势，效率还更高。然而，Stackless 在 Python 核心层存在争议，Jython 也可能不会实现相同的语义。这个 PEP 不是讨论这些问题的地方，但完全可以说生成器是 Stackless 相关功能的子集在当前 CPython 中的一种简单实现，而且可以说，其它 Python 实现起来也相对简单。</p>
+<p>以上分析完了已有的方案。其它一些高级语言也提供了不错的解决方案，特别是 Sather 的迭代器，它受到 CLU 的迭代器启发【注释4】；Icon 的生成器，一种新颖的语言，其中每个表达式都是生成器【注释5】。它们虽有差异，但基本的思路是一致的：提供一种函数，它可以返回中间结果（“下一个值”）给它的调用者，同时还保存了函数的局部状态，以便在停止的位置恢复（译注：resum，下文也译作激活）调用。一个非常简单的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fib():</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    while 1:</span><br><span class="line">       yield b</span><br><span class="line">       a, b = b, a+b</span><br></pre></td></tr></table></figure>
+<p>当 fib() 首次被调用时，它将 a 设为 0，将 b 设为 1，然后生成 b 给其调用者。调用者得到 1。当 fib 恢复时，从它的角度来看，yield 语句实际上跟 print 语句相同：fib 继续执行，且所有局部状态完好无损。然后，a 和 b 的值变为 1，并且 fib 再次循环到 yield，生成 1 给它的调用者。以此类推。 从 fib 的角度来看，它只是提供一系列结果，就像用了回调一样。但是从调用者的角度来看，fib 的调用就是一个可随时恢复的可迭代对象。跟线程一样，这允许两边以最自然的方式进行编码；但与线程方法不同，这可以在所有平台上高效完成。事实上，恢复生成器应该不比函数调用昂贵。</p>
+<p>同样的方法适用于许多生产者/消费者函数。例如，tokenize.py 可以生成下一个 token 而不是用它作为参数调用回调函数，而且 tokenize 客户端可以以自然的方式迭代 tokens：Python 生成器是一种迭代器，但是特别强大。</p>
+<h2 id="设计规格：yield"><a href="#设计规格：yield" class="headerlink" title="设计规格：yield"></a>设计规格：yield</h2><p>引入了一种新的表达式：</p>
+<blockquote>
+<p>yield_stmt：“yield”expression_list</p>
+</blockquote>
+<p>yield 是一个新的关键字，因此需要一个 <code>future</code> 声明【注释8】来进行引入：在早期版本中，若想使用生成器的模块，必须在接近头部处包含以下行（详见 PEP 236）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import generators</span><br></pre></td></tr></table></figure>
+<p>没有引入 future 模块就使用 yield 关键字，将会告警。 在后续的版本中，yield 将是一个语言关键字，不再需要 future 语句。</p>
+<p>yield 语句只能在函数内部使用。包含 yield 语句的函数被称为生成器函数。从各方面来看，生成器函数都只是个普通函数，但在它的代码对象的 co_flags 中设置了新的“CO_GENERATOR”标志。</p>
+<p>当调用生成器函数时，实际参数还是绑定到函数的局部变量空间，但不会执行代码。得到的是一个 generator-iterator 对象；这符合迭代器协议【注释6】，因此可用于 for 循环。注意，在上下文无歧义的情况下，非限定名称 “generator” 既可以指生成器函数，又可以指生成器-迭代器（generator-iterator）。</p>
+<p>每次调用 generator-iterator 的 next() 方法时，才会执行 generator-function 体中的代码，直至遇到 yield 或 return 语句（见下文），或者直接迭代到尽头。</p>
+<p>如果执行到 yield 语句，则函数的状态会被冻结，并将 expression_list 的值返回给 next() 的调用者。“冻结”是指挂起所有本地状态，包括局部变量、指令指针和内部堆栈：保存足够的信息，以便在下次调用 next() 时，函数可以继续执行，仿佛 yield 语句只是一次普通的外部调用。</p>
+<p>限制：yield 语句不能用于 try-finally 结构的 try 子句中。困难的是不能保证生成器会被再次激活（resum），因此无法保证 finally 语句块会被执行；这就太违背 finally 的用处了。</p>
+<p>限制：生成器在活跃状态时无法被再次激活：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def g():</span><br><span class="line">...     i = me.next()</span><br><span class="line">...     yield i</span><br><span class="line">&gt;&gt;&gt; me = g()</span><br><span class="line">&gt;&gt;&gt; me.next()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"> ...</span><br><span class="line"> File &quot;&lt;string&gt;&quot;, line 2, in g</span><br><span class="line">ValueError: generator already executing</span><br></pre></td></tr></table></figure>
+<h2 id="设计规格：return"><a href="#设计规格：return" class="headerlink" title="设计规格：return"></a>设计规格：return</h2><p>生成器函数还可以包含以下形式的return语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return</span><br></pre></td></tr></table></figure>
+<p>注意，生成器主体中的 return 语句不允许使用 expression_list （然而当然，它们可以嵌套地使用在生成器里的非生成器函数中）。</p>
+<p>当执行到 return 语句时，程序会正常 return，继续执行恰当的 finally 子句（如果存在）。然后引发一个 StopIteration 异常，表明迭代器已经耗尽。如果程序没有显式 return 而执行到生成器的末尾，也会引发 StopIteration 异常。</p>
+<p>请注意，对于生成器函数和非生成器函数，return 意味着“我已经完成，并且没有任何有趣的东西可以返回”。</p>
+<p>注意，return 并不一定会引发 StopIteration ：关键在于如何处理封闭的 try-except 结构。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f1():</span><br><span class="line">...     try:</span><br><span class="line">...         return</span><br><span class="line">...     except:</span><br><span class="line">...        yield 1</span><br><span class="line">&gt;&gt;&gt; print list(f1())</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>因为，就像在任何函数中一样，return 只是退出，但是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f2():</span><br><span class="line">...     try:</span><br><span class="line">...         raise StopIteration</span><br><span class="line">...     except:</span><br><span class="line">...         yield 42</span><br><span class="line">&gt;&gt;&gt; print list(f2())</span><br><span class="line">[42]</span><br></pre></td></tr></table></figure>
+<p>因为 StopIteration 被一个简单的 except 捕获，就像任意异常一样。</p>
+<h2 id="设计规格：生成器和异常传播"><a href="#设计规格：生成器和异常传播" class="headerlink" title="设计规格：生成器和异常传播"></a>设计规格：生成器和异常传播</h2><p>如果一个未捕获的异常——包括但不限于 StopIteration——由生成器函数引发或传递，则异常会以通常的方式传递给调用者，若试图重新激活生成器函数的话，则会引发 StopIteration 。 换句话说，未捕获的异常终结了生成器的使用寿命。</p>
+<p>示例（不合语言习惯，仅作举例）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f():</span><br><span class="line">...     return 1/0</span><br><span class="line">&gt;&gt;&gt; def g():</span><br><span class="line">...     yield f()  # the zero division exception propagates</span><br><span class="line">...     yield 42   # and we&apos;ll never get here</span><br><span class="line">&gt;&gt;&gt; k = g()</span><br><span class="line">&gt;&gt;&gt; k.next()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in ?</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in g</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in f</span><br><span class="line">ZeroDivisionError: integer division or modulo by zero</span><br><span class="line">&gt;&gt;&gt; k.next()  # and the generator cannot be resumed</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in ?</span><br><span class="line">StopIteration</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="设计规格：Try-Exception-Finally"><a href="#设计规格：Try-Exception-Finally" class="headerlink" title="设计规格：Try/Exception/Finally"></a>设计规格：Try/Exception/Finally</h2><p>前面提过，yield 语句不能用于 try-finally 结构的 try 子句中。这带来的结果是生成器要非常谨慎地分配关键的资源。但是在其它地方，yield 语句并无限制，例如 finally 子句、except 子句、或者 try-except 结构的 try 子句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def f():</span><br><span class="line">...     try:</span><br><span class="line">...         yield 1</span><br><span class="line">...         try:</span><br><span class="line">...             yield 2</span><br><span class="line">...             1/0</span><br><span class="line">...             yield 3  # never get here</span><br><span class="line">...         except ZeroDivisionError:</span><br><span class="line">...             yield 4</span><br><span class="line">...             yield 5</span><br><span class="line">...             raise</span><br><span class="line">...         except:</span><br><span class="line">...             yield 6</span><br><span class="line">...         yield 7     # the &quot;raise&quot; above stops this</span><br><span class="line">...     except:</span><br><span class="line">...         yield 8</span><br><span class="line">...     yield 9</span><br><span class="line">...     try:</span><br><span class="line">...         x = 12</span><br><span class="line">...     finally:</span><br><span class="line">...        yield 10</span><br><span class="line">...     yield 11</span><br><span class="line">&gt;&gt;&gt; print list(f())</span><br><span class="line">[1, 2, 4, 5, 8, 9, 10, 11]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"># 二叉树类</span><br><span class="line">class Tree:</span><br><span class="line"></span><br><span class="line">    def __init__(self, label, left=None, right=None):</span><br><span class="line">        self.label = label</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line"></span><br><span class="line">    def __repr__(self, level=0, indent=&quot;    &quot;):</span><br><span class="line">        s = level*indent + `self.label`</span><br><span class="line">        if self.left:</span><br><span class="line">            s = s + &quot;\n&quot; + self.left.__repr__(level+1, indent)</span><br><span class="line">        if self.right:</span><br><span class="line">            s = s + &quot;\n&quot; + self.right.__repr__(level+1, indent)</span><br><span class="line">        return s</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return inorder(self)</span><br><span class="line"></span><br><span class="line"># 从列表中创建 Tree</span><br><span class="line">def tree(list):</span><br><span class="line">    n = len(list)</span><br><span class="line">    if n == 0:</span><br><span class="line">        return []</span><br><span class="line">    i = n / 2</span><br><span class="line">    return Tree(list[i], tree(list[:i]), tree(list[i+1:]))</span><br><span class="line"></span><br><span class="line"># 递归生成器，按顺序生成树标签</span><br><span class="line">def inorder(t):</span><br><span class="line">    if t:</span><br><span class="line">        for x in inorder(t.left):</span><br><span class="line">            yield x</span><br><span class="line">        yield t.label</span><br><span class="line">        for x in inorder(t.right):</span><br><span class="line">            yield x</span><br><span class="line"></span><br><span class="line"># 展示：创建一棵树</span><br><span class="line">t = tree(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)</span><br><span class="line"># 按顺序打印树的节点</span><br><span class="line">for x in t:</span><br><span class="line">    print x,</span><br><span class="line">print</span><br><span class="line"></span><br><span class="line"># 非递归生成器</span><br><span class="line">def inorder(node):</span><br><span class="line">    stack = []</span><br><span class="line">    while node:</span><br><span class="line">        while node.left:</span><br><span class="line">            stack.append(node)</span><br><span class="line">            node = node.left</span><br><span class="line">        yield node.label</span><br><span class="line">        while not node.right:</span><br><span class="line">            try:</span><br><span class="line">                node = stack.pop()</span><br><span class="line">            except IndexError:</span><br><span class="line">                return</span><br><span class="line">            yield node.label</span><br><span class="line">        node = node.right</span><br><span class="line"></span><br><span class="line"># 练习非递归生成器</span><br><span class="line">for x in t:</span><br><span class="line">    print x,</span><br><span class="line">print</span><br><span class="line">Both output blocks display:</span><br><span class="line"></span><br><span class="line">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span><br></pre></td></tr></table></figure>
+<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h3 id="为什么重用-def-而不用新的关键字？"><a href="#为什么重用-def-而不用新的关键字？" class="headerlink" title="为什么重用 def 而不用新的关键字？"></a>为什么重用 def 而不用新的关键字？</h3><p>请参阅下面的 BDFL 声明部分。</p>
+<h3 id="为什么用新的关键字yield而非内置函数？"><a href="#为什么用新的关键字yield而非内置函数？" class="headerlink" title="为什么用新的关键字yield而非内置函数？"></a>为什么用新的关键字yield而非内置函数？</h3><p>Python 中通过关键字能更好地表达控制流，即 yield 是一个控制结构。而且为了 Jython 的高效实现，编译器需要在编译时就确定潜在的挂起点，新的关键字会使这一点变得简单。CPython 的实现也大量利用它来检测哪些函数是生成器函数（尽管一个新的关键字替代 def 就能解决 CPython 的问题，但人们问“为什么要新的关键字”问题时，并不想要新的关键字）。</p>
+<h3 id="为什么不是其它不带新关键字的特殊语法？"><a href="#为什么不是其它不带新关键字的特殊语法？" class="headerlink" title="为什么不是其它不带新关键字的特殊语法？"></a>为什么不是其它不带新关键字的特殊语法？</h3><p>例如，为何不用下面用法而用 yield 3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">return 3 and continue</span><br><span class="line">return and continue 3</span><br><span class="line">return generating 3</span><br><span class="line">continue return 3</span><br><span class="line">return &gt;&gt; , 3</span><br><span class="line">from generator return 3</span><br><span class="line">return &gt;&gt; 3</span><br><span class="line">return &lt;&lt; 3</span><br><span class="line">&gt;&gt; 3</span><br><span class="line">&lt;&lt; 3</span><br><span class="line">* 3</span><br></pre></td></tr></table></figure>
+<p>我没有错过一个“眼色”吧？在数百条消息中，我算了每种替代方案有三条建议，然后总结出上面这些。不需要用新的关键字会很好，但使用 yield 会更好——我个人认为，在一堆无意义的关键字或运算符序列中，yield 更具表现力。尽管如此，如果这引起足够的兴趣，支持者应该发起一个提案，交给 Guido 裁断。</p>
+<h3 id="为什么允许用return，而不强制用StopIteration？"><a href="#为什么允许用return，而不强制用StopIteration？" class="headerlink" title="为什么允许用return，而不强制用StopIteration？"></a>为什么允许用return，而不强制用StopIteration？</h3><p>“StopIteration”的机制是底层细节，就像 Python 2.1 中的“IndexError”的机制一样：实现时需要做一些预先定义好的东西，而 Python 为高级用户开放了这些机制。尽管不强制要求每个人都在这个层级工作。 “return”在任何一种函数中都意味着“我已经完成”，这很容易解读和使用。注意，<code>return</code> 并不总是等同于 try-except 结构中的 <code>raise StopIteration</code>（参见“设计规格：Return”部分）。</p>
+<h3 id="那为什么不允许return一个表达式？"><a href="#那为什么不允许return一个表达式？" class="headerlink" title="那为什么不允许return一个表达式？"></a>那为什么不允许return一个表达式？</h3><p>也许有一天会允许。 在 Icon 中，<code>return expr</code> 意味着“我已经完成”和“但我还有最后一个有用的值可以返回，这就是它”。 在初始阶段，不强制使用<code>return expr</code>的情况下，使用 yield 仅仅传递值，这很简单明了。</p>
+<h2 id="BDFL声明"><a href="#BDFL声明" class="headerlink" title="BDFL声明"></a>BDFL声明</h2><h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><p>引入另一个新的关键字（比如，gen 或 generator ）来代替 def ，或以其它方式改变语法，以区分生成器函数和非生成器函数。</p>
+<h3 id="Con"><a href="#Con" class="headerlink" title="Con"></a>Con</h3><p>实际上（你如何看待它们），生成器<em>是</em>函数，但它们具有可恢复性。使它们建立起来的机制是一个相对较小的技术问题，引入新的关键字无助于强调生成器是如何启动的机制（生成器生命中至关重要却很小的部分）。</p>
+<h3 id="Pro"><a href="#Pro" class="headerlink" title="Pro"></a>Pro</h3><p>实际上（你如何看待它们），生成器函数实际上是工厂函数，它们就像施了魔法一样地生产生成器-迭代器。 在这方面，它们与非生成器函数完全不同，更像是构造函数而不是函数，因此重用 def 无疑是令人困惑的。藏在内部的 yield 语句不足以警示它们的语义是如此不同。</p>
+<h3 id="BDFL"><a href="#BDFL" class="headerlink" title="BDFL"></a>BDFL</h3><p>def 留了下来。任何一方都没有任何争论是完全令人信服的，所以我咨询了我的语言设计师的直觉。它告诉我 PEP 中提出的语法是完全正确的——不是太热，也不是太冷。但是，就像希腊神话中的 Delphi（译注：特尔斐，希腊古都） 的甲骨文一样，它并没有告诉我原因，所以我没有对反对此 PEP 语法的论点进行反驳。 我能想出的最好的（除了已经同意做出的反驳）是“FUD”（译注：缩写自 fear、uncertainty 和 doubt）。 如果这从第一天开始就是语言的一部分，我非常怀疑这早已让安德鲁·库奇林（Andrew Kuchling）的“Python Warts”页面成为可能。（译注：wart 是疣，一种难看的皮肤病。这是一个 wiki 页面，列举了对 Python 吹毛求疵的建议）。</p>
+<h2 id="参考实现"><a href="#参考实现" class="headerlink" title="参考实现"></a>参考实现</h2><p>当前的实现（译注：2001年），处于初步状态（没有文档，但经过充分测试，可靠），是Python 的 CVS 开发树【注释9】的一部分。 使用它需要您从源代码中构建 Python。</p>
+<p>这是衍生自 Neil Schemenauer【注释7】的早期补丁。</p>
+<h2 id="脚注和参考文献"><a href="#脚注和参考文献" class="headerlink" title="脚注和参考文献"></a>脚注和参考文献</h2><p>[1] PEP-234, Iterators, Yee, Van Rossum</p>
+<p><a href="http://www.python.org/dev/peps/pep-0234/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0234/</a></p>
+<p>[2] <a href="http://www.stackless.com/" target="_blank" rel="noopener">http://www.stackless.com/</a></p>
+<p>[3] PEP-219, Stackless Python, McMillan</p>
+<p><a href="http://www.python.org/dev/peps/pep-0219/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0219/</a></p>
+<p>[4] “Iteration Abstraction in Sather” Murer, Omohundro, Stoutamire and Szyperski </p>
+<p><a href="http://www.icsi.berkeley.edu/~sather/Publications/toplas.html" target="_blank" rel="noopener">http://www.icsi.berkeley.edu/~sather/Publications/toplas.html</a></p>
+<p>[5] <a href="http://www.cs.arizona.edu/icon/" target="_blank" rel="noopener">http://www.cs.arizona.edu/icon/</a></p>
+<p>[6] The concept of iterators is described in PEP 234. See [1] above.</p>
+<p>[7] <a href="http://python.ca/nas/python/generator.diff" target="_blank" rel="noopener">http://python.ca/nas/python/generator.diff</a></p>
+<p>[8] PEP 236, Back to the <strong>future</strong>, Peters</p>
+<p><a href="http://www.python.org/dev/peps/pep-0236/" target="_blank" rel="noopener">http://www.python.org/dev/peps/pep-0236/</a></p>
+<p>[9] To experiment with this implementation, check out Python from CVS according to the instructions at <a href="http://sf.net/cvs/?group_id=5470" target="_blank" rel="noopener">http://sf.net/cvs/?group_id=5470</a> ，Note that the std test Lib/test/test_generators.py contains many examples, including all those in this PEP.</p>
+<h2 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h2><p>本文档已经放置在公共领域。源文档：<a href="https://github.com/python/peps/blob/master/pep-0255.txt" target="_blank" rel="noopener">https://github.com/python/peps/blob/master/pep-0255.txt</a></p>
+<p>（译文完）</p>
+<p>PS：官方 PEP 有将近500个，然而保守估计，被翻译成中文的不足20个（去重的情况下）。我好奇，感兴趣将一些重要的 PEP 翻译出来的人有多少呢？现抛此问题出来探探路，欢迎留言交流。</p>
+<p>-—————-</p>
+<p>本文翻译并首发于微信公众号【Python猫】，后台回复“爱学习”，免费获得20+本精选电子书。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/这件正在发生的事，关乎所有的Python开发者....../" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/[译]PEP 342--增强型生成器：协程/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#译-PEP-255–简单的生成器"><span class="nav-number">1.</span> <span class="nav-text">[译] PEP 255–简单的生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">1.2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计规格：yield"><span class="nav-number">1.3.</span> <span class="nav-text">设计规格：yield</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计规格：return"><span class="nav-number">1.4.</span> <span class="nav-text">设计规格：return</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计规格：生成器和异常传播"><span class="nav-number">1.5.</span> <span class="nav-text">设计规格：生成器和异常传播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计规格：Try-Exception-Finally"><span class="nav-number">1.6.</span> <span class="nav-text">设计规格：Try/Exception/Finally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.7.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问答"><span class="nav-number">1.8.</span> <span class="nav-text">问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么重用-def-而不用新的关键字？"><span class="nav-number">1.8.1.</span> <span class="nav-text">为什么重用 def 而不用新的关键字？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么用新的关键字yield而非内置函数？"><span class="nav-number">1.8.2.</span> <span class="nav-text">为什么用新的关键字yield而非内置函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不是其它不带新关键字的特殊语法？"><span class="nav-number">1.8.3.</span> <span class="nav-text">为什么不是其它不带新关键字的特殊语法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么允许用return，而不强制用StopIteration？"><span class="nav-number">1.8.4.</span> <span class="nav-text">为什么允许用return，而不强制用StopIteration？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那为什么不允许return一个表达式？"><span class="nav-number">1.8.5.</span> <span class="nav-text">那为什么不允许return一个表达式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BDFL声明"><span class="nav-number">1.9.</span> <span class="nav-text">BDFL声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Issue"><span class="nav-number">1.9.1.</span> <span class="nav-text">Issue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Con"><span class="nav-number">1.9.2.</span> <span class="nav-text">Con</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pro"><span class="nav-number">1.9.3.</span> <span class="nav-text">Pro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDFL"><span class="nav-number">1.9.4.</span> <span class="nav-text">BDFL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考实现"><span class="nav-number">1.10.</span> <span class="nav-text">参考实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注和参考文献"><span class="nav-number">1.11.</span> <span class="nav-text">脚注和参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权信息"><span class="nav-number">1.12.</span> <span class="nav-text">版权信息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
