@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>豌豆花下猫</title>
+  <title>豌豆花下猫的博客</title>
   
   <subtitle>人生苦短，我用 Python</subtitle>
   <link href="/atom.xml" rel="self"/>
