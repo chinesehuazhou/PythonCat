@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chinesehuazhou.github.io/"/>
-  <updated>2019-05-04T02:18:42.857Z</updated>
+  <updated>2019-05-04T02:56:23.980Z</updated>
   <id>https://chinesehuazhou.github.io/</id>
   
   <author>
@@ -21,9 +21,17 @@
     <link href="https://chinesehuazhou.github.io/2019/05/04/hello-world/"/>
     <id>https://chinesehuazhou.github.io/2019/05/04/hello-world/</id>
     <published>2019-05-04T02:18:42.000Z</published>
-    <updated>2019-05-04T02:18:42.857Z</updated>
+    <updated>2019-05-04T02:56:23.980Z</updated>
+    
+    <content type="html"><![CDATA[<p>test</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;test&lt;/p&gt;
+
+      
     
     </summary>
     

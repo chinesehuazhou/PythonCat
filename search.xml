@@ -3,6 +3,6 @@
   <entry>
     <title><![CDATA[hello world]]></title>
     <url>%2F2019%2F05%2F04%2Fhello-world%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[test]]></content>
   </entry>
 </search>
