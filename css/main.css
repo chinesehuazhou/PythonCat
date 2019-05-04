@@ -1839,7 +1839,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8254c3;
+  background: #ff6e7f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2930,9 +2930,9 @@ hr {
   text-decoration: underline;
 }
 .post {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 15px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
