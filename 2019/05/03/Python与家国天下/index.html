@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="豌豆花下猫的博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="导读： Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前几篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python与家国天下">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python与家国天下/index.html">
+<meta property="og:site_name" content="豌豆花下猫的博客">
+<meta property="og:description" content="导读： Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前几篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://chinesehuazhou.github.io/2019/05/03/images/cat4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1g0httr6vbij20f40apgme.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1g0gnalkfftj20i80anaa7.jpg">
+<meta property="og:updated_time" content="2019-05-04T07:06:28.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python与家国天下">
+<meta name="twitter:description" content="导读： Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前几篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta name="twitter:image" content="https://chinesehuazhou.github.io/2019/05/03/images/cat4.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python与家国天下/">
+
+
+
+
+
+  <title>Python与家国天下 | 豌豆花下猫的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?13396dc0d0346f27530e017e1ae3b319";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/chinesehuazhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生苦短，我用 Python</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+      <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python与家国天下/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="豌豆花下猫">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python与家国天下</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T18:18:18+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python猫的故事/" itemprop="url" rel="index">
+                    <span itemprop="name">Python猫的故事</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="../images/cat4.jpg" alt></p>
+<p><strong>导读：</strong> Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前几篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！</p>
+<a id="more"></a>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif" alt></p>
+<p>喵喵，好久不见啦朋友们。刚吃完一餐美食，我觉得好满足啊。</p>
+<p>自从习惯了地球的食物以后，我的肠胃发生了一些说不清道不明的反应。我能从最近的新陈代谢中感觉出来，自己的母胎习性正在逐渐地褪逝。</p>
+<p>人类的食物在改变着我，或者说是在重塑着我。说不定哪天，我会变成一棵白菜，或者一条鱼呢……呸呸呸。我还是想当猫。</p>
+<p>喵生苦短，得抓紧时间更文才行。</p>
+<p>最近，我看到了两件事，觉得有趣极了，就从这开始说吧。第一件事是，一个小有名气的影视明星因为他不配得到的学术精英的身份而遭到讽刺性的打假制度的口诛笔伐；第二件事是，一个功成名就的企业高管因为从城市回到乡村而戏谑性地获得了猫屎的名号。</p>
+<p><strong>身份真是一个有魔力的话题。</strong> 看见他们的身份错位，我又总会想起自己的境况。</p>
+<p>我（或许）知道自己在过去时态中是谁，但越来越把握不住在现在时态中的自己，更不清楚在未来时间中会是怎样。</p>
+<p>该怎样在人类世界中自处呢？又该怎样跟你们共处呢？</p>
+<p>思了好久，没有答案。脑壳疼，尾巴疼。还是不要想了啦喵。</p>
+<p>继续跟大家聊聊 Python 吧。上次我们说到了<strong>对象的边界问题</strong> 。无论是固定边界还是弹性边界，这不外乎就是修身的两种志趣，有的对象呢独善其身其乐也融融，有的对象呢兼容并包其理想之光也莹莹。但是，边界问题还没讲完。</p>
+<p>正如儒家经典所阐述：<strong>修身–齐家–治国–平天下</strong>。里层的势能推展开，走进更广阔的维度。</p>
+<p>Python 对象的边界也不只在自身。这里有一种巧妙的映射关系：<strong>对象（身）–函数（家）–模块（国）–包（天下）</strong>。个体被纳入到不同的命名空间，并存活在分层的作用域里。（当然，幸运的是，它们并不会受到道德礼法的森严压迫~__~）</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g0httr6vbij20f40apgme.jpg" alt></p>
+<h2 id="1、你的名字"><a href="#1、你的名字" class="headerlink" title="1、你的名字"></a>1、你的名字</h2><p>我们先来审视一下模块。这是一个合适的尺度，由此展开，可以顺利地连接起函数与包。</p>
+<p><strong>模块是什么？</strong> 任何以<code>.py</code> 后缀结尾的文件就是一个模块（module）。</p>
+<p><strong>模块的好处是什么？</strong> 首先，便于拆分不同功能的代码，单一功能的少量代码更容易维护；其次，便于组装与重复利用，Python 以丰富的第三方模块而闻名；最后，模块创造了私密的命名空间，能有效地管理各类对象的命名。</p>
+<p>可以说，模块是 Python 世界中最小的一种自恰的生态系统——除却直接在控制台中运行命令的情况外，<strong>模块是最小的可执行单位。</strong></p>
+<p>前面，我把模块类比成了国家，这当然是不伦不类的，因为你难以想象在现实世界中，会存在着数千数万的彼此殊然有别的国家（我指的可是在地球上，而喵星不同，以后细说）。</p>
+<p><strong>类比法有助于我们发挥思维的作用</strong> ，因此，不妨就做此假设。如此一来，想想模块间的相互引用就太有趣了，这不是国家间的战争入侵，而是一种人道主义的援助啊，至于公民们的流动与迁徙，则可能成为一场探险之旅的谈资。</p>
+<p>我还对模块的身份角色感兴趣。恰巧发现，在使用名字的时候，它们耍了一个<strong>双姓人的把戏</strong> 。</p>
+<p>下面请看表演。先创建两个模块，A.py 与 B.py，它们的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># A 模块的内容：</span><br><span class="line">print(&quot;module A : &quot;, __name__)</span><br><span class="line"></span><br><span class="line"># B 模块的内容：</span><br><span class="line">import A</span><br><span class="line">print(&quot;module B : &quot;, __name__)</span><br></pre></td></tr></table></figure>
+<p>其中，<code>__name__</code> 指的是当前模块的名字。代码的逻辑是：A 模块会打印本模块的名字，B 模块由于引入了 A 模块，因此会先打印 A 模块的名字，再打印本模块的名字。</p>
+<p>那么，结果是如何的呢？</p>
+<p>执行 A.py 的结果：</p>
+<blockquote>
+<p>module A :  __main__</p>
+</blockquote>
+<p>执行 B.py 的结果：</p>
+<blockquote>
+<p>module A :  test<br>module B :  __main__</p>
+</blockquote>
+<p>你们看出问题的所在了吧！模块 A 前后竟然出现了两个不同的名字。这两个名字是什么意思，又为什么会有这样的不同呢？</p>
+<p>我想这正体现的是<strong>名字的本质</strong>吧——对自己来说，我就是我，并不需要一个名字来标记；而对他人来说，ta 是芸芸众生的一个，唯有命名才能区分。</p>
+<p>所以，一个模块自己称呼自己的时候（即执行自身时）是“__main__”，而给他人来称呼的时候（即被引用时），就会是该模块的本名。这真是一个巧妙的设定。</p>
+<p>由于模块的名称二重性，我们可以加个判断，将某个模块不对外的内容隐藏起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># A 模块的内容：</span><br><span class="line">print(&quot;module A : &quot;, __name__)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    print(&quot;private info.&quot;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，只有在执行 A 模块本身时，才会打印“private info”，而当它被导入到其它模块中时，则不会执行到该部分的内容。</p>
+<h2 id="2、名字的时空"><a href="#2、名字的时空" class="headerlink" title="2、名字的时空"></a>2、名字的时空</h2><p>对于生物来说，我们有各种各样的属性，例如姓名、性别、年龄，等等。</p>
+<p>对于 Python 的对象来说，它们也有各种属性。模块是一种对象，”__name__“就是它的一个属性。除此之外，模块还有如下最基本的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import A</span><br><span class="line">&gt;&gt;&gt; print(dir(A))</span><br><span class="line">[&apos;__builtins__&apos;, &apos;__cached__&apos;, &apos;__doc__&apos;, &apos;__file__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;]</span><br></pre></td></tr></table></figure>
+<p>在一个模块的全局空间里，有些属性是全局起作用的，Python 称之为<strong>全局变量</strong> ，而其它在局部起作用的属性，会被称为<strong>局部变量</strong> 。</p>
+<p>一个变量对应的是一个属性的名字，会关联到一个特定的值。通过 <code>globals()</code> 和 <code>locals()</code> ，可以将变量的“名值对”打印出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    y = 2</span><br><span class="line">    print(&quot;全局变量：&quot;, globals())</span><br><span class="line">    print(&quot;局部变量：&quot;, locals())</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>在 IDE 中执行以上代码，结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全局变量： &#123;&apos;__name__&apos;: &apos;__main__&apos;, &apos;__doc__&apos;: None, &apos;__package__&apos;: None, &apos;__loader__&apos;: &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001AC1EB7A400&gt;, &apos;__spec__&apos;: None, &apos;__annotations__&apos;: &#123;&#125;, &apos;__builtins__&apos;: &lt;module &apos;builtins&apos; (built-in)&gt;, &apos;__file__&apos;: &apos;C:/pythoncat/A.py&apos;, &apos;__cached__&apos;: None, &apos;x&apos;: 1, &apos;foo&apos;: &lt;function foo at 0x000001AC1EA73E18&gt;&#125;</span><br><span class="line">局部变量： &#123;&apos;y&apos;: 2&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，x 是一个全局变量，对应的值是 1，而 y 是一个局部变量，对应的值是 2.</p>
+<p><strong>两种变量的作用域不同</strong> ：局部变量作用于函数内部，不可直接在外部使用；全局变量作用于全局，但是在函数内部只可访问，不可修改。</p>
+<p>与 Java、C++ 等语言不同，Python 并不屈服于解析的便利，并不使用呆滞的花括号来编排作用域，而是用了轻巧简明的缩进方式。不过，所有编程语言在区分变量类型、区分作用域的意图上都是相似的：<strong>控制访问权限与管理变量命名</strong>。</p>
+<p>关于控制访问权限，在上述例子中，局部变量 y 的作用域仅限于 foo 方法内，若直接在外部使用，则会报错“NameError: name ‘y’ is not defined”。</p>
+<p>关于管理变量命名，不同的作用域管理着各自的独立的名册，一个作用域内的名字所指称的是唯一的对象，而在不同作用域内的对象则可以重名。修改上述例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br><span class="line">y = 1</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    y = 2</span><br><span class="line">    x = 2</span><br><span class="line">    print(&quot;inside foo : x = &quot; + str(x) + &quot;, y = &quot; + str(y))</span><br><span class="line"></span><br><span class="line">foo()</span><br><span class="line">print(&quot;outside foo : x = &quot; + str(x) + &quot;, y = &quot; + str(y))</span><br></pre></td></tr></table></figure>
+<p>在全局作用域与局部作用域中命名了相同的变量，那么，打印的结果是什么呢？</p>
+<blockquote>
+<p>inside foo : x = 2, y = 2<br>outside foo : x = 1, y = 1</p>
+</blockquote>
+<p>可见，同一个名字可以出现在不同的作用域内，互不干扰。</p>
+<p><strong>那么，如何判断一个变量在哪个作用域内？对于嵌套作用域，以及变量名存在跨域分布的情况，要采用何种查找策略呢？</strong></p>
+<p>Python 设计了<strong>命名空间（namespace）</strong> 机制，一个命名空间在本质上是一个字典、一个名册，登记了所有变量的名字以及对应的值。 按照记录内容的不同，可分为四类：</p>
+<ul>
+<li>局部命名空间（local namespace），记录了函数的变量，包括函数的参数和局部定义的变量。可通过内置函数 locals() 查看。在函数被调用时创建，在函数退出时删除。</li>
+<li>全局命名空间（global namespace），记录了模块的变量，包括函数、类、其它导入的模块、模块级的变量和常量。可通过内置函数 globals() 查看。在模块加载时创建，一直存在。</li>
+<li>内置命名空间（build-in namespace），记录了所有模块共用的变量，包括一些内置的函数和异常。在解释器启动时创建，一直存在。</li>
+<li>命名空间包（namespace packages），包级别的命名空间，进行跨包的模块分组与管理。</li>
+</ul>
+<p>命名空间总是存在于具体的作用域内，而作用域存在着优先级，查找变量的顺序是：<strong>局部/本地作用域 –&gt; 全局/模块/包作用域 –&gt; 内置作用域。</strong></p>
+<p>命名空间扮演了变量与作用域之间的桥梁角色，承担了管理命名、记录名值对与检索变量的任务。无怪乎《Python之禅》（The Zen of Python）在最后一句中说：</p>
+<blockquote>
+<p>Namespaces are one honking great idea – let’s do more of those!</p>
+<p>——译：命名空间是个牛bi哄哄的主意，应该多加运用！</p>
+</blockquote>
+<h2 id="3、看不见的客人"><a href="#3、看不见的客人" class="headerlink" title="3、看不见的客人"></a>3、看不见的客人</h2><p>名字（变量）是身份问题，空间（作用域）是边界问题，命名空间兼而有之。</p>
+<p>这两个问题恰恰是困扰着所有生灵的最核心的问题之二。它们的特点是：无处不在、层出不断、像一个<strong>超级大的被扯乱了的毛线球。</strong></p>
+<p>Python 是一种人工造物，它继承了人类的这些麻烦（这是不可避免的），所幸的是，这种简化版的麻烦能够得到解决。（现在当然是可解决的啦，但若人工智能高度发展以后呢？我看不一定吧。喵，好像想起了一个痛苦的梦。打住。）</p>
+<p>这里就有几个问题（注：每个例子相互独立）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 例1：</span><br><span class="line">x = x + 1</span><br><span class="line"></span><br><span class="line"># 例2：</span><br><span class="line">x = 1</span><br><span class="line">def foo():</span><br><span class="line">    x = x + 1</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例3：</span><br><span class="line">x = 1</span><br><span class="line">def foo():</span><br><span class="line">    print(x)</span><br><span class="line">    x = 2</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例4：</span><br><span class="line">def foo():</span><br><span class="line">    if False:</span><br><span class="line">        x = 3</span><br><span class="line">    print(x)</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"># 例5：</span><br><span class="line">if False:</span><br><span class="line">    x = 3</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>下面给出几个选项，请读者们思考一下，给每个例子选一个答案：</p>
+<blockquote>
+<p>1、没有报错</p>
+<p>2、报错：name ‘x’ is not defined</p>
+<p>3、报错：local variable ‘x’ referenced before assignment</p>
+</blockquote>
+<p>下面公布答案了：</p>
+<p>全部例子都报错，其中例 1 和例 5 是第一类报错，即变量未经定义不可使用，而其它例子都是第二类报错，即已定义却未赋值的变量不可使用。为什么会报错？为什么报错会不同？下面逐一解释。</p>
+<ol>
+<li><p>例 1 是一个定义变量的过程，本身未完成定义，而等号右侧就想使用变量 x，因此报变量未定义。</p>
+</li>
+<li><p>例 2 和例 3 中，已经定义了全局变量 x，如果只在 foo 函数中引用全局变量 x 或者只是定义新的局部变量 x 的话，都不会报错，但现在既有引用又有重名定义，这引发了一个新的问题。请看下例的解释。</p>
+</li>
+<li><p>例 4 中，if 语句判断失效，因此不会执行到 “x=3” 这句，照理来说 x 是未被定义。这时候，在 locals() 局部命名空间中也是没有内容的（读者可以试一下）。但是 print 方法却报找到了一个未赋值的变量 x ，这是为什么呢？</p>
+<p>使用 dis 模块查看 foo 函数的字节码：</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1g0gnalkfftj20i80anaa7.jpg" alt></p>
+<p>LOAD_FAST 说明它在局部作用域中找到了变量名 x，结果 0 说明未找到变量 x 所指向的值。既然此时在 locals() 局部命名空间中没有内容，那局部作用域中找到的 x 是来自哪里的呢？</p>
+<p>实际上，Python 虽然是所谓的解释型语言，但它也有<strong>编译的过程</strong> （跟 Java 等语言的编译过程不同）。在例 2-4 中，编译器先将 foo 方法解析成一个<strong>抽象语法树</strong>（abstract syntax tree），然后扫描树上的名字（name）节点，接着，所有被扫描出来的变量名，都会<strong>作为局部作用域的变量名存入内存（栈？）中。</strong></p>
+<p>在编译期之后，局部作用域内的变量名已经确定了，只是没有赋值。在随后的解释期（即代码执行期），如果有赋值过程，则变量名与值才会被存入局部命名空间中，可通过 locals() 查看。只有存入了命名空间，变量才算真正地完成了定义（声明+赋值）。</p>
+<p>而上述 3 个例子之所以会报错，原因就是变量名已经被解析成局部变量，但是却未曾被赋值。</p>
+<p><strong>可以推论：在局部作用域中查找变量，实际上是分查内存与查命名空间两步的。</strong>另外，若想在局部作用域内修改全局变量，需要在作用域中写上 “global x”。</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>例 5 是作为例 4 的比对，也是对它的原理的补充。它们的区别是，一个不在函数内，一个在函数内，但是报错完全不同。前面分析了例 4 的背后原理是编译过程和抽象语法树，如果这个原理对例 5 也生效，那两者的报错应该是一样的。现在出现了差异，为什么呢？</p>
+<p>我得承认，这触及了我的知识盲区。我们可以推测，说例 5 的编译过程不同，它没有解析抽象语法树的步骤，但是，继续追问下去，为什么不同，为什么没有解析语法树的步骤呢？如果说是出于对解析函数与解析模块的代价考虑，或者其它考虑，那么新的问题是，编译与解析的底层原理是什么，如果有其它考虑，会是什么？</p>
+<p>这些问题真不可爱，一个都答不上。但是，自己一步一步地思考探寻到这一层，又能怪谁呢？</p>
+</li>
+</ol>
+<p>回到前面说过的话，命名空间是身份与边界的集成问题，它跟作用域密切相关。如今看来，编译器还会掺和一脚，把这些问题搅拌得更加复杂。</p>
+<p>本来是在探问 Python 中的边界问题，到头来，却触碰到了自己的<strong>知识边界</strong>。真是反讽啊。（这一趟探知一个人工造物的身份问题之旅，最终是否会像走迷宫一般，进入到自己身份的困境之中？）</p>
+<h2 id="4、边界内外的边界"><a href="#4、边界内外的边界" class="headerlink" title="4、边界内外的边界"></a>4、边界内外的边界</h2><p>暂时把那些不可爱的问题抛开吧，继续说修身齐家治国平天下。</p>
+<p>想要把国治理好，就不得不面对更多的国内问题与国际问题。</p>
+<p>先看一个大家与小家的问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def make_averager():</span><br><span class="line">    count = 0</span><br><span class="line">    total = 0</span><br><span class="line">    def averager(new_value):</span><br><span class="line">        nonlocal count, total</span><br><span class="line">        count += 1</span><br><span class="line">        total += new_value</span><br><span class="line">        return total / count</span><br><span class="line">    return averager</span><br><span class="line"></span><br><span class="line">averager = make_averager()</span><br><span class="line">print(averager(10))</span><br><span class="line">print(averager(11))</span><br><span class="line"></span><br><span class="line">### 输出结果：</span><br><span class="line">10.0</span><br><span class="line">10.5</span><br></pre></td></tr></table></figure>
+<p>这里出现了嵌套函数，即函数内还包含其它函数。外部–内部函数的关系，就类似于模块–外部函数的关系，同样地，它们的作用域关系也相似：外部函数作用域–内部函数作用域，以及模块全局作用域–外部函数作用域。在内层作用域中，可以访问外层作用域的变量，但是不能直接修改，除非使用 nonlocal 作转化。</p>
+<p>Python 3 中引入了 nonlocal 关键字来标识外部函数的作用域，它处于全局作用域与局部作用域之间，即 global–nonlocal–local 。也就是说，国–大家–小家。</p>
+<p>上例中，nonlocal 关键字使得小家（内部函数）可以修改大家（外部函数）的变量，但是该变量并不是创建于小家，当小家函数执行完毕时，它并无权限清理这些变量。</p>
+<p><strong>nonlocal 只带来了修改权限，并不带来回收清理的权限</strong> ，这导致外部函数的变量突破了原有的生命周期，成为<strong>自由变量</strong>。上例是一个求平均值的函数，由于自由变量的存在，每次调用时，新传入的参数会跟自由变量一起计算。</p>
+<p>在计算机科学中，引用了<strong>自由变量的函数被称为闭包（Closure）。</strong> 在本质上，闭包就是一个突破了局部边界，所谓“跳出三界外，不在五行中”的法外之物。每次调用闭包函数时，它可以继续使用上次调用的成果，这不就好比是一个转世轮回的人（按照某种宗教的说法），仍携带着前世的记忆与技能么？</p>
+<p><strong>打破边界，必然带来新的身份问题，此是明证。</strong></p>
+<p>然而，人类并不打算 fix 它，因为他们发现了这种<strong>身份异化</strong>的特性可以在很多场合发挥作用，例如装饰器与函数式编程。适应身份异化，并从中获得好处，这可是地球人类的天赋。</p>
+<p>讲完了这个分家的话题，让我们放开视野，看看天下事。</p>
+<p>计算机语言中的包（package）实际是一种目录结构，以文件夹的形式进行封装与组织，内容可涵括各种模块（py 文件）、配置文件、静态资源文件等。</p>
+<p>与包相关的话题可不少，例如内置包、第三方包、包仓库、如何打包、如何用包、虚拟环境，等等。这是可理解的，更大的边界，意味着更多的关系，更大的边界，也意味着更多的知识与未知。</p>
+<p>在这里，我想聊聊 Python 3.3 引入的<code>命名空间包</code> ，因为它是对前面谈论的所有话题的延续。然而，关于它的背景、实现手段与使用细节，都不重要，我那敏感而发散的思维突然捕捉到了一种<strong>相似结构</strong>，似乎这才更值得说。</p>
+<p>运用命名空间包的设计，不同包中的相同的命名空间可以联合起来使用，由此，不同目录的代码就被归纳到了一个共同的命名空间。也就是说，多个本来是相对独立的包，借由同名的命名空间，竟然实现了超远距离的瞬间联通，简直奇妙。</p>
+<p>我想到了<strong>空间折叠</strong>，一种无法深说，但却实实在在地辅助了我从喵星穿越到地球的技术。两个包，两个天下，两个宇宙，它们的距离与边界被穿透的方式何其相似！</p>
+<p>我着迷于这种相似结构。在不同的事物中，相似性的出现意味着一种更高维的法则的存在，而在不同的法则中，新的相似性就意味着更抽象的法则。</p>
+<p>学习了 Python 之后，我想通过对它的考察，来回答关乎自身的相似问题……</p>
+<p>啊喵，不知不觉竟然写了这么久，该死的皮囊又在咕咕叫了——地球上的食物可真抠门，也不知道你们人类是怎么忍受得住这几百万年的驯化过程的……</p>
+<p>就此搁笔，觅食去了。亲爱的读者们，后会有期~~~</p>
+<p>（未完待续……）</p>
+<p><strong>Python猫系列作品</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YQbk0smMTCexsi3Ytd2AzA" target="_blank" rel="noopener">Python对象的身份迷思：从全体公民到万物皆数</a></p>
+<p><a href="https://mp.weixin.qq.com/s/q0QvAqXcZzURH3aZ5gZm8A" target="_blank" rel="noopener">Python对象的空间边界：独善其身与开放包容</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EsWmCbH3RtL_QpafyMryOw" target="_blank" rel="noopener">Python与家国天下</a></p>
+<p><strong>附录：</strong></p>
+<p>局部变量的编译原理：<a href="https://dwz.cn/ipj6FluJ" target="_blank" rel="noopener">https://dwz.cn/ipj6FluJ</a></p>
+<p>命名空间包：<a href="https://www.tuicool.com/articles/FJFbuqM" target="_blank" rel="noopener">https://www.tuicool.com/articles/FJFbuqM</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    豌豆花下猫
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chinesehuazhou.github.io/2019/05/03/Python与家国天下/" title="Python与家国天下">https://chinesehuazhou.github.io/2019/05/03/Python与家国天下/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/Python对象的身份迷思：从全体公民到万物皆数/" rel="prev" title="Python对象的身份迷思：从全体公民到万物皆数">
+                Python对象的身份迷思：从全体公民到万物皆数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">豌豆花下猫</p>
+              <p class="site-description motion-element" itemprop="description">分享 Python 进阶之路的点点滴滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、你的名字"><span class="nav-number">1.</span> <span class="nav-text">1、你的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、名字的时空"><span class="nav-number">2.</span> <span class="nav-text">2、名字的时空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、看不见的客人"><span class="nav-number">3.</span> <span class="nav-text">3、看不见的客人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、边界内外的边界"><span class="nav-number">4.</span> <span class="nav-text">4、边界内外的边界</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">豌豆花下猫</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="豌豆花下猫的博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="导读：Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前两篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python对象的空间边界：独善其身与开放包容">
+<meta property="og:url" content="https://chinesehuazhou.github.io/2019/05/03/Python对象的空间边界：独善其身与开放包容/index.html">
+<meta property="og:site_name" content="豌豆花下猫的博客">
+<meta property="og:description" content="导读：Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前两篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fy38h22m9jj20ia08kmyc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fy6juyyj7cj20pd0jen2n.jpg">
+<meta property="og:updated_time" content="2019-05-04T07:05:44.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python对象的空间边界：独善其身与开放包容">
+<meta name="twitter:description" content="导读：Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前两篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chinesehuazhou.github.io/2019/05/03/Python对象的空间边界：独善其身与开放包容/">
+
+
+
+
+
+  <title>Python对象的空间边界：独善其身与开放包容 | 豌豆花下猫的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?13396dc0d0346f27530e017e1ae3b319";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/chinesehuazhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豌豆花下猫的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生苦短，我用 Python</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+      <!-- 页面点击小红心 -->
+      <script type="text/javascript" src="/js/src/love.js"></script>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chinesehuazhou.github.io/2019/05/03/Python对象的空间边界：独善其身与开放包容/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="豌豆花下猫">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豌豆花下猫的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python对象的空间边界：独善其身与开放包容</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T18:18:18+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python猫的故事/" itemprop="url" rel="index">
+                    <span itemprop="name">Python猫的故事</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>导读：Python猫是一只喵星来客，它爱地球的一切，特别爱优雅而无所不能的 Python。我是它的人类朋友豌豆花下猫，被授权润色与发表它的文章。如果你是第一次看到这个系列文章，那我强烈建议，请先看看它写的前两篇文章（链接见文末）,相信你一定会爱上这只神秘的哲学+极客猫的。不多说啦，一起来享用今天的“思想盛宴”吧！</p>
+<a id="more"></a>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy78dj4ob8g20dc0a0dja.gif" alt></p>
+<p>睡觉是我最爱做的事——因为可以懒懒地做美梦，不用吃东西，不用跟人吵架，不用关心世界大事。这是除了学 Python 与写作之外，最让我舒服的事了。所以，才刚醒来，我就又困了……</p>
+<p>刚才看到了 Python 老爹 Guido 的邮件，他说要“go back to sleep mode”，不参与正在进行的 PEP 投票了。哼，这只懒惰的老头——等等我啊，等写完这篇东西，我也要 go back to sleep mode……</p>
+<p>上回说道，我发现 Python 公民的身份竟然暗合毕达哥拉斯的哲学命题（万物皆数），真是百思不得其解。在梦里，我已经想出了答案。可是突然之间，游过来一条大蟒蛇，竟把答案吞掉了。我去找它理论，它就开始耍赖，吞自己的尾巴、屁股、肚子……最后把自己全吞下去了。唉，可怜我的答案就这么消失了。</p>
+<p>今天，我继续跟大家聊聊 Python 中跟身份密切相关的一个话题吧，那就是<strong>对象的边界问题</strong> 。如你所知，我本来是一只猫，现在略具一些人性了，但在此转型期间却十分敏感，总能在细微之处浮想联翩，最后竟然也薄有所获，真是万幸了。希望我的分享，也能启发你收获哪怕一点点的感悟，那我就有万分的开心啦 :)</p>
+<h2 id="1、固定边界：自由与孤独"><a href="#1、固定边界：自由与孤独" class="headerlink" title="1、固定边界：自由与孤独"></a>1、固定边界：自由与孤独</h2><p>Python 中有一些公民向来我行我素，它们特立独行，与他人之边界划定得清清楚楚。客气的人称它们是<strong>定长对象</strong>，或者叫<strong>不可变对象</strong>，然而，懂得一些历史典故的人又叫它们是<strong>铁公鸡</strong> 。这个典故出自何处呢？亏得猫猫我曾恶补过一段历史知识，知道这指的正是激进的道家弟子杨朱。</p>
+<blockquote>
+<p>损一毫利天下，不与也；悉天下奉一身，不取也；人人不损一毫，人人不利天下，天下治矣！ ——春秋·杨朱</p>
+</blockquote>
+<p> 对于定长对象，你不能为它增加元素，不能为它减少元素，不能为它修改元素，甚至不能轻易地<strong>复制和删除</strong>它！（参见本公众号<strong>Python猫</strong>中关于字符串的系列文章，链接见文末）</p>
+<p>这些对象自立于世，也自绝于世，你看它们长得是普普通通的，平平凡凡的，然而其灵魂却是自由自在的，其生命是富有尊严而不可侵犯的。若想与这些公民打交道，你就得依着它们的脾气，不可越雷池半步。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; t1 = (&apos;Python&apos;, &apos;猫&apos;)</span><br><span class="line">&gt;&gt;&gt; t2 = (&apos;Python&apos;, &apos;猫&apos;)</span><br><span class="line">&gt;&gt;&gt; t1 is t2  # 对象独立</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; t1[1] = &apos;蛇&apos;  # 不可修改元素</span><br><span class="line">TypeError  Traceback (most recent call last)</span><br><span class="line">TypeError: &apos;tuple&apos; object does not support item assignment</span><br></pre></td></tr></table></figure>
+<p>在上一篇文章里，我们见识了 Python 世界中的“特权种族”，而特权种族无一例外地都出身于定长对象。它们是一脉相承的，其存在的合理性也是相似的，那就是便于共用内存资源，提高内存使用效率。</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy38h22m9jj20ia08kmyc.jpg" alt></p>
+<p>上表就是定长对象的一份名单。可知，它们占据了多数。</p>
+<p>定长对象的特性让我不由地想到一种人类，它们严守自己的边界，刻板而严谨，一心只在乎份内之事，默默承担下自己的责任，追求的是内在的自由。虽然也会时常与别人打交道，但是，它们不贪图扩大自己的利益，也不妄想要侵犯别人的领土。独立的个体养成了个人的品牌，它们的不变性成就了外人能有所依赖的确定性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; key1 = &apos;Python 猫&apos;</span><br><span class="line">&gt;&gt;&gt; key2 = [&apos;someone else&apos;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; dict1 = &#123;key1 : &apos;好人&apos;&#125;</span><br><span class="line"> &#123;&apos;Python 猫&apos;: &apos;好人&apos;&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; dict2 = &#123;key2 : &apos;好人&apos;&#125;</span><br><span class="line">TypeError  Traceback (most recent call last)</span><br><span class="line">TypeError: unhashable type: &apos;list&apos;</span><br></pre></td></tr></table></figure>
+<p>Python 为了维护定长对象的独立性/确定性，在编译机制上做了不少优化，例如 Intern 机制与常量合并机制。其中的好处，我已经多次提及了。</p>
+<p>坏处也有，那就是孤独。它们的孤独不在于没有同类，而在于不能（不容易）复制自身。以字符串对象为例，你可以尝试多种多样的手段，然而到头来，却发现唯一通用的方法竟然要先把字符串“碎尸万段”，接着重新组装才行！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">s0 = &quot;Python猫&quot;</span><br><span class="line"></span><br><span class="line"># 以下7种方法，无法复制s0字符串，id(x)==id(s0)</span><br><span class="line">s1 = s0</span><br><span class="line">s2 = str(s0)</span><br><span class="line">s3 = s0[:]</span><br><span class="line">s4 = s0 + &apos;&apos;</span><br><span class="line">s5 = &apos;%s&apos; % s0</span><br><span class="line">s6 = s0 * 1</span><br><span class="line">import copy</span><br><span class="line">s7 = copy.copy(s0)</span><br><span class="line"></span><br><span class="line"># 以下方法可以复制字符串，“打碎”再重组</span><br><span class="line">s8 = &quot;&quot;.join(s0)</span><br></pre></td></tr></table></figure>
+<p>哲学上有一个著名的脑洞题：假如把一个人粉碎成原子再组合，这个人还是原来的人么？这道题能令古往今来的哲学家打起架来，若是放到现今正火爆的电视节目《奇葩说》上，也能令辩手们“一本正经地胡说八道”个不休。</p>
+<p>在 Python 的世界里，不存在这种烦恼，因为判定两个对象是否相同的标准是确定的，也即是看它们的 id 是否相等。因此，借助 Python 来回答这道题，答案会是：<strong>如果用 join() 方法把字符串粉碎成字符再组合，新的字符串不再是原来的字符串了。</strong> </p>
+<p>过程很“残忍”，但总归能稍稍释缓自由个体的孤独感了吧。</p>
+<h2 id="2、弹性边界：开放与节制"><a href="#2、弹性边界：开放与节制" class="headerlink" title="2、弹性边界：开放与节制"></a>2、弹性边界：开放与节制</h2><p>与定长对象不同，<strong>变长对象/可变对象</strong>信奉的是另一套哲学。</p>
+<p>它们思想开放，采取的是兼容并包的处事观，会因地制宜式伸缩边界。 以列表对象为例，它乐意接纳所有其它的对象，肯花费精力去动态规划，也不惧于拔掉身上所有的“毛”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; l = [&apos;Python&apos;, &apos;猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.append(&apos;其它猫&apos;) # [&apos;Python&apos;,&apos;猫&apos;,&apos;其它猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.pop(1)   # [&apos;Python&apos;,&apos;其它猫&apos;]</span><br><span class="line">&gt;&gt;&gt; l.clear()  # []</span><br></pre></td></tr></table></figure>
+<p>这些大胆的行为，在定长对象那里，都是不可想象的。在变长对象身上，你似乎能感受到一种海纳百川的风范，相比之下，定长对象的铁公鸡形象则立马显得格局忒小了。</p>
+<p>变长对象并非没有边界，相反，它们更在乎自身的边界，不惜花费大量的资源来维持动态的稳定。一旦边界确定下来，它们绝不会允许越界行为。跟某些编程语言动不动就数组越界不同，Python 不存在切片越界，因为切片操作始终被控制为边界范围之内，索引超出的部分会自动被舍弃。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; q=[1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line"># 不允许索引越界</span><br><span class="line">&gt;&gt;&gt; q[10]</span><br><span class="line">IndexError    Traceback (most recent call last)</span><br><span class="line">IndexError: list index out of range</span><br><span class="line"></span><br><span class="line"># 允许切片越界</span><br><span class="line">&gt;&gt;&gt; q[2:10]   # [3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; q[-10:2]  # [1, 2]</span><br></pre></td></tr></table></figure>
+<p>变长对象在本质上是一种可伸缩的容器，其主要好处就是支持不断添加或者取出元素。对应到计算机硬件层面，就是不断申请或者释放内存空间。这类操作是代价昂贵的操作，为了减少开销，Python 聪明地设计了一套<strong>分配超额空间的机制</strong>。</p>
+<p>以列表为例，在内存足够的前提下，最初创建列表时不分配超额空间，第一次 append() 扩充列表时，Python 会根据下列公式分配超额空间，即分配大于列表实际元素个数的内存空间，此后，每次扩充操作先看是否有超额空间，有则直接使用，没有则重新计算，再次分配一个超额空间。公式如下：</p>
+<blockquote>
+<p>new_allocated = (newsize &gt;&gt; 3) + (newsize &lt; 9 ? 3 : 6)</p>
+</blockquote>
+<p>其中，new_allocated  指的是超额分配的内存大小，newsize  是扩充元素后的实际长度。举例来说，一个长度为 4 的列表，append() 增加一个元素，此时实际长度为 5（即 newsize  为5），但是，Python 不会只给它分配 5 个内存空间，而是计算后给它超额分配 new_allocated  == 3 个内存大小，所以最终加起来，该列表的元素实际占用的内存空间就是 8 。</p>
+<p>如此一来，当列表再次扩充时，只要最终长度不大于 8 ，就不需要再申请新的内存空间。当扩充后长度等于 9 时，new_allocated  等于 7 ，即额外获得 7 个内存大小，以此类推。</p>
+<p>以列表长度为横轴，以超额分配的内存大小为纵轴，我们就得到了如下美妙的图表：</p>
+<p><img src="http://ww1.sinaimg.cn/large/68b02e3bgy1fy6juyyj7cj20pd0jen2n.jpg" alt></p>
+<p>超额分配的空间就是定长对象的<strong>软边界</strong> ，这意味着它们在扩张时是有法度的，意味着它们在发展时是有大胆计划与适度节制的。如此看来，与定长对象的“固步自封”相比，变长对象就显得既开明又理智了。</p>
+<h2 id="3、结语"><a href="#3、结语" class="headerlink" title="3、结语"></a>3、结语</h2><p>回头看前面提到的定长对象，我佩服它们独善其身的个性，虽然铁公鸡形象略显小气，但对人却无害，反而你能感受到其浓浓的 “富贵不能淫，贫贱不能移，威武不能屈” 的大丈夫气度。</p>
+<p>再看变长对象，它们“本来无一物”，却能包容万物，对他人信任，对外部开放，更难得的是，它们张弛有度，孕生出的是无限的可能性。</p>
+<p>这两种对象极大地满足了我对于 Python 世界的好奇心，也成为了我理解自己和人类世界的一种参照系。妙哉！妙哉！若你问，我更钦佩哪一类？喵呜，肚子有点饿啦，且容我去觅得一二小鱼干，喂饱肚子再说吧……</p>
+<p>（未完待续……）</p>
+<p><strong>Python猫系列作品</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/ch8JkAgcgi2o4HtGAUfZVg" target="_blank" rel="noopener">有了Python，我能叫出所有猫的名字</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YQbk0smMTCexsi3Ytd2AzA" target="_blank" rel="noopener">Python对象的身份迷思：从全体公民到万物皆数</a></p>
+<p><a href="https://mp.weixin.qq.com/s/q0QvAqXcZzURH3aZ5gZm8A" target="_blank" rel="noopener">Python对象的空间边界：独善其身与开放包容</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EsWmCbH3RtL_QpafyMryOw" target="_blank" rel="noopener">Python与家国天下</a></p>
+<p><strong>字符串系列文章</strong> ：</p>
+<p><a href="https://mp.weixin.qq.com/s/z-gSW6XJrAvUE5rS5XrAig" target="_blank" rel="noopener">你真的知道Python的字符串是什么吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M4_38VHlQwp-CDRczh2NIA" target="_blank" rel="noopener">你真的知道Python的字符串怎么用吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/PsY8Iec1EeGDKKnTNU5CNw" target="_blank" rel="noopener">Python是否支持复制字符串呢？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/M2uHVqaHe_nyO5jT60V_6Q" target="_blank" rel="noopener">join()方法的神奇用处与Intern机制的软肋</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    豌豆花下猫
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chinesehuazhou.github.io/2019/05/03/Python对象的空间边界：独善其身与开放包容/" title="Python对象的空间边界：独善其身与开放包容">https://chinesehuazhou.github.io/2019/05/03/Python对象的空间边界：独善其身与开放包容/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/Python对象的身份迷思：从全体公民到万物皆数/" rel="next" title="Python对象的身份迷思：从全体公民到万物皆数">
+                <i class="fa fa-chevron-left"></i> Python对象的身份迷思：从全体公民到万物皆数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/03/有了Python，我能叫出所有猫的名字/" rel="prev" title="有了Python，我能叫出所有猫的名字">
+                有了Python，我能叫出所有猫的名字 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">豌豆花下猫</p>
+              <p class="site-description motion-element" itemprop="description">分享 Python 进阶之路的点点滴滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、固定边界：自由与孤独"><span class="nav-number">1.</span> <span class="nav-text">1、固定边界：自由与孤独</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、弹性边界：开放与节制"><span class="nav-number">2.</span> <span class="nav-text">2、弹性边界：开放与节制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、结语"><span class="nav-number">3.</span> <span class="nav-text">3、结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">豌豆花下猫</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
